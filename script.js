@@ -32,4 +32,11 @@ document.addEventListener('DOMContentLoaded', function(){
   // smooth scroll logo
   const logoLink = document.getElementById('logo-link');
   if(logoLink) logoLink.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
+  const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
 });
