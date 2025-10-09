@@ -1,29 +1,198 @@
-<header class="header" id="top">
-  <div class="header-left">
-    <a href="#top" id="logo-link">
-      <img src="logo.png" alt="Luna Turquesa logo" class="logo-header">
-    </a>
-    <h1 class="brand-title">Luna Turquesa – Facial & Body Aesthetics</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Luna Turquesa – Facial & Body Aesthetics</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Professional facial and body aesthetic treatments by Angie Fino in Wellington, Florida.">
+  <meta name="author" content="Angie Fino">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header-left">
+      <a href="#top" id="logo-link"><img src="logo.png" alt="Luna Turquesa logo" class="logo-header"></a>
+      <h1 class="brand-title">Luna Turquesa – Facial & Body Aesthetics</h1>
+    </div>
+    <div class="header-right">
+      <nav class="socials" aria-label="Social links">
+        <a class="social" href="https://www.instagram.com/luna.turquesa9" target="_blank" aria-label="Instagram">
+          <!-- Instagram outline SVG (gold) -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+          <span class="social-label">Instagram</span>
+        </a>
+        <a class="social" href="https://www.tiktok.com/@lunaturquesaestet" target="_blank" aria-label="TikTok">
+          <!-- TikTok official-like SVG colored -->
+          <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true">
+            <path d="M34.5 12.5c-.8-.1-2.4-.2-3.6-.2v8.2c0 7.1-5.8 12.9-12.9 12.9-4.7 0-8.9-2.6-11.1-6.6-.3-.6-.1-1.3.5-1.6.6-.3 1.3-.1 1.6.5 1.8 3.6 5.6 5.8 9.4 5.8 6.3 0 11.4-5.1 11.4-11.4V14.3c.5.2 1.1.3 1.8.3.3 0 .6-.3.6-.6V13c0-.3-.2-.5-.5-.5z" fill="#25f4ee"></path>
+            <path d="M34.5 12.5c-.8-.1-2.4-.2-3.6-.2v8.2c0 7.1-5.8 12.9-12.9 12.9-1.2 0-2.3-.2-3.4-.6v3.3c0 .6-.6 1-1.1.8-5.3-2-9-6.9-9-12.9C5.5 8.2 10.6 3 17 3c.9 0 1.9.1 2.8.3v7.2c.6.1 1.5.2 2.3.2 0 0 8.4.1 11.4 1z" fill="#ee2d63"></path>
+            <path d="M34.5 12.5c-.8-.1-2.4-.2-3.6-.2v8.2c0 7.1-5.8 12.9-12.9 12.9v-5.4c6.3 0 11.4-5.1 11.4-11.4V14.3c.5.2 1.1.3 1.8.3.3 0 .6-.3.6-.6V13c0-.3-.2-.5-.5-.5z" fill="#000"></path>
+          </svg>
+          <span class="social-label">TikTok</span>
+        </a>
+        <a class="social" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">
+          <!-- WhatsApp official SVG green -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#25D366"/><path d="M17.2 14.1c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.7.1-.1.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.7-1.8-1-2.4-.3-.6-.6-.5-.8-.5-.2 0-.4 0-.6 0-.2 0-.5.1-.8.3-.3.2-1 1-1 2.4s1 2.8 1.1 3c.1.2 1.9 3 4.6 4.2 3 .9 3.3.8 3.6.8.3 0 1 .4 1.1.8.1.4.1.7.1.8 0 .1 0 .2 0 .2 0 .2-.1.4-.5.6-.4.2-1.7.7-3.1.7-1.4 0-3.4-.6-5.1-1.8-1.7-1.2-2.9-2.8-3.5-4.5-.6-1.7-.4-3.6.7-5.2C5.9 6.6 7.9 5.6 10.3 5.5 12.7 5.4 14.9 6.4 16.6 8.3c1.7 1.8 2.4 4.1 2.3 6.4-.1 2.3-1 4.3-2.7 5.7z" fill="#fff"/></svg>
+          <span class="social-label">WhatsApp</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- bilingual button centered under logo -->
+  <div class="lang-wrap">
+    <button id="lang-toggle" class="lang-btn" aria-pressed="false">EN | ES</button>
   </div>
 
-  <!-- Botón hamburguesa -->
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
+  <section class="hero">
+    <img src="logo.png" alt="Luna Turquesa logo" class="logo-hero">
+    <h2 class="hero-title" data-en="Facial and Body Aesthetics" data-es="Estética Facial y Corporal">Facial and Body Aesthetics</h2>
+  </section>
 
-  <!-- Navegación -->
-  <nav class="nav-menu" id="nav-menu">
-    <a href="#about" class="nav-link">About</a>
-    <a href="#services" class="nav-link">Services</a>
-    <a href="#reviews" class="nav-link">Reviews</a>
-    <a href="#contact" class="nav-link">Contact</a>
+  <main class="content" id="main-content">
 
-    <div class="socials-mobile">
-      <a href="https://www.instagram.com/luna.turquesa9" target="_blank" class="social gold">Instagram</a>
-      <a href="https://www.tiktok.com/@lunaturquesaestet" target="_blank" class="social gold">TikTok</a>
-      <a href="https://wa.me/15613709889" target="_blank" class="social gold">WhatsApp</a>
-    </div>
-  </nav>
-</header>
+    <section id="about" class="panel" data-en>
+      <h2 class="section-title" data-en="About Me" data-es="Sobre mí">About Me</h2>
+      <div class="about-grid">
+        <div class="portrait-wrap">
+          <img src="angie.png" alt="Angie Fino" class="portrait">
+        </div>
+        <div class="about-text">
+          <p data-en="I’m Angie Fino, a specialist in facial and body aesthetics with over 10 years of experience in comprehensive skin care and wellness. My treatments are backed by safe and personalized protocols, using premium-quality products to ensure effective results. In my suite in Wellington, Florida, I prioritize patient safety and personalized care that elevates your experience to a higher level."
+             data-es="Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar. Mis tratamientos están respaldados por protocolos seguros y personalizados, con productos de la más alta calidad para garantizar resultados efectivos. En mi suite en Wellington, Florida, priorizo la seguridad del paciente y una atención personalizada que eleva tu experiencia a un nivel superior.">I’m Angie Fino, a specialist in facial and body aesthetics with over 10 years of experience in comprehensive skin care and wellness. My treatments are backed by safe and personalized protocols, using premium-quality products to ensure effective results. In my suite in Wellington, Florida, I prioritize patient safety and personalized care that elevates your experience to a higher level.</p>
+
+          <p data-en="I’m a professional nurse from Colombia and currently a licensed Medical Assistant in the United States, as well as a certified phlebotomist, licensed facial specialist, and licensed massage therapist. With over 10 years of experience, I have deep knowledge of anatomy, physiology, and biosecurity, allowing me to provide safe, effective, and personalized treatments for comprehensive skin care and wellness. My philosophy is to combine the science and art of aesthetics to create a unique experience that enhances your natural beauty and delivers authentic well-being."
+             data-es="Soy Angie Fino, enfermera profesional de Colombia y actualmente Asistente Médica licenciada en los Estados Unidos, así como flebotomista certificada, especialista facial y terapeuta de masaje licenciada. Con más de 10 años de experiencia, tengo un profundo conocimiento de anatomía, fisiología y bioseguridad, lo que me permite ofrecer tratamientos seguros, efectivos y personalizados para el cuidado integral de la piel y el bienestar. Mi filosofía combina la ciencia y el arte de la estética para crear una experiencia única que realza tu belleza natural y entrega bienestar auténtico.">I’m a professional nurse from Colombia and currently a licensed Medical Assistant in the United States, as well as a certified phlebotomist, licensed facial specialist, and licensed massage therapist. With over 10 years of experience, I have deep knowledge of anatomy, physiology, and biosecurity, allowing me to provide safe, effective, and personalized treatments for comprehensive skin care and wellness. My philosophy is to combine the science and art of aesthetics to create a unique experience that enhances your natural beauty and delivers authentic well-being.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="panel">
+      <h2 class="section-title gold" data-en="Our Services" data-es="Nuestros Servicios">Our Services</h2>
+
+      <div class="subsection">
+        <h3 class="sub-title" data-en="Facial Services" data-es="Servicios Faciales">Facial Services</h3>
+        <div class="services-grid">
+          <article class="service-card">
+            <img class="service-img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Basic Facial">
+            <h4 data-en="Basic Facial Cleansing" data-es="Limpieza facial básica">Basic Facial Cleansing</h4>
+            <p data-en="Surface cleansing to remove impurities and keep skin fresh and healthy." data-es="Limpieza superficial para eliminar impurezas y mantener la piel fresca y saludable.">Surface cleansing to remove impurities and keep skin fresh and healthy.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Benefit:</strong> <span data-en="Clean, revitalized skin." data-es="Piel limpia y revitalizada.">Clean, revitalized skin.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600&auto=format&fit=crop" alt="Deep Facial">
+            <h4 data-en="Deep Facial Cleansing" data-es="Limpieza facial profunda">Deep Facial Cleansing</h4>
+            <p data-en="Deep cleansing with manual extraction to remove blackheads and dead skin cells." data-es="Higiene profunda con extracción manual para eliminar puntos negros y células muertas.">Deep cleansing with manual extraction to remove blackheads and dead skin cells.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Benefit:</strong> <span data-en="Purified pores and renewed skin." data-es="Poros purificados y piel renovada.">Purified pores and renewed skin.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=600&auto=format&fit=crop" alt="Dermaplaning">
+            <h4 data-en="Dermaplaning" data-es="Dermaplaning">Dermaplaning</h4>
+            <p data-en="Manual exfoliation that removes dead skin and fine hair for smoother, brighter skin." data-es="Exfoliación manual que elimina células muertas y vello fino para una piel más suave y luminosa.">Manual exfoliation that removes dead skin and fine hair for smoother, brighter skin.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Benefit:</strong> <span data-en="Improved texture and natural glow." data-es="Mejora la textura y brillo natural.">Improved texture and natural glow.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=60" alt="Microneedling">
+            <h4 data-en="Microneedling" data-es="Microneedling">Microneedling</h4>
+            <p data-en="Stimulates collagen production to reduce scars, pigmentation, and fine lines." data-es="Estimula la producción de colágeno para reducir cicatrices, manchas y líneas finas.">Stimulates collagen production to reduce scars, pigmentation, and fine lines.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Benefit:</strong> <span data-en="Rejuvenated, firmer skin." data-es="Piel rejuvenecida y firme.">Rejuvenated, firmer skin.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=600&auto=format&fit=crop" alt="Peels">
+            <h4 data-en="Chemical Peels" data-es="Peelings químicos">Chemical Peels</h4>
+            <p data-en="Treatments to renew the skin, improve spots, acne and signs of aging." data-es="Tratamientos para renovar la piel, mejorar manchas, acné y signos de envejecimiento.">Treatments to renew the skin, improve spots, acne and signs of aging.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Benefit:</strong> <span data-en="Cellular renewal and improved clarity." data-es="Renovación celular y mejora de la claridad.">Cellular renewal and improved clarity.</span></p>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3 class="sub-title" data-en="Body Services" data-es="Servicios Corporales">Body Services</h3>
+        <div class="services-grid">
+          <article class="service-card">
+            <img class="service-img" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600&auto=format&fit=crop" alt="Candle Massage">
+            <h4 data-en="Candle Relaxation Massage" data-es="Masaje relajante con velas">Candle Relaxation Massage</h4>
+            <p data-en="A sensory experience combining warm natural oils from aromatic candles to deeply relax and nourish the skin." data-es="Combina calor y aceites aromáticos de velas naturales para aliviar el estrés y nutrir la piel.">A sensory experience combining warm natural oils from aromatic candles to deeply relax and nourish the skin.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Benefit:</strong> <span data-en="Deep relaxation and silky, hydrated skin." data-es="Relajación profunda y piel sedosa.">Deep relaxation and silky, hydrated skin.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?q=80&w=600&auto=format&fit=crop" alt="Swedish Massage">
+            <h4 data-en="Swedish Massage" data-es="Masaje sueco">Swedish Massage</h4>
+            <p data-en="Classic technique using soft, flowing strokes to ease muscle tension and promote circulation." data-es="Técnica clásica con movimientos suaves y envolventes para liberar tensión muscular.">Classic technique using soft, flowing strokes to ease muscle tension and promote circulation.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Benefit:</strong> <span data-en="Physical relaxation, improved sleep, and overall well-being." data-es="Bienestar físico, mejora del sueño y circulación.">Physical relaxation, improved sleep, and overall well-being.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="https://images.unsplash.com/photo-1584467735872-79f4d2f4f1b1?q=80&w=600&auto=format&fit=crop" alt="Sports Massage">
+            <h4 data-en="Sports Massage" data-es="Masaje para deportistas">Sports Massage</h4>
+            <p data-en="Ideal before or after training. Helps relieve tension, improve performance, and speed up muscle recovery." data-es="Ideal antes o después del entrenamiento. Alivia tensiones, mejora el rendimiento y acelera la recuperación muscular.">Ideal before or after training. Helps relieve tension, improve performance, and speed up muscle recovery.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Benefit:</strong> <span data-en="Injury prevention and better mobility." data-es="Prevención de lesiones y mejor movilidad.">Injury prevention and better mobility.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="https://images.unsplash.com/photo-1556228720-7b5d9b3f1b9b?q=80&w=600&auto=format&fit=crop" alt="Lymphatic Drainage">
+            <h4 data-en="Manual Lymphatic Drainage" data-es="Drenaje linfático manual">Manual Lymphatic Drainage</h4>
+            <p data-en="Gentle technique that stimulates the lymphatic system to eliminate excess fluids and toxins." data-es="Técnica suave que estimula el sistema linfático para eliminar líquidos y toxinas.">Gentle technique that stimulates the lymphatic system to eliminate excess fluids and toxins.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Benefit:</strong> <span data-en="Reduced swelling and improved circulation." data-es="Reducción de hinchazón y mejor circulación.">Reduced swelling and improved circulation.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="https://images.unsplash.com/photo-1549683076-1b3c24a092d9?q=80&w=600&auto=format&fit=crop" alt="Body Contouring">
+            <h4 data-en="Body Contouring Massage" data-es="Masaje de contorno corporal">Body Contouring Massage</h4>
+            <p data-en="Targeted, intense movements that help mobilize fat deposits and tone specific areas." data-es="Movimientos intensos y dirigidos que ayudan a movilizar depósitos de grasa y tonificar zonas específicas.">Targeted, intense movements that help mobilize fat deposits and tone specific areas.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Benefit:</strong> <span data-en="Slimmer appearance and improved body contour." data-es="Apariencia más delgada y mejor contorno corporal.">Slimmer appearance and improved body contour.</span></p>
+          </article>
+
+        </div>
+      </div>
+
+    </section>
+
+    <section id="gallery" class="panel">
+      <h2 class="section-title gold">Gallery</h2>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=500&auto=format&fit=crop" alt="spa1">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=500&auto=format&fit=crop" alt="spa2">
+        <img src="https://images.unsplash.com/photo-1496317899792-9d7dbcd928a1?q=80&w=500&auto=format&fit=crop" alt="spa3">
+      </div>
+    </section>
+
+    <section id="reviews" class="panel">
+      <h2 class="section-title gold">Reviews</h2>
+      <blockquote>“Since I started treatments with Angie, my skin has never looked better. Her professionalism and care truly make a difference.” – Emily S.</blockquote>
+      <blockquote>“The personalized protocols and top-notch attention made me feel safe and well cared for during every session.” – Sarah M.</blockquote>
+      <blockquote>“Angie’s expertise and use of high-quality products gave me visible, effective results. Highly recommended for anyone seeking real skin transformation.” – Jessica T.</blockquote>
+    </section>
+
+    <section id="contact" class="panel contact-panel">
+      <h2 class="section-title gold">Contact</h2>
+      <p><strong>Phone / WhatsApp:</strong> <a href="https://wa.me/15613709889" target="_blank">+1 561 370 9889</a></p>
+      <p><strong>Email:</strong> <a href="mailto:lunaturquesaestetica@gmail.com">lunaturquesaestetica@gmail.com</a></p>
+      <p><strong>Address:</strong> Wellington, Florida, USA</p>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=Wellington%2C%20Florida%2C%20USA&z=15&output=embed" width="100%" height="300" style="border:0;" allowfullscreen></iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">
+    <svg class="wh-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#FFFFFF" d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .002 5.373.002 12a11.8 11.8 0 001.64 6.04L0 24l6.15-2.03A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.25-6.18-3.48-8.52z"/></svg>
+    <span class="wh-text" data-en="Book your appointment" data-es="Reserva tu cita">Book your appointment</span>
+  </a>
+
+  <footer class="footer">
+    <p>© 2025 Luna Turquesa — By Ingeniero SergioLexDiaz</p>
+  </footer>
+
+</body>
+</html>
