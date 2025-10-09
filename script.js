@@ -1,57 +1,42 @@
-
-(function(){
-  'use strict';
-  const $ = (s)=>document.querySelector(s);
-  const $$ = (s)=>Array.from(document.querySelectorAll(s));
-  let lang = localStorage.getItem('lt_lang') || 'es';
+document.addEventListener('DOMContentLoaded', function(){
+  // Language toggle
+  const btn = document.getElementById('lang-toggle');
+  let lang = 'en';
   function setLang(to){
-    lang = (to==='en' ? 'en' : 'es');
-    $$('[data-es]').forEach(el=>{
-      const es = el.getAttribute('data-es');
+    document.querySelectorAll('[data-en]').forEach(el=>{
       const en = el.getAttribute('data-en');
-      if(lang==='en' && en!=null) el.textContent = en;
-      else if(lang==='es' && es!=null) el.textContent = es;
-    });
-    const btn = $('#lang-toggle');
-    if(btn) btn.textContent = (lang==='en' ? 'ES | EN' : 'EN | ES');
-    try{ localStorage.setItem('lt_lang', lang);}catch(e){}
-  }
-  document.addEventListener('DOMContentLoaded', ()=>{
-    // init lang
-    setLang(lang);
-    const langBtn = $('#lang-toggle');
-    if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang==='es' ? 'en' : 'es'));
-
-    // hamburger
-    const hb = $('#hamburger');
-    // create nav menu if not present
-    let nav = $('#nav-menu');
-    if(!nav){
-      nav = document.createElement('nav');
-      nav.id = 'nav-menu';
-      nav.className = 'nav-menu';
-      nav.innerHTML = '<a href="#about">Inicio</a><a href="#about">Sobre mí</a><a href="#services">Servicios</a><a href="#reviews">Opiniones</a><a href="#contact">Contacto</a>';
-      document.body.insertBefore(nav, document.querySelector('.hero') || document.body.firstChild);
-    }
-    if(hb){
-      hb.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        nav.classList.toggle('active');
-        hb.classList.toggle('is-active');
-      });
-    }
-    // click outside to close
-    document.addEventListener('click', (e)=>{
-      if(nav && !nav.contains(e.target) && hb && !hb.contains(e.target)){
-        nav.classList.remove('active');
-        hb.classList.remove('is-active');
+      const es = el.getAttribute('data-es');
+      if(en && es){
+        el.textContent = to === 'en' ? en : es;
       }
     });
-    // smooth scroll handled by CSS scroll-behavior; close nav on link click
-    nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{ nav.classList.remove('active'); if(hb) hb.classList.remove('is-active'); }));
+    // whatsapp text
+    const wh = document.querySelector('.wh-text');
+    if(wh){
+      wh.textContent = to === 'en' ? 'Book your appointment' : 'Reserva tu cita';
+    }
+    btn.setAttribute('aria-pressed', to === 'es');
+    lang = to;
+  }
+  btn.addEventListener('click', ()=> setLang(lang === 'en' ? 'es' : 'en'));
+  // default english
+  setLang('en');
 
-    // hide intro after short delay
-    const intro = $('#intro');
-    if(intro) setTimeout(()=>{ intro.style.opacity='0'; intro.style.pointerEvents='none'; try{ intro.remove(); }catch(e){} }, 1200);
-  });
-})();
+  // IntersectionObserver reveal
+  const panels = document.querySelectorAll('.panel');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, {threshold:0.12});
+  panels.forEach(p=>io.observe(p));
+
+  // smooth scroll logo
+  const logoLink = document.getElementById('logo-link');
+  if(logoLink) logoLink.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
+  const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+});

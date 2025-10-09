@@ -1,64 +1,74 @@
-
+/* Luxury palette: gold, aqua, white */
 :root{
-  --aguamarina:#a7e7e0;
-  --gold:#caa13b;
-  --gold-bright:#ffd766;
-  --white:#ffffff;
-  --text:#052b2a;
+  --gold:#C99B33;
+  --gold-bright:#FFD766;
+  --aqua:#00A39A;
+  --white:#FFFFFF;
+  --text:#033936;
+  --whatsapp:#25D366;
 }
 *{box-sizing:border-box}
-html {scroll-behavior: smooth;}
-body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:linear-gradient(180deg,var(--aguamarina) 0%, var(--white) 60%);-webkit-font-smoothing:antialiased;}
-.header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:rgba(255,255,255,0.85);position:sticky;top:0;z-index:1200;border-bottom:1px solid rgba(202,161,59,0.06)}
-.header-left{display:flex;align-items:center;gap:12px}
-.logo-header{width:96px;height:96px;border-radius:12px;border:6px solid var(--gold);background:var(--white);object-fit:contain;position:relative;box-shadow:0 12px 30px rgba(202,161,59,0.12)}
-/* logo glow constant */
-.logo-header::after{content:'';position:absolute;inset:0;border-radius:12px;box-shadow:0 0 30px 6px rgba(202,161,59,0.12);pointer-events:none;animation:logoGlow 3.2s ease-in-out infinite}
-@keyframes logoGlow{0%{box-shadow:0 0 0 0 rgba(202,161,59,0.06)}50%{box-shadow:0 0 60px 8px rgba(202,161,59,0.16)}100%{box-shadow:0 0 0 0 rgba(202,161,59,0.06)}}
+body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:linear-gradient(120deg,#e9f8fb 0%,#d6f3f6 40%,#cfeff3 60%,#f7fbfd 100%);background-size:400% 400%;animation:marble 30s ease infinite;}
+@keyframes marble{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
-.brand-title{font-weight:700;font-size:18px;color:var(--text);margin:0}
+/* Header */
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(255,255,255,0.94);border-bottom:2px solid rgba(201,155,51,0.08)}
+.header-left{display:flex;align-items:center;gap:14px}
+.logo-header{width:100px;height:100px;border-radius:12px;border:6px solid var(--gold);background:white;padding:6px;object-fit:contain;cursor:pointer}
+.brand-title{margin:0;font-size:20px;color:var(--aqua);font-weight:700}
 
-/* socials and header-right */
-.header-right{display:flex;align-items:center;gap:10px}
-.socials a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;text-decoration:none}
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1300}
-.hamburger .bar{display:block;width:26px;height:3px;background:var(--gold);margin:4px 0;border-radius:3px;transition:all .3s}
+/* socials */
+.socials{display:flex;gap:12px;align-items:center}
+.social{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--gold);font-size:12px}
+.social svg{width:22px;height:22px}
+.social-label{margin-top:4px;font-size:11px;color:var(--gold)}
+
+/* lang button under logo */
+.lang-wrap{display:flex;justify-content:center;margin-top:10px;margin-bottom:6px}
+.lang-btn{border:2px solid var(--gold);background:transparent;color:var(--gold);padding:8px 14px;border-radius:8px;font-weight:700;cursor:pointer}
+.lang-btn:hover{background:var(--gold);color:var(--white)}
 
 /* hero */
-.hero{display:flex;flex-direction:column;align-items:center;padding:34px 18px}
-.logo-hero{width:120px;height:120px;display:block;margin-bottom:8px;border-radius:12px;border:6px solid var(--white)}
-.hero-title{font-family:'Poppins',sans-serif;font-size:22px;color:var(--text);margin:8px 0}
+.hero{text-align:center;padding:20px 10px}
+.logo-hero{width:200px;filter:drop-shadow(0 0 12px rgba(201,155,51,0.45));border-radius:10px}
+.hero-title{margin-top:12px;font-size:20px;color:var(--aqua);font-weight:600}
 
-/* content sections */
-.content{max-width:1100px;margin:0 auto;padding:18px}
-.section-title{font-size:20px;margin-bottom:12px}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.service-card{background:var(--white);padding:14px;border-radius:12px;box-shadow:0 12px 30px rgba(3,57,54,0.06);transition:transform .32s,box-shadow .32s;overflow:hidden}
-.service-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(3,57,54,0.08);border:2px solid var(--gold)}
-.service-img{width:100%;height:200px;object-fit:cover;border-radius:8px;transition:transform .5s}
-.service-card:hover .service-img{transform:scale(1.06)}
+/* content */
+.content{max-width:1100px;margin:10px auto;background:rgba(255,255,255,0.96);padding:24px;border-radius:16px;border:3px solid rgba(201,155,51,0.08);box-shadow:0 10px 40px rgba(3,57,54,0.06)}
+.section-title{font-size:20px;margin:0 0 12px 0;color:var(--gold);font-weight:700}
+.sub-title{font-size:16px;color:var(--gold);margin:10px 0}
+
+/* about */
+.about-grid{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.portrait{width:220px;height:220px;object-fit:cover;border-radius:12px;border:6px solid var(--gold);background:white}
+
+/* services */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:12px}
+.service-card{background:linear-gradient(180deg,rgba(255,255,255,0.99),rgba(250,250,250,0.99));padding:14px;border-radius:12px;border:2px solid rgba(201,155,51,0.06);text-align:left}
+.service-img{width:100%;height:240px;object-fit:cover;border-radius:10px;margin-bottom:10px}
 
 /* gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
-.gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px;transition:transform .3s}
-.gallery img:hover{transform:scale(1.04)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:12px}
+.gallery img{width:100%;height:200px;object-fit:cover;border-radius:10px;box-shadow:0 6px 18px rgba(3,57,54,0.06)}
+
+/* reviews */
+blockquote{border-left:4px solid var(--gold);padding-left:12px;font-style:italic;margin:12px 0}
 
 /* contact */
-.contact-panel .map-wrap iframe{border-radius:12px;}
+.contact-panel .map-wrap{margin-top:12px;border-radius:10px;overflow:hidden;border:2px solid rgba(3,57,54,0.04)}
+.contact-panel iframe{width:100%;height:300px;border:0;display:block}
 
 /* whatsapp float */
-.whatsapp-float{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,#25D366,#16b24a);color:#fff;padding:12px 14px;border-radius:999px;text-decoration:none;display:flex;align-items:center;gap:8px;box-shadow:0 18px 48px rgba(37,211,102,0.14);z-index:1400}
+.whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:999;display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--whatsapp),#16b24a);color:white;padding:12px 14px;border-radius:999px;box-shadow:0 12px 36px rgba(37,211,102,0.22);text-decoration:none;font-weight:700;transition:transform .18s,box-shadow .18s}
+.whatsapp-float:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(37,211,102,0.28)}
+.wh-text{white-space:nowrap}
 
-/* intro overlay */
-.intro{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.7));z-index:2000}
-.intro-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px}
-.intro-logo{width:160px;border-radius:14px;border:8px solid var(--gold);background:var(--white);box-shadow:0 18px 60px rgba(202,161,59,0.18)}
-.intro-glow{position:absolute;inset:-8px;border-radius:14px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent);animation:introFlash 1.8s ease}
-@keyframes introFlash{0%{opacity:0;transform:translateY(6px)}40%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-6px)}}
+/* reveal panels */
+.panel{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease;will-change:transform,opacity}
+.panel.visible{opacity:1;transform:translateY(0)}
+
+/* footer */
+.footer{text-align:center;padding:18px;margin-top:18px;color:var(--gold);border-top:2px solid rgba(201,155,51,0.06)}
 
 /* responsive */
-@media(max-width:900px){
-  .hamburger{display:block}
-  .header-right{gap:8px}
-  .logo-header{width:78px;height:78px}
-}
+@media(max-width:900px){.about-grid{flex-direction:column;align-items:center;text-align:center}.logo-header{width:80px;height:80px}.service-img{height:180px}}
