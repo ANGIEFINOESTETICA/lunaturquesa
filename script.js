@@ -1,42 +1,66 @@
-document.addEventListener('DOMContentLoaded', function(){
-  // Language toggle
-  const btn = document.getElementById('lang-toggle');
-  let lang = 'en';
+(function(){
+  'use strict';
+  const $ = (s)=>document.querySelector(s);
+  const $$ = (s)=>Array.from(document.querySelectorAll(s));
+
+  // Language default ES
+  let lang = localStorage.getItem('lt_lang') || 'es';
   function setLang(to){
-    document.querySelectorAll('[data-en]').forEach(el=>{
-      const en = el.getAttribute('data-en');
+    lang = (to==='en' ? 'en' : 'es');
+    $$('[data-es]').forEach(el=>{
       const es = el.getAttribute('data-es');
-      if(en && es){
-        el.textContent = to === 'en' ? en : es;
-      }
+      const en = el.getAttribute('data-en');
+      if(lang==='en' && en!=null) el.textContent = en;
+      else if(lang==='es' && es!=null) el.textContent = es;
     });
-    // whatsapp text
-    const wh = document.querySelector('.wh-text');
-    if(wh){
-      wh.textContent = to === 'en' ? 'Book your appointment' : 'Reserva tu cita';
-    }
-    btn.setAttribute('aria-pressed', to === 'es');
-    lang = to;
+    const btn = $('#lang-toggle');
+    if(btn) btn.textContent = (lang==='en' ? 'ES | EN' : 'EN | ES');
+    try{ localStorage.setItem('lt_lang', lang);}catch(e){}
   }
-  btn.addEventListener('click', ()=> setLang(lang === 'en' ? 'es' : 'en'));
-  // default english
-  setLang('en');
 
-  // IntersectionObserver reveal
-  const panels = document.querySelectorAll('.panel');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, {threshold:0.12});
-  panels.forEach(p=>io.observe(p));
+  document.addEventListener('DOMContentLoaded', ()=>{
+    setLang(lang);
 
-  // smooth scroll logo
-  const logoLink = document.getElementById('logo-link');
-  if(logoLink) logoLink.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
-  const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+    const hb = $('#hamburger');
+    const side = $('#side-menu');
+    const veil = $('#menu-veil');
+    const langBtn = $('#lang-toggle');
 
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
-});
+    function openMenu(){
+      side.classList.add('active');
+      veil.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      hb.classList.add('is-active');
+      hb.setAttribute('aria-expanded','true');
+    }
+    function closeMenu(){
+      side.classList.remove('active');
+      veil.classList.remove('active');
+      document.body.style.overflow = '';
+      hb.classList.remove('is-active');
+      hb.setAttribute('aria-expanded','false');
+    }
 
-});
+    if(hb){
+      hb.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        if(side.classList.contains('active')) closeMenu(); else openMenu();
+      });
+    }
+    if(veil){
+      veil.addEventListener('click', closeMenu);
+    }
+    // close on Esc
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+
+    // close when clicking a link
+    if(side) side.querySelectorAll('a').forEach(a=> a.addEventListener('click', closeMenu));
+
+    // lang toggle
+    if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang==='es' ? 'en' : 'es'));
+
+    // hide intro
+    const intro = $('#intro');
+    if(intro) setTimeout(()=>{ intro.style.opacity='0'; intro.style.pointerEvents='none'; try{ intro.remove(); }catch(e){} }, 1200);
+  });
+})();
