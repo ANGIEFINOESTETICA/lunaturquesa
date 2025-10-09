@@ -1,1 +1,1 @@
-console.log('LunaTurquesa ready');
+console.log('script placeholder');
