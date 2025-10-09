@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Luna Turquesa – Estética Facial y Corporal</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="intro" class="intro" aria-hidden="false">
+    <div class="intro-inner">
+      <img src="logo.png" alt="Luna Turquesa" class="intro-logo">
+    </div>
+  </div>
+
+  <header class="header" id="top" role="banner">
+    <div class="header-left">
+      <a href="#top" id="logo-link"><img src="logo.png" alt="Luna Turquesa logo" class="logo-header"></a>
+      <h1 class="brand-title">Luna Turquesa – Estética Facial y Corporal</h1>
+    </div>
+    <div class="header-right">
+      <nav class="socials" aria-label="Social links">
+        <a class="social ig" href="#" target="_blank" aria-label="Instagram">IG</a>
+        <a class="social tt" href="#" target="_blank" aria-label="TikTok">TT</a>
+        <a class="social wa" href="#" target="_blank" aria-label="WhatsApp">WA</a>
+      </nav>
+      <div class="lang-wrap">
+        <button id="lang-toggle" class="lang-btn" aria-pressed="false">EN | ES</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div id="menu-veil" class="menu-veil" aria-hidden="true"></div>
+  <nav id="side-menu" class="side-menu" aria-hidden="true" aria-label="Main navigation">
+    <a href="#top" class="menu-item" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="#about" class="menu-item" data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="#services" class="menu-item" data-es="Servicios" data-en="Services">Servicios</a>
+    <a href="#gallery" class="menu-item" data-es="Galería" data-en="Gallery">Galería</a>
+    <a href="#reviews" class="menu-item" data-es="Opiniones" data-en="Reviews">Opiniones</a>
+    <a href="#contact" class="menu-item" data-es="Contacto" data-en="Contact">Contacto</a>
+  </nav>
+
+  <main class="content" id="main-content">
+    <section class="hero" id="home" role="region" aria-label="Hero">
+      <img src="logo.png" alt="Luna Turquesa" class="logo-hero">
+      <h2 class="hero-title" data-es="Estética Facial y Corporal" data-en="Facial and Body Aesthetics">Estética Facial y Corporal</h2>
+    </section>
+
+    <section id="about" class="panel">
+      <h2 class="section-title" data-es="Sobre mí" data-en="About Me">Sobre mí</h2>
+      <div class="about-grid">
+        <div class="portrait-wrap"><img src="angie.png" alt="Angie" class="portrait"></div>
+        <div class="about-text">
+          <p data-es="Soy Angie Fino, especialista en estética facial y corporal..." data-en="I’m Angie Fino...">Soy Angie Fino, especialista en estética facial y corporal...</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="panel">
+      <h2 class="section-title gold" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</h2>
+      <div class="services-grid">
+        <article class="service-card">
+          <img class="service-img" src="limpiezafacial.png" alt="Limpieza facial básica">
+          <h4 data-es="Limpieza facial básica" data-en="Basic Facial">Limpieza facial básica</h4>
+          <p data-es="Limpieza superficial..." data-en="Surface cleansing...">Limpieza superficial...</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="panel contact-panel">
+      <h2 class="section-title gold">Contacto</h2>
+      <p><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/15613709889" target="_blank">+1 561 370 9889</a></p>
+      <p><strong>Correo:</strong> <a href="mailto:lunaturquesaestetica@gmail.com">lunaturquesaestetica@gmail.com</a></p>
+      <p><strong>Dirección:</strong> 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States</p>
+    </section>
+  </main>
+
+  <a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">
+    <span class="wh-text" data-es="Reserva tu cita" data-en="Book your appointment">Reserva tu cita</span>
+  </a>
+
+  <footer class="footer">
+    <p>© 2025 Luna Turquesa — By Ingeniero SergioLexDiaz</p>
+  </footer>
+</body>
+</html>
