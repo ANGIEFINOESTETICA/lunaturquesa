@@ -1,57 +1,10 @@
 
-(function(){
-  'use strict';
-  const $ = (s)=>document.querySelector(s);
-  const $$ = (s)=>Array.from(document.querySelectorAll(s));
-  let lang = localStorage.getItem('lt_lang') || 'es';
-  function setLang(to){
-    lang = (to==='en' ? 'en' : 'es');
-    $$('[data-es]').forEach(el=>{
-      const es = el.getAttribute('data-es');
-      const en = el.getAttribute('data-en');
-      if(lang==='en' && en!=null) el.textContent = en;
-      else if(lang==='es' && es!=null) el.textContent = es;
-    });
-    const btn = $('#lang-toggle');
-    if(btn) btn.textContent = (lang==='en' ? 'ES | EN' : 'EN | ES');
-    try{ localStorage.setItem('lt_lang', lang);}catch(e){}
-  }
-  document.addEventListener('DOMContentLoaded', ()=>{
-    // init lang
-    setLang(lang);
-    const langBtn = $('#lang-toggle');
-    if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang==='es' ? 'en' : 'es'));
-
-    // hamburger
-    const hb = $('#hamburger');
-    // create nav menu if not present
-    let nav = $('#nav-menu');
-    if(!nav){
-      nav = document.createElement('nav');
-      nav.id = 'nav-menu';
-      nav.className = 'nav-menu';
-      nav.innerHTML = '<a href="#about">Inicio</a><a href="#about">Sobre mí</a><a href="#services">Servicios</a><a href="#reviews">Opiniones</a><a href="#contact">Contacto</a>';
-      document.body.insertBefore(nav, document.querySelector('.hero') || document.body.firstChild);
-    }
-    if(hb){
-      hb.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        nav.classList.toggle('active');
-        hb.classList.toggle('is-active');
-      });
-    }
-    // click outside to close
-    document.addEventListener('click', (e)=>{
-      if(nav && !nav.contains(e.target) && hb && !hb.contains(e.target)){
-        nav.classList.remove('active');
-        hb.classList.remove('is-active');
-      }
-    });
-    // smooth scroll handled by CSS scroll-behavior; close nav on link click
-    nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{ nav.classList.remove('active'); if(hb) hb.classList.remove('is-active'); }));
-
-    // hide intro after short delay
-    const intro = $('#intro');
-    if(intro) setTimeout(()=>{ intro.style.opacity='0'; intro.style.pointerEvents='none'; try{ intro.remove(); }catch(e){} }, 1200);
-  });
-})();
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click', function(e){ e.preventDefault(); const id=this.getAttribute('href').slice(1); const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }));
+  const slidesWrap = document.querySelector('.slides'); const slides = document.querySelectorAll('.slide'); let idx=0; function show(i){ if(!slidesWrap) return; idx=(i+slides.length)%slides.length; slidesWrap.style.transform='translateX(' + (-idx*100) + '%)'; }
+  let auto = setInterval(()=>show(idx+1),4500); const sliderEl = document.querySelector('.slider'); if(sliderEl){ sliderEl.addEventListener('mouseenter', ()=> clearInterval(auto)); sliderEl.addEventListener('mouseleave', ()=> auto=setInterval(()=>show(idx+1),4500)); }
+  const langBtn = document.getElementById('lang-toggle'); let lang='es'; function setLang(to){ document.querySelectorAll('[data-en]').forEach(el=>{ const en=el.getAttribute('data-en'); const es=el.getAttribute('data-es'); if(en && es) el.textContent = to==='en'?en:es; }); lang=to; langBtn.textContent = to==='en'?'ES':'EN'; }
+  if(langBtn){ langBtn.addEventListener('click', ()=> setLang(lang==='en'?'es':'en')); setLang('es'); }
+  const light = document.querySelector('.lightbox'); document.querySelectorAll('.thumb img[data-light]').forEach(img=> img.addEventListener('click', ()=>{ if(!light) return; light.style.display='flex'; light.querySelector('img').src = img.src; })); if(light) light.addEventListener('click', ()=> light.style.display='none');
+  document.querySelectorAll('.ba-wrap').forEach(wrap=>{ const resized = wrap.querySelector('.ba-resize'); const handle = wrap.querySelector('.ba-handle'); let dragging=false; function setPct(clientX){ const rect=wrap.getBoundingClientRect(); let pct=(clientX-rect.left)/rect.width; pct=Math.max(0,Math.min(1,pct)); resized.style.width=(pct*100)+'%'; handle.style.left=(pct*100)+'%'; } handle.addEventListener('mousedown', ()=> dragging=true); window.addEventListener('mouseup', ()=> dragging=false); window.addEventListener('mousemove', e=>{ if(dragging) setPct(e.clientX); }); handle.addEventListener('touchstart', ()=> dragging=true); window.addEventListener('touchend', ()=> dragging=false); window.addEventListener('touchmove', e=>{ if(dragging) setPct(e.touches[0].clientX); }); });
+});
