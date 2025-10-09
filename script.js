@@ -1,11 +1,42 @@
-
 document.addEventListener('DOMContentLoaded', function(){
-  const hb = document.getElementById('hamburger'), mobile = document.getElementById('mobileMenu');
-  hb && hb.addEventListener('click', ()=> mobile.style.display = mobile.style.display==='flex' ? 'none' : 'flex');
-  document.querySelectorAll('.tab').forEach(btn=> btn.addEventListener('click', ()=>{
-    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-    btn.classList.add('active'); document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
-  }));
-  const intro = document.getElementById('intro'); if(intro) setTimeout(()=>{ intro.style.opacity='0'; setTimeout(()=>intro.remove(),700); },1200);
+  // Language toggle
+  const btn = document.getElementById('lang-toggle');
+  let lang = 'en';
+  function setLang(to){
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      const en = el.getAttribute('data-en');
+      const es = el.getAttribute('data-es');
+      if(en && es){
+        el.textContent = to === 'en' ? en : es;
+      }
+    });
+    // whatsapp text
+    const wh = document.querySelector('.wh-text');
+    if(wh){
+      wh.textContent = to === 'en' ? 'Book your appointment' : 'Reserva tu cita';
+    }
+    btn.setAttribute('aria-pressed', to === 'es');
+    lang = to;
+  }
+  btn.addEventListener('click', ()=> setLang(lang === 'en' ? 'es' : 'en'));
+  // default english
+  setLang('en');
+
+  // IntersectionObserver reveal
+  const panels = document.querySelectorAll('.panel');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, {threshold:0.12});
+  panels.forEach(p=>io.observe(p));
+
+  // smooth scroll logo
+  const logoLink = document.getElementById('logo-link');
+  if(logoLink) logoLink.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
+  const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
 });
