@@ -1,1 +1,1 @@
-console.log('LunaTurquesa ready');
+document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var i=document.getElementById('intro');if(i){i.style.opacity='0';i.style.pointerEvents='none';try{i.remove()}catch(e){}}},1200);});
