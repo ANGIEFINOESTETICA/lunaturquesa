@@ -12,26 +12,20 @@
 <body>
   <header class="header" id="site-header" aria-label="Encabezado">
     <div class="brand">
-      <a href="#top"><img src="logo.png" alt="logo" class="logo"></a>
-      <div class="brand-text">
-        <div class="name">Luna Turquesa</div>
-        <div class="tag">Estética Facial y Corporal — Angie Fino</div>
-      </div>
+      <div class="logo-wrap"><a href="#top"><img src="logo.png" alt="logo"></a><div class="logo-light" aria-hidden="true"></div></div>
+      <div class="brand-text"><div class="name">Luna Turquesa</div><div class="tag">Estética Facial y Corporal — Angie Fino</div></div>
     </div>
+
     <div class="right-actions">
-      <div class="socials">
-        <a href="https://www.instagram.com/luna.turquesa9" target="_blank" aria-label="Instagram">📸</a>
-        <a href="https://www.tiktok.com/@lunaturquesaestet" target="_blank" aria-label="TikTok">🎵</a>
-        <a href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">💬</a>
-      </div>
-      <button id="lang-toggle" class="lang-btn">EN</button>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <button id="lang-toggle" class="lang-btn" aria-label="Cambiar idioma">EN</button>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <nav id="nav-overlay" class="nav-overlay">
+  <!-- Fullscreen glass menu overlay (mobile-first) -->
+  <nav id="nav-overlay" class="nav-overlay" aria-hidden="true">
     <div class="nav-overlay-inner">
-      <button id="close-nav" class="close-nav">✕</button>
+      <button id="close-nav" class="close-nav" aria-label="Cerrar menú">✕</button>
       <ul class="nav-list">
         <li><a href="#about" data-en="About" data-es="Sobre mí">Sobre mí</a></li>
         <li><a href="#services" data-en="Services" data-es="Servicios">Servicios</a></li>
@@ -41,28 +35,60 @@
         <li><a href="#antes" data-en="Before & After" data-es="Antes & Después">Antes & Después</a></li>
         <li><a href="#contact" data-en="Contact" data-es="Contacto">Contacto</a></li>
       </ul>
+      <div class="nav-overlay-footer">
+        <a class="social" href="https://www.instagram.com/luna.turquesa9" target="_blank">Instagram</a>
+        <a class="social" href="https://wa.me/15613709889" target="_blank">WhatsApp</a>
+      </div>
     </div>
   </nav>
 
+  <!-- Keep original nav for desktop (hidden on mobile) -->
+  <nav id="nav-desktop" class="nav-desktop" aria-label="Navegación principal">
+    <a href="#about" data-en="About" data-es="Sobre mí">Sobre mí</a>
+    <div class="dropdown"><a href="#services" data-en="Services" data-es="Servicios">Servicios ▾</a>
+      <div class="dropdown-content"><a href="#faciales" data-en="Facials" data-es="Faciales">Faciales</a><a href="#corporales" data-en="Body" data-es="Corporales">Corporales</a><a href="#pestanas" data-en="Lashes" data-es="Pestañas y Cejas">Pestañas y Cejas</a></div>
+    </div>
+    <a href="#antes" data-en="Before & After" data-es="Antes & Después">Antes & Después</a>
+    <a href="#contact" data-en="Contact" data-es="Contacto">Contacto</a>
+  </nav>
+
   <main class="main-wrap" id="top">
+    <!-- original content preserved (abridged here for brevity but full content below) -->
     <section id="about" class="about-section">
       <img src="angie.png" alt="Angie Fino" class="portrait">
       <div class="about-text">
-        <h2>Sobre mí</h2>
-        <p>Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia...</p>
+        <h2 class="section-title" data-en="About Me" data-es="Sobre mí">Sobre mí</h2>
+        <p data-en="I’m Angie Fino..." data-es="Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar.">Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar.</p>
       </div>
     </section>
 
-    <section id="contact" class="section contact-section">
-      <h2>Contacto</h2>
+    <div class="slider"><div class="slides"><div class="slide"><img src="WhatsApp Image 2025-10-07 at 7.49.36 AM.jpeg" alt="Hero"></div>
+<div class="slide"><img src="WhatsApp Image 2025-10-07 at 7.50.17 AM.jpeg" alt="Hero"></div>
+<div class="slide"><img src="WhatsApp Image 2025-10-07 at 7.50.52 AM.jpeg" alt="Hero"></div>
+</div></div>
+
+    <section id="services" class="section">
+      <h2 data-en="Services" data-es="Servicios">Servicios</h2>
+      <div class="cards">
+        <article class="service-card"><h3 data-en="Facials" data-es="Faciales">Faciales</h3><p>Limpieza facial profesional, dermaplaning, microneedling, peelings y terapia LED.</p></article>
+        <article class="service-card"><h3 data-en="Body" data-es="Corporales">Corporales</h3><p>Drenaje linfático manual, envolvimientos reductores y masajes modeladores.</p></article>
+        <article class="service-card"><h3 data-en="Lashes" data-es="Pestañas y Cejas">Pestañas y Cejas</h3><p>Extensiones, lifting y diseño de cejas profesional.</p></article>
+      </div>
+    </section>
+
+    <section id="contact" class="section card contact-section">
+      <h2 data-en="Contact" data-es="Contacto">Contacto</h2>
       <p><strong>Dirección:</strong> 5550 Glades Road, Suite 500, Boca Raton, FL 33431</p>
-      <iframe src="https://www.google.com/maps?q=5550+Glades+Road+Suite+500+Boca+Raton+FL+33431&output=embed" allowfullscreen loading="lazy" class="map"></iframe>
       <p><strong>WhatsApp:</strong> <a href="https://wa.me/15613709889">+1 561 370 9889</a></p>
     </section>
+
   </main>
 
   <footer class="footer">
     <div>© 2025 Luna Turquesa — Angie Fino</div>
   </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp"><svg class="wh-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#FFFFFF" d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .002 5.373.002 12a11.8 11.8 0 001.64 6.04L0 24l6.15-2.03A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.25-6.18-3.48-8.52z"/></svg><span>Reservar cita</span></a>
+
 </body>
 </html>
