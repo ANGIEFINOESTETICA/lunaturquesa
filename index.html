@@ -1,12 +1,114 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Luna Turquesa – Estética Facial y Corporal</title><link rel="icon" href="favicon.ico"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script></head><body>
-<div id="intro" class="intro"><div class="intro-inner"><img src="logo.png" class="intro-logo" alt="Luna Turquesa"></div></div>
-<header class="header" id="top"><div class="header-left"><a href="#top" id="logo-link"><img src="logo.png" class="logo-header" alt="logo"></a><h1 class="brand-title">Luna Turquesa – Estética Facial y Corporal</h1></div><div class="header-right"><nav class="socials"><a class="social ig" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#caa13b" stroke-width="1.6"/></svg></a><a class="social tt" href="#"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M0 0"/></svg></a><a class="social wa" href="#"><svg width="20" height="20"><circle cx="12" cy="12" r="10" fill="#25D366"/></svg></a></nav><div class="lang-wrap"><button id="lang-toggle" class="lang-btn">EN | ES</button></div><button class="hamburger" id="hamburger" aria-label="menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button></div></header>
-<div id="menu-veil" class="menu-veil"></div><nav id="side-menu" class="side-menu"><a href="#top" class="menu-item" data-es="Inicio" data-en="Home">Inicio</a><a href="#about" class="menu-item" data-es="Sobre mí" data-en="About">Sobre mí</a><a href="#services" class="menu-item" data-es="Servicios" data-en="Services">Servicios</a><a href="#contact" class="menu-item" data-es="Contacto" data-en="Contact">Contacto</a></nav>
-<main class="content"><section class="hero"><img src="logo.png" class="logo-hero"><h2 class="hero-title" data-es="Estética Facial y Corporal" data-en="Facial and Body Aesthetics">Estética Facial y Corporal</h2></section>
-<section id="about"><h2 class="section-title">Sobre mí</h2><div class="about-grid"><img src="angie.png" class="portrait"><div><p>Soy Angie Fino, especialista...</p></div></div></section>
-<section id="services"><h2>Nuestros Servicios</h2><div class="services-grid"><!-- services kept --></div></section>
-<section id="contact"><h2>Contacto</h2><p>Tel: +1 561 370 9889</p></section>
-<a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/15613709889" target="_blank">Reserva tu cita</a>
-<footer class="footer"><p>© 2025 Luna Turquesa — By Ingeniero SergioLexDiaz</p></footer>
-</main></body></html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Luna Turquesa – Estética Facial y Corporal</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">    
+  <meta name="description" content="Estética Facial y Corporal - Angie Fino. Dirección: 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States">
+  <meta name="author" content="Angie Fino">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="intro" class="intro">
+    <div class="intro-inner">
+      <img src="logo.png" alt="Luna Turquesa logo" class="intro-logo">
+      <div class="intro-glow"></div>
+    </div>
+  </div>
+
+  <header class="header" id="top">
+    <div class="header-left">
+      <a href="#top" id="logo-link"><img src="logo.png" alt="Luna Turquesa logo" class="logo-header"></a>
+      <h1 class="brand-title">Luna Turquesa – Estética Facial y Corporal</h1>
+    </div>
+
+    <div class="header-right">
+      <nav class="socials" aria-label="Social links">
+        <a class="social" href="https://www.instagram.com/luna.turquesa9" target="_blank" aria-label="Instagram">IG</a>
+        <a class="social" href="https://www.tiktok.com/@lunaturquesaestet" target="_blank" aria-label="TikTok">TT</a>
+        <a class="social" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">WA</a>
+      </nav>
+
+      <div class="lang-wrap">
+        <button id="lang-toggle" class="lang-btn" aria-pressed="false">EN | ES</button>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- overlay veil when menu opens -->
+  <div id="menu-veil" class="menu-veil" aria-hidden="true"></div>
+
+  <!-- right-side sliding menu -->
+  <nav id="side-menu" class="side-menu" aria-hidden="true" aria-label="Main navigation">
+    <a href="#top" class="menu-item" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="#about" class="menu-item" data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="#services" class="menu-item" data-es="Servicios" data-en="Services">Servicios</a>
+    <a href="#reviews" class="menu-item" data-es="Opiniones" data-en="Reviews">Opiniones</a>
+    <a href="#contact" class="menu-item" data-es="Contacto" data-en="Contact">Contacto</a>
+  </nav>
+
+  <main class="content" id="main-content">
+    <section class="hero">
+      <img src="logo.png" alt="Luna Turquesa logo" class="logo-hero">
+      <h2 class="hero-title" data-en="Facial and Body Aesthetics" data-es="Estética Facial y Corporal">Estética Facial y Corporal</h2>
+    </section>
+
+    <section id="about" class="panel">
+      <h2 class="section-title" data-en="About Me" data-es="Sobre mí">Sobre mí</h2>
+      <div class="about-grid">
+        <div class="portrait-wrap"><img src="angie.png" alt="Angie" class="portrait"></div>
+        <div class="about-text">
+          <p data-en="I’m Angie Fino..." data-es="Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar. Mis tratamientos están respaldados por protocolos seguros y personalizados, con productos de la más alta calidad para garantizar resultados efectivos. En mi suite 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States priorizo la seguridad del paciente y una atención personalizada que eleva tu experiencia a un nivel superior.">Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar. Mis tratamientos están respaldados por protocolos seguros y personalizados, con productos de la más alta calidad para garantizar resultados efectivos. En mi suite 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States priorizo la seguridad del paciente y una atención personalizada que eleva tu experiencia a un nivel superior.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="panel">
+      <h2 class="section-title gold" data-en="Our Services" data-es="Nuestros Servicios">Nuestros Servicios</h2>
+      <div class="services-grid">
+        <article class="service-card">
+          <img class="service-img" src="limpiezafacial.png" alt="Limpieza facial">
+          <h4 data-en="Basic Facial" data-es="Limpieza facial básica">Limpieza facial básica</h4>
+          <p data-en="Surface cleansing..." data-es="Limpieza superficial para eliminar impurezas y mantener la piel fresca y saludable.">Limpieza superficial para eliminar impurezas y mantener la piel fresca y saludable.</p>
+        </article>
+        <article class="service-card">
+          <img class="service-img" src="microneedling.png" alt="Microneedling">
+          <h4 data-en="Microneedling" data-es="Microneedling">Microneedling</h4>
+          <p data-en="Stimulates collagen..." data-es="Estimula la producción de colágeno para reducir cicatrices, manchas y líneas finas.">Estimula la producción de colágeno para reducir cicatrices, manchas y líneas finas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="reviews" class="panel">
+      <h2 class="section-title gold">Opiniones</h2>
+      <blockquote>“Desde que empecé los tratamientos con Angie, mi piel nunca se vio mejor.”</blockquote>
+    </section>
+
+    <section id="contact" class="panel contact-panel">
+      <h2 class="section-title gold">Contacto</h2>
+      <p><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/15613709889" target="_blank">+1 561 370 9889</a></p>
+      <p><strong>Email:</strong> <a href="mailto:lunaturquesaestetica@gmail.com">lunaturquesaestetica@gmail.com</a></p>
+      <p><strong>Dirección:</strong> 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States</p>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=5550+Glades+Rd+Suite+500,+Boca+Raton,+FL+33431,+United+States&output=embed" width="100%" height="320" style="border:0;border-radius:12px" loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">
+    <svg class="wh-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#FFFFFF" d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .002 5.373.002 12a11.8 11.8 0 001.64 6.04L0 24l6.15-2.03A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.25-6.18-3.48-8.52z"/></svg>
+    <span class="wh-text" data-en="Book your appointment" data-es="Reserva tu cita">Reserva tu cita</span>
+  </a>
+
+  <footer class="footer">
+    <p>© 2025 Luna Turquesa — By Ingeniero SergioLexDiaz</p>
+  </footer>
+</body>
+</html>
