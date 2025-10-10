@@ -1,81 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luna Turquesa – Facial & Body Aesthetics</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Luna Turquesa — Estética Facial y Corporal</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
+  <script src="script.js" defer></script>
+  <style>.contact-grid{display:grid;grid-template-columns:1fr 420px;gap:18px;align-items:start}@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}</style>
 </head>
 <body>
   <header>
-    <div class="header-left">
-      <img src="logo.png" alt="Luna Turquesa Logo" class="logo">
-      <h1>Luna Turquesa – Facial & Body Aesthetics</h1>
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="logo.png" alt="logo" style="width:64px;height:64px;border-radius:10px;border:4px solid #C99B33;padding:4px">
+      <div style="font-weight:700;color:#00A39A">Luna Turquesa</div>
     </div>
-    <div class="header-right">
-      <div class="social-icon">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" class="icon">
-        <span>Instagram</span>
-      </div>
-      <div class="social-icon">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok" class="icon">
-        <span>TikTok</span>
-      </div>
-      <div class="social-icon">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp" class="icon">
-        <span>WhatsApp</span>
-      </div>
-    </div>
+    <nav style="display:flex;gap:12px;align-items:center">
+      <a href="#about">Sobre mí</a>
+      <a href="#services">Servicios</a>
+      <a href="#galeria">Galería</a>
+      <a href="#antes">Antes & Después</a>
+      <a href="#contact">Contacto</a>
+      <button id="lang-toggle" class="btn-primary">EN</button>
+    </nav>
   </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="about-content">
-      <img src="angie.png" alt="Angie Fino" class="profile-pic">
-      <p>I’m Angie Fino, a professional nurse from Colombia and currently a licensed Medical Assistant in the United States, as well as a certified phlebotomist, licensed facial specialist, and licensed massage therapist. With over 10 years of experience, I have deep knowledge of anatomy, physiology, and biosecurity, allowing me to provide safe, effective, and personalized treatments for comprehensive skin care and wellness. My philosophy is to combine the science and art of aesthetics to create a unique experience that enhances your natural beauty and delivers authentic well-being.</p>
-    </div>
-  </section>
-
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="service">
-      <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=800&q=60" alt="Facial Treatment">
-      <div>
-        <h3>Personalized Facial Treatments</h3>
-        <p>Professional care tailored to your skin’s needs to cleanse, hydrate, and rejuvenate—using safe protocols and high-quality products.</p>
+  <main style="padding-top:100px">
+    <section class="container" id="about">
+      <h2>Sobre Angie</h2>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
+        <img src="angie.png" alt="Angie" style="width:220px;height:220px;object-fit:cover;border-radius:12px">
+        <div>
+          <p>Soy <strong>Angie Fino</strong>, especialista en estética facial y corporal. Ofrezco tratamientos personalizados y profesionales en Boca Raton, Florida.</p>
+        </div>
       </div>
-    </div>
-    <div class="service">
-      <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=60" alt="Body Massage">
-      <div>
-        <h3>Body Massages & Therapies</h3>
-        <p>Every body has unique needs. We begin each treatment with a professional assessment to ensure your experience is safe, effective, and tailored to you.</p>
+    </section>
+
+    <section id="services" class="container">
+      <h2>Servicios</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+        <div style="background:#fff;padding:12px;border-radius:10px">Faciales: limpiezas, mascarillas, LED, microdermo.</div>
+        <div style="background:#fff;padding:12px;border-radius:10px">Corporales: envolvimientos, drenaje linfático, reductivos.</div>
+        <div style="background:#fff;padding:12px;border-radius:10px">Pestañas y Cejas: extensión, lifting, diseño.</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="reviews">
-    <h2>Reviews</h2>
-    <blockquote>“Since I started treatments with Angie, my skin has never looked better. Her professionalism and care truly make a difference.” – Emily S.</blockquote>
-    <blockquote>“The personalized protocols and top-notch attention made me feel safe and well cared for during every session.” – Sarah M.</blockquote>
-    <blockquote>“Angie’s expertise and use of high-quality products gave me visible, effective results. Highly recommended for anyone seeking real skin transformation.” – Jessica T.</blockquote>
-  </section>
+    <section id="galeria" class="container">
+      <h2>Galería</h2>
+      <div class="gallery-grid">
+        <div><img src="WhatsApp Image 2025-10-07 at 7.49.36 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.49.36 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 7.50.17 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.50.17 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 7.50.52 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.50.52 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 7.51.39 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.51.39 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 7.53.56 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.53.56 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 7.55.02 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.55.02 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 7.55.24 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.55.24 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 7.55.56 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.55.56 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 7.56.33 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.56.33 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 7.57.50 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.57.50 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 7.59.18 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 7.59.18 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.00.01 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.00.01 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.00.22 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.00.22 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.00.56 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.00.56 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.02.03 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.02.03 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.07.10 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.07.10 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.07.46 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.07.46 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.08.36 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.08.36 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.10.42 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.10.42 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.11.09 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.11.09 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.11.46 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.11.46 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.11.53 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.11.53 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.12.37 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.12.37 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.13.57 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.13.57 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.16.21 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.16.21 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.17.44 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.17.44 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 8.32.50 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 8.32.50 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 9.07.57 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 9.07.57 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 9.14.28 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 9.14.28 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-07 at 9.20.34 AM.jpeg" alt="WhatsApp Image 2025-10-07 at 9.20.34 AM.jpeg"></div>
+        <div><img src="WhatsApp Image 2025-10-08 at 6.22.58 AM.jpeg" alt="WhatsApp Image 2025-10-08 at 6.22.58 AM.jpeg"></div>
+        <div><img src="angie.png" alt="angie.png"></div>
+        <div><img src="logo.png" alt="logo.png"></div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>📍 Wellington, Florida</p>
-    <p>📞 +1 561 370 9889</p>
-    <p>📧 lunaturquesaestetica@gmail.com</p>
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps?q=Wellington,Florida&output=embed" allowfullscreen></iframe>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <footer>
-    © 2025 Luna Turquesa — By Ingeniero SergioLexDiaz
+    <section id="antes" class="container">
+      <h2>Antes & Después</h2>
+      <p>Arrastra para comparar resultados reales.</p>
+      <div style="max-width:720px;margin:0 auto">
+
+        <div class="ba-wrap" style="position:relative;border-radius:12px;overflow:hidden">
+          <img src="WhatsApp Image 2025-10-08 at 6.22.58 AM.jpeg" alt="Antes">
+          <div class="ba-resize" style="position:absolute;left:0;top:0;width:50%;height:100%;overflow:hidden">
+            <img src="WhatsApp Image 2025-10-07 at 7.57.50 AM.jpeg" alt="Después">
+          </div>
+          <div class="ba-handle" style="position:absolute;left:50%;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#C99B33,#00A39A);"></div>
+        </div>
+    
+      </div>
+    </section>
+
+    <section id="contact" class="container" style="margin-top:24px">
+      <h2>Contacto</h2>
+      <div class="contact-grid">
+        <div style="background:#fff;padding:16px;border-radius:12px">
+          <h3>Información</h3>
+          <p><strong>Dirección:</strong><br>5550 Glades Road, Suite 500<br>Boca Raton, FL 33431<br>United States</p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/15613709889">+1 561 370 9889</a></p>
+          <p><strong>Email:</strong> <a href="mailto:lunaturquesaestetica@gmail.com">lunaturquesaestetica@gmail.com</a></p>
+        </div>
+
+        <div style="background:#fff;padding:6px;border-radius:12px">
+          <h3>Ubicación</h3>
+          <iframe src="https://www.google.com/maps?q=5550+Glades+Road+Suite+500+Boca+Raton+FL+33431&output=embed" width="100%" height="350" style="border:0;border-radius:12px" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="text-align:center;padding:18px;color:#666;margin-top:28px">
+    © 2025 Luna Turquesa — Angie Fino
   </footer>
 
-  <a href="https://wa.me/15613709889" class="whatsapp-float" target="_blank">Book your appointment</a>
 </body>
 </html>
