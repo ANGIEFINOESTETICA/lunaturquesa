@@ -1,81 +1,82 @@
-// ===== Menu hamburguesa =====
-const menuToggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu');
 
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('show');
-});
+document.addEventListener('DOMContentLoaded', function(){
+  const hamburger = document.getElementById('hamburger');
+  const navOverlay = document.getElementById('nav-overlay');
+  const closeNav = document.getElementById('close-nav');
+  const langBtn = document.getElementById('lang-toggle');
+  const header = document.getElementById('site-header');
 
-document.querySelectorAll('.menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    menu.classList.remove('show');
+  function setHeaderVar(){
+    if(header){
+      const h = Math.round(header.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-h', h + 'px');
+    }
+  }
+  setHeaderVar();
+  window.addEventListener('resize', setHeaderVar);
+
+  function openNav(){
+    navOverlay.classList.add('open');
+    navOverlay.setAttribute('aria-hidden','false');
+    hamburger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNavFunc(){
+    navOverlay.classList.remove('open');
+    navOverlay.setAttribute('aria-hidden','true');
+    hamburger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+
+  if(hamburger) hamburger.addEventListener('click', openNav);
+  if(closeNav) closeNav.addEventListener('click', closeNavFunc);
+
+  // Close overlay when link clicked and smooth scroll with header offset
+  document.querySelectorAll('.nav-list a').forEach(a=>{
+    a.addEventListener('click', function(e){
+      const href = this.getAttribute('href');
+      if(href && href.startsWith('#')){
+        e.preventDefault();
+        const id = href.slice(1);
+        const el = document.getElementById(id);
+        if(el){
+          const headerH = header ? header.getBoundingClientRect().height : 92;
+          const rect = el.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const target = rect.top + scrollTop - headerH - 12;
+          window.scrollTo({top: target, behavior: 'smooth'});
+        }
+      }
+      closeNavFunc();
+    });
   });
+
+  // Close on ESC or clicking outside
+  document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeNavFunc(); });
+  navOverlay.addEventListener('click', e=>{ if(e.target === navOverlay) closeNavFunc(); });
+
+  // Language toggle - start in English, show only target language on button, button in gold
+  let lang = 'en';
+  function setLang(to){
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      const en = el.getAttribute('data-en'), es = el.getAttribute('data-es');
+      if(en && es) el.textContent = to === 'en' ? en : es;
+    });
+    lang = to;
+    if(langBtn){
+      langBtn.textContent = to === 'en' ? 'ES' : 'EN';
+      langBtn.style.color = '#C99B33';
+    }
+  }
+  if(langBtn){ langBtn.addEventListener('click', ()=> setLang(lang === 'en' ? 'es' : 'en')); setLang('en'); }
+
+  // slider autoplay
+  const slidesWrap = document.querySelector('.slides');
+  if(slidesWrap){
+    const slides = slidesWrap.querySelectorAll('.slide');
+    let idx = 0;
+    function show(i){ slides.forEach((s,si)=> s.style.display = si === i ? 'block' : 'none'); }
+    show(0);
+    setInterval(()=>{ idx = (idx + 1) % slides.length; show(idx); }, 4500);
+  }
 });
-
-// ===== Bilingual toggle =====
-const langBtn = document.getElementById('lang-toggle');
-let currentLang = 'en';
-
-const texts = {
-  en: {
-    about: "About Me",
-    aboutText:
-      "I’m Angie Fino, a specialist in facial and body aesthetics with more than 10 years of experience in skin care and comprehensive wellness. My goal is to highlight your natural beauty and enhance your confidence through personalized treatments.",
-    services: "Our Services",
-    facials: "Facials",
-    facialsText:
-      "Deep cleansing, microdermabrasion, and personalized skincare to restore radiance and vitality.",
-    body: "Body Treatments",
-    bodyText:
-      "Reductive, shaping, and firming therapies designed to rejuvenate your figure and improve your well-being.",
-    lashes: "Lashes & Brows",
-    lashesText:
-      "Lifting, extensions, and brow design to highlight your eyes with elegance and precision.",
-    contact: "Contact",
-    reserve: "💬 Reserve your appointment",
-    footer: "All rights reserved.",
-  },
-  es: {
-    about: "Sobre mí",
-    aboutText:
-      "Soy Angie Fino, especialista en estética facial y corporal con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar. Mi objetivo es resaltar tu belleza natural y fortalecer tu confianza a través de tratamientos personalizados.",
-    services: "Nuestros Servicios",
-    facials: "Faciales",
-    facialsText:
-      "Limpieza profunda, microdermoabrasión y cuidado de la piel personalizado para devolver luminosidad y vitalidad.",
-    body: "Tratamientos Corporales",
-    bodyText:
-      "Terapias reductoras, moldeadoras y reafirmantes diseñadas para rejuvenecer tu figura y mejorar tu bienestar.",
-    lashes: "Pestañas y Cejas",
-    lashesText:
-      "Lifting, extensiones y diseño de cejas para resaltar tu mirada con elegancia y precisión.",
-    contact: "Contacto",
-    reserve: "💬 Reserva tu cita",
-    footer: "Todos los derechos reservados.",
-  },
-};
-
-function switchLanguage() {
-  currentLang = currentLang === 'en' ? 'es' : 'en';
-  const lang = texts[currentLang];
-
-  // Actualizar textos
-  document.querySelector('#about h2').textContent = lang.about;
-  document.querySelector('#about p').textContent = lang.aboutText;
-  document.querySelector('#services h2').textContent = lang.services;
-  document.querySelector('#facials h2').textContent = lang.facials;
-  document.querySelector('#facials p').textContent = lang.facialsText;
-  document.querySelector('#body h2').textContent = lang.body;
-  document.querySelector('#body p').textContent = lang.bodyText;
-  document.querySelector('#lashes h2').textContent = lang.lashes;
-  document.querySelector('#lashes p').textContent = lang.lashesText;
-  document.querySelector('#contact h2').textContent = lang.contact;
-  document.querySelector('.whatsapp-float').textContent = lang.reserve;
-  document.querySelector('footer p').textContent =
-    `© 2025 Luna Turquesa. ${lang.footer}`;
-
-  // Cambiar texto del botón
-  langBtn.textContent = currentLang === 'en' ? 'ES' : 'EN';
-}
-
-langBtn.addEventListener('click', switchLanguage);
