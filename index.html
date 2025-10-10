@@ -1,92 +1,29 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Luna Turquesa - Estética Facial y Corporal</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
-<header class="header">
+<header class="header" id="top">
   <div class="header-left">
-    <img src="logo.png" alt="Luna Turquesa" class="logo-header">
+    <a href="#top" id="logo-link">
+      <img src="logo.png" alt="Luna Turquesa logo" class="logo-header">
+    </a>
+    <h1 class="brand-title">Luna Turquesa – Facial & Body Aesthetics</h1>
   </div>
-  <div class="header-right">
-    <button id="lang-toggle" class="btn outline">🇺🇸 English</button>
-  </div>
+
+  <!-- Botón hamburguesa -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- Navegación -->
+  <nav class="nav-menu" id="nav-menu">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#reviews" class="nav-link">Reviews</a>
+    <a href="#contact" class="nav-link">Contact</a>
+
+    <div class="socials-mobile">
+      <a href="https://www.instagram.com/luna.turquesa9" target="_blank" class="social gold">Instagram</a>
+      <a href="https://www.tiktok.com/@lunaturquesaestet" target="_blank" class="social gold">TikTok</a>
+      <a href="https://wa.me/15613709889" target="_blank" class="social gold">WhatsApp</a>
+    </div>
+  </nav>
 </header>
-
-<section class="hero">
-  <img src="logo.png" alt="Luna Turquesa Logo" class="logo-hero">
-  <h1>Luna Turquesa</h1>
-  <p class="tagline">Estética Facial y Corporal</p>
-</section>
-
-<main class="content">
-  <section id="about" class="lang-es">
-    <h2>Sobre mí</h2>
-    <p>Soy <strong>Angie Fino</strong>, enfermera profesional de Colombia y actualmente Asistente Médica licenciada en los Estados Unidos, así como flebotomista certificada, especialista facial y terapeuta de masaje licenciada. Con más de 10 años de experiencia, tengo un profundo conocimiento de anatomía, fisiología y bioseguridad, lo que me permite ofrecer tratamientos seguros, efectivos y personalizados para el cuidado integral de la piel y el bienestar. Mi filosofía es combinar la ciencia y el arte de la estética para crear una experiencia única que realce tu belleza natural y te brinde bienestar auténtico.</p>
-  </section>
-
-  <section id="about-en" class="lang-en hidden">
-    <h2>About Me</h2>
-    <p>I’m <strong>Angie Fino</strong>, a professional nurse from Colombia and currently a licensed Medical Assistant in the United States, as well as a certified phlebotomist, licensed facial specialist, and licensed massage therapist. With over 10 years of experience, I have deep knowledge of anatomy, physiology, and biosecurity, allowing me to provide safe, effective, and personalized treatments for comprehensive skin care and wellness. My philosophy is to combine the science and art of aesthetics to create a unique experience that enhances your natural beauty and promotes authentic well-being.</p>
-  </section>
-
-  <section id="services" class="lang-es">
-    <h2>Nuestros Servicios</h2>
-    <h3>Faciales</h3>
-    <ul>
-      <li>Limpieza facial básica – limpieza superficial para eliminar impurezas y mantener la piel fresca y saludable.</li>
-      <li>Limpieza facial profunda – higiene profunda con extracción manual.</li>
-      <li>Dermaplaning – exfoliación manual que elimina células muertas y vello fino.</li>
-      <li>Microneedling – estimula el colágeno para reducir cicatrices y líneas finas.</li>
-    </ul>
-    <h3>Corporales</h3>
-    <ul>
-      <li>Masaje con velas – relajación profunda con aceites naturales calientes.</li>
-      <li>Masaje sueco – movimientos suaves para aliviar la tensión muscular.</li>
-      <li>Masaje con piedras calientes – técnica con piedras volcánicas.</li>
-      <li>Drenaje linfático manual – técnica suave que estimula la circulación.</li>
-    </ul>
-  </section>
-
-  <section id="services-en" class="lang-en hidden">
-    <h2>Our Services</h2>
-    <h3>Facials</h3>
-    <ul>
-      <li>Basic Facial Cleansing – gentle surface cleansing for fresh, healthy skin.</li>
-      <li>Deep Facial Cleansing – manual extraction to purify and renew skin.</li>
-      <li>Dermaplaning – removes dead skin and fine hair for a smooth glow.</li>
-      <li>Microneedling – stimulates collagen for rejuvenated, firm skin.</li>
-    </ul>
-    <h3>Body Treatments</h3>
-    <ul>
-      <li>Candle Relaxation Massage – deep relaxation with warm natural oils.</li>
-      <li>Swedish Massage – classic technique to release muscle tension.</li>
-      <li>Hot Stone Massage – warm stones to relieve deep-seated stress.</li>
-      <li>Lymphatic Drainage – promotes detoxification and circulation.</li>
-    </ul>
-  </section>
-
-  <section id="reviews" class="lang-en">
-    <h2>Reviews</h2>
-    <blockquote>“Since I started treatments with Angie, my skin has never looked better. Her professionalism and care truly make a difference.” – Emily S.</blockquote>
-    <blockquote>“The personalized protocols and top-notch attention made me feel safe and well cared for during every session.” – Sarah M.</blockquote>
-    <blockquote>“Angie’s expertise and use of high-quality products gave me visible, effective results. Highly recommended for anyone seeking real skin transformation.” – Jessica T.</blockquote>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="socials">
-    <a href="https://www.instagram.com/luna.turquesa9" target="_blank">Instagram</a> |
-    <a href="https://wa.me/15613709889" target="_blank">WhatsApp</a> |
-    <a href="https://www.tiktok.com/@lunaturquesaestet" target="_blank">TikTok</a>
-  </div>
-  <p>&copy; 2025 Luna Turquesa — By Angie Fino</p>
-</footer>
-</body>
-</html>
