@@ -11,58 +11,78 @@
 </head>
 <body>
   <header class="header" id="site-header" aria-label="Encabezado">
-    <div class="brand">
-      <a href="#top"><img src="logo.png" alt="logo" class="logo"></a>
-      <div class="brand-text">
-        <div class="name">Luna Turquesa</div>
-        <div class="tag">Estética Facial y Corporal — Angie Fino</div>
+    <div class="left-group">
+      <a href="#top" class="logo-link"><img src="logo.png" alt="logo" class="logo"></a>
+      <div class="socials" aria-hidden="false">
+        <!-- Instagram (dorado), TikTok (dark), WhatsApp (green) -->
+        <a href="https://www.instagram.com/luna.turquesa9" target="_blank" class="social-icon instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="none"><rect x="3" y="3" width="18" height="18" rx="5" fill="#C99B33"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@lunaturquesaestet" target="_blank" class="social-icon tiktok" aria-label="TikTok">
+          <svg viewBox="0 0 48 48" width="18" height="18" fill="none" stroke="none"><path d="M34.5 12.5c-.8-.1-2.4-.2-3.6-.2v8.2c0 7.1-5.8 12.9-12.9 12.9-1.2 0-2.3-.2-3.4-.6v3.3c0 .6-.6 1-1.1.8-5.3-2-9-6.9-9-12.9C5.5 8.2 10.6 3 17 3c.9 0 1.9.1 2.8.3v7.2c.6.1 1.5.2 2.3.2 0 0 8.4.1 11.4 1z" fill="#000"/></svg>
+        </a>
+        <a href="https://wa.me/15613709889" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="none"><circle cx="12" cy="12" r="10" fill="#25D366"/></svg>
+        </a>
       </div>
     </div>
-    <div class="right-actions">
-      <div class="socials">
-        <a href="https://www.instagram.com/luna.turquesa9" target="_blank" aria-label="Instagram">📸</a>
-        <a href="https://www.tiktok.com/@lunaturquesaestet" target="_blank" aria-label="TikTok">🎵</a>
-        <a href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">💬</a>
-      </div>
-      <button id="lang-toggle" class="lang-btn">EN</button>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+
+    <div class="right-group">
+      <button id="lang-toggle" class="lang-btn" aria-label="Cambiar idioma">ES</button>
+      <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <nav id="nav-overlay" class="nav-overlay">
-    <div class="nav-overlay-inner">
-      <button id="close-nav" class="close-nav">✕</button>
+  <!-- Fullscreen darker glass overlay menu -->
+  <div id="nav-overlay" class="nav-overlay" aria-hidden="true">
+    <div class="nav-overlay-inner" role="dialog" aria-modal="true">
+      <button id="close-nav" class="close-nav" aria-label="Cerrar menú">✕</button>
       <ul class="nav-list">
-        <li><a href="#about" data-en="About" data-es="Sobre mí">Sobre mí</a></li>
-        <li><a href="#services" data-en="Services" data-es="Servicios">Servicios</a></li>
-        <li><a href="#faciales" data-en="Facials" data-es="Faciales">Faciales</a></li>
-        <li><a href="#corporales" data-en="Body" data-es="Corporales">Corporales</a></li>
-        <li><a href="#pestanas" data-en="Lashes" data-es="Pestañas y Cejas">Pestañas y Cejas</a></li>
-        <li><a href="#antes" data-en="Before & After" data-es="Antes & Después">Antes & Después</a></li>
-        <li><a href="#contact" data-en="Contact" data-es="Contacto">Contacto</a></li>
+        <li><a href="#about" data-en="About" data-es="Sobre mí">About</a></li>
+        <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+        <li><a href="#faciales" data-en="Facials" data-es="Faciales">Facials</a></li>
+        <li><a href="#corporales" data-en="Body" data-es="Corporales">Body</a></li>
+        <li><a href="#pestanas" data-en="Lashes" data-es="Pestañas y Cejas">Lashes</a></li>
+        <li><a href="#antes" data-en="Before & After" data-es="Antes & Después">Before & After</a></li>
+        <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
       </ul>
     </div>
-  </nav>
+  </div>
 
+  <!-- Original content preserved -->
   <main class="main-wrap" id="top">
     <section id="about" class="about-section">
       <img src="angie.png" alt="Angie Fino" class="portrait">
       <div class="about-text">
-        <h2>Sobre mí</h2>
-        <p>Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia...</p>
+        <h2 class="section-title" data-en="About Me" data-es="Sobre mí">About Me</h2>
+        <p data-en="I’m Angie Fino, a specialist in facial and body aesthetics with over 10 years of experience in comprehensive skin care and wellness. My treatments are backed by safe and personalized protocols, using premium-quality products to ensure effective results. In my suite in Wellington, Florida, I prioritize patient safety and personalized care that elevates your experience to a higher level."
+           data-es="Soy Angie Fino, especialista en estética facial y corporal...">I’m Angie Fino, a specialist in facial and body aesthetics with over 10 years of experience in comprehensive skin care and wellness.</p>
+      </div>
+    </section>
+
+    <div class="slider"><div class="slides"><div class="slide"><img src="WhatsApp Image 2025-10-07 at 7.49.36 AM.jpeg" alt="Hero"></div><div class="slide"><img src="WhatsApp Image 2025-10-07 at 7.50.17 AM.jpeg" alt="Hero"></div><div class="slide"><img src="WhatsApp Image 2025-10-07 at 7.50.52 AM.jpeg" alt="Hero"></div></div></div>
+
+    <section id="services" class="section">
+      <h2 data-en="Services" data-es="Servicios">Services</h2>
+      <div class="cards">
+        <article class="service-card"><h3 data-en="Facials" data-es="Faciales">Facials</h3><p>Limpieza facial profesional, dermaplaning, microneedling, peelings y terapia LED.</p></article>
+        <article class="service-card"><h3 data-en="Body" data-es="Corporales">Body</h3><p>Drenaje linfático manual, envolvimientos reductores y masajes modeladores.</p></article>
+        <article class="service-card"><h3 data-en="Lashes" data-es="Pestañas y Cejas">Lashes</h3><p>Extensiones, lifting y diseño de cejas profesional.</p></article>
       </div>
     </section>
 
     <section id="contact" class="section contact-section">
-      <h2>Contacto</h2>
-      <p><strong>Dirección:</strong> 5550 Glades Road, Suite 500, Boca Raton, FL 33431</p>
-      <iframe src="https://www.google.com/maps?q=5550+Glades+Road+Suite+500+Boca+Raton+FL+33431&output=embed" allowfullscreen loading="lazy" class="map"></iframe>
+      <h2 data-en="Contact" data-es="Contacto">Contact</h2>
+      <p><strong>Address:</strong><br>5550 Glades Road, Suite 500<br>Boca Raton, FL 33431<br>United States</p>
+      <div class="map-wrap"><iframe class="map" src="https://www.google.com/maps?q=5550+Glades+Road+Suite+500+Boca+Raton+FL+33431&output=embed" allowfullscreen loading="lazy"></iframe></div>
       <p><strong>WhatsApp:</strong> <a href="https://wa.me/15613709889">+1 561 370 9889</a></p>
     </section>
+
   </main>
 
-  <footer class="footer">
-    <div>© 2025 Luna Turquesa — Angie Fino</div>
-  </footer>
+  <footer class="footer"><div>© 2025 Luna Turquesa — Angie Fino</div></footer>
+
+  <a class="whatsapp-float" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp"><svg class="wh-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#FFFFFF" d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .002 5.373.002 12a11.8 11.8 0 001.64 6.04L0 24l6.15-2.03A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.25-6.18-3.48-8.52z"/></svg><span data-en="Book via WhatsApp" data-es="Reservar por WhatsApp">Book via WhatsApp</span></a>
+
 </body>
 </html>
