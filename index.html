@@ -1,139 +1,81 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Luna Turquesa - Estética Facial y Corporal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna Turquesa – Facial & Body Aesthetics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="header-inner container">
-      <div class="brand-left">
-        <div class="logo-wrap">
-          <img src="logo.png" alt="Luna Turquesa" class="logo" id="logo">
-          <div class="logo-glow" aria-hidden="true"></div>
-        </div>
+  <header>
+    <div class="header-left">
+      <img src="logo.png" alt="Luna Turquesa Logo" class="logo">
+      <h1>Luna Turquesa – Facial & Body Aesthetics</h1>
+    </div>
+    <div class="header-right">
+      <div class="social-icon">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" class="icon">
+        <span>Instagram</span>
       </div>
-      <div class="brand-right">
-        <nav id="mainNav" class="main-nav">
-          <a href="#home" data-es="Inicio" data-en="Home">Inicio</a>
-          <a href="#sobre" data-es="Sobre mí" data-en="About">Sobre</a>
-          <a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a>
-          <a href="#antes" data-es="Antes & Después" data-en="Before & After">Antes</a>
-          <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
-        </nav>
-        <div class="controls">
-          <button id="langToggle" class="lang-btn" aria-label="Toggle language">EN</button>
-          <a class="book-btn" href="https://wa.me/15613709889" target="_blank" rel="noreferrer">Reservar cita</a>
-          <button id="hamburger" class="hamburger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-        </div>
+      <div class="social-icon">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok" class="icon">
+        <span>TikTok</span>
+      </div>
+      <div class="social-icon">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp" class="icon">
+        <span>WhatsApp</span>
       </div>
     </div>
   </header>
 
-  <!-- Floating social icons -->
-  <div class="social-float" aria-hidden="true">
-    <a href="https://wa.me/15613709889" class="sf sf-wh" title="WhatsApp" target="_blank" rel="noreferrer">WA</a>
-    <a href="https://www.instagram.com/luna.turquesa9" class="sf sf-ig" title="Instagram" target="_blank" rel="noreferrer">IG</a>
-    <a href="https://www.tiktok.com/@lunaturquesaestet" class="sf sf-tt" title="TikTok" target="_blank" rel="noreferrer">TT</a>
-  </div>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <img src="angie.png" alt="Angie Fino" class="profile-pic">
+      <p>I’m Angie Fino, a professional nurse from Colombia and currently a licensed Medical Assistant in the United States, as well as a certified phlebotomist, licensed facial specialist, and licensed massage therapist. With over 10 years of experience, I have deep knowledge of anatomy, physiology, and biosecurity, allowing me to provide safe, effective, and personalized treatments for comprehensive skin care and wellness. My philosophy is to combine the science and art of aesthetics to create a unique experience that enhances your natural beauty and delivers authentic well-being.</p>
+    </div>
+  </section>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-photo">
-          <img src="angie.png" alt="Angie Fino">
-        </div>
-        <div class="hero-content">
-          <h1 data-es="Soy Angie Fino, enfermera y esteticista" data-en="I am Angie Fino, nurse and esthetician">Soy Angie Fino, enfermera y esteticista</h1>
-          <p class="lead" data-es="Especializada en tratamientos faciales y corporales. Ofrezco limpiezas profundas, peelings, microagujas, radiofrecuencia y protocolos personalizados." data-en="Specialized in facial and body treatments. I offer deep cleansings, peels, microneedling, radiofrequency and personalized protocols.">Especializada en tratamientos faciales y corporales. Ofrezco limpiezas profundas, peelings, microagujas, radiofrecuencia y protocolos personalizados.</p>
-          <div class="hero-actions">
-            <a class="cta" href="#servicios" data-es="Ver servicios" data-en="See services">Ver servicios</a>
-            <a class="cta ghost" href="https://wa.me/15613709889" target="_blank" rel="noreferrer" data-es="Reservar cita" data-en="Book now">Reservar cita</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="sobre" class="section">
-      <div class="container sobre-inner">
-        <div class="sobre-photo"><img src="WhatsApp Image 2025-10-07 at 8.32.50 AM.jpeg" alt="Angie vestido fucsia"></div>
-        <div class="sobre-text">
-          <!-- preserve original longer about text from user's initial index if present -->
-          <div id="aboutOriginal"></div>
-          <a class="btn" href="#contacto">Contacto rápido</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="servicios" class="section">
-      <div class="container">
-        <h2 data-es="Servicios" data-en="Services">Servicios</h2>
-        <div class="service-grid">
-          <div class="service-card">
-            <img src="WhatsApp Image 2025-10-07 at 9.07.57 AM.jpeg" alt="Masajes corporales">
-            <h4>Masajes corporales</h4>
-            <a class="service-link" href="#contacto">Reservar este servicio</a>
-          </div>
-          <div class="service-card">
-            <img src="WhatsApp Image 2025-10-07 at 9.20.34 AM.jpeg" alt="Faciales">
-            <h4>Faciales</h4>
-            <a class="service-link" href="#contacto">Reservar este servicio</a>
-          </div>
-          <div class="service-card">
-            <img src="WhatsApp Image 2025-10-07 at 8.11.09 AM.jpeg" alt="Pestañas">
-            <h4>Pestañas y cejas</h4>
-            <a class="service-link" href="#contacto">Reservar este servicio</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="antes" class="section">
-      <div class="container">
-        <h2 data-es="Antes & Después" data-en="Before & After">Antes & Después</h2>
-        <div class="thumb-grid">
-          <div class="thumb"><img src="WhatsApp Image 2025-10-07 at 7.59.18 AM.jpeg" alt=""></div>
-          <div class="thumb"><img src="WhatsApp Image 2025-10-07 at 8.00.01 AM.jpeg" alt=""></div>
-          <div class="thumb"><img src="WhatsApp Image 2025-10-07 at 8.00.56 AM.jpeg" alt=""></div>
-          <div class="thumb"><img src="WhatsApp Image 2025-10-07 at 8.02.03 AM.jpeg" alt=""></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacto" class="section">
-      <div class="container contact-grid">
-        <div class="contact-card">
-          <h3 data-es="Dirección" data-en="Address">Dirección</h3>
-          <p>5550 Glades Road Suite 500<br>Boca Raton, FL 33431<br>United States</p>
-          <h4 data-es="Teléfono" data-en="Phone">Teléfono</h4>
-          <p><a href="tel:+15613709889">+1 561 370 9889</a></p>
-          <h4 data-es="Email" data-en="Email">Email</h4>
-          <p><a href="mailto:lunaturquesaestetica@gmail.com">lunaturquesaestetica@gmail.com</a></p>
-        </div>
-        <div class="contact-card">
-          <h3 data-es="Mapa" data-en="Map">Mapa</h3>
-          <iframe src="https://www.google.com/maps?q=5550+Glades+Road+Suite+500+Boca+Raton+FL+33431&output=embed" loading="lazy"></iframe>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© 2025 Luna Turquesa — Angie Fino</div>
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/luna.turquesa9" class="fs fs-ig">Instagram</a>
-        <a href="https://www.tiktok.com/@lunaturquesaestet" class="fs fs-tt">TikTok</a>
-        <a href="https://wa.me/15613709889" class="fs fs-wh">WhatsApp</a>
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="service">
+      <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=800&q=60" alt="Facial Treatment">
+      <div>
+        <h3>Personalized Facial Treatments</h3>
+        <p>Professional care tailored to your skin’s needs to cleanse, hydrate, and rejuvenate—using safe protocols and high-quality products.</p>
       </div>
     </div>
+    <div class="service">
+      <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=60" alt="Body Massage">
+      <div>
+        <h3>Body Massages & Therapies</h3>
+        <p>Every body has unique needs. We begin each treatment with a professional assessment to ensure your experience is safe, effective, and tailored to you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <h2>Reviews</h2>
+    <blockquote>“Since I started treatments with Angie, my skin has never looked better. Her professionalism and care truly make a difference.” – Emily S.</blockquote>
+    <blockquote>“The personalized protocols and top-notch attention made me feel safe and well cared for during every session.” – Sarah M.</blockquote>
+    <blockquote>“Angie’s expertise and use of high-quality products gave me visible, effective results. Highly recommended for anyone seeking real skin transformation.” – Jessica T.</blockquote>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📍 Wellington, Florida</p>
+    <p>📞 +1 561 370 9889</p>
+    <p>📧 lunaturquesaestetica@gmail.com</p>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps?q=Wellington,Florida&output=embed" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Luna Turquesa — By Ingeniero SergioLexDiaz
   </footer>
 
-  <script src="script.js"></script>
+  <a href="https://wa.me/15613709889" class="whatsapp-float" target="_blank">Book your appointment</a>
 </body>
 </html>
