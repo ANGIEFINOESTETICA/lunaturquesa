@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function(){
   if(hamburger) hamburger.addEventListener('click', openNav);
   if(closeNav) closeNav.addEventListener('click', closeNavFunc);
 
-  // Close overlay when link clicked and smooth scroll with header offset
+  // Close overlay when clicking a link and smooth scroll with offset
   document.querySelectorAll('.nav-list a').forEach(a=>{
     a.addEventListener('click', function(e){
       const href = this.getAttribute('href');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
         const id = href.slice(1);
         const el = document.getElementById(id);
         if(el){
-          const headerH = header ? header.getBoundingClientRect().height : 92;
+          const headerH = header ? header.getBoundingClientRect().height : 88;
           const rect = el.getBoundingClientRect();
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
           const target = rect.top + scrollTop - headerH - 12;
@@ -51,11 +51,11 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
-  // Close on ESC or clicking outside
+  // Close on ESC or click outside
   document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeNavFunc(); });
   navOverlay.addEventListener('click', e=>{ if(e.target === navOverlay) closeNavFunc(); });
 
-  // Language toggle - start in English, show only target language on button, button in gold
+  // Language toggle (start in English)
   let lang = 'en';
   function setLang(to){
     document.querySelectorAll('[data-en]').forEach(el=>{
@@ -63,14 +63,11 @@ document.addEventListener('DOMContentLoaded', function(){
       if(en && es) el.textContent = to === 'en' ? en : es;
     });
     lang = to;
-    if(langBtn){
-      langBtn.textContent = to === 'en' ? 'ES' : 'EN';
-      langBtn.style.color = '#C99B33';
-    }
+    if(langBtn) langBtn.textContent = to === 'en' ? 'ES' : 'EN';
   }
   if(langBtn){ langBtn.addEventListener('click', ()=> setLang(lang === 'en' ? 'es' : 'en')); setLang('en'); }
 
-  // slider autoplay
+  // Simple slider autoplay
   const slidesWrap = document.querySelector('.slides');
   if(slidesWrap){
     const slides = slidesWrap.querySelectorAll('.slide');
