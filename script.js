@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function(){
   const ham = document.getElementById('hamburger');
   const nav = document.getElementById('nav-links');
