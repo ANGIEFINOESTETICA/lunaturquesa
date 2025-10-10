@@ -1,32 +1,31 @@
-
-document.addEventListener('DOMContentLoaded', function(){
-  const hamburger = document.getElementById('hamburger');
-  const mainNav = document.getElementById('mainNav');
+document.addEventListener('DOMContentLoaded',function(){
+  const hamb = document.getElementById('hamburger');
+  const nav = document.getElementById('mainNav');
   const lang = document.getElementById('langToggle');
-  const book = document.getElementById('bookBtn');
-
-  hamburger.addEventListener('click', ()=>{
-    mainNav.style.display = mainNav.style.display === 'flex' ? 'none' : 'flex';
+  const reservar = document.getElementById('reservarBtn');
+  hamb && hamb.addEventListener('click',()=>{
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
   });
-
-  lang.addEventListener('click', ()=>{
-    // simple bilingual toggle (static example)
-    if(document.documentElement.lang === 'es'){
-      document.documentElement.lang = 'en';
-      lang.textContent = 'EN / ES';
-      // replace some visible strings (basic)
-      document.querySelector('.subtitle').textContent = 'Facial & Body Aesthetics — Angie Fino';
-      document.querySelector('.cta').textContent = 'See services';
+  const texts = document.querySelectorAll('[data-es]');
+  lang && lang.addEventListener('click',()=>{
+    const isEN = lang.innerText.trim() === 'EN';
+    if(isEN){
+      texts.forEach(el=> el.innerText = el.getAttribute('data-en') || el.innerText);
+      lang.innerText = 'ES';
     } else {
-      document.documentElement.lang = 'es';
-      lang.textContent = 'ES / EN';
-      document.querySelector('.subtitle').textContent = 'Estética Facial y Corporal — Angie Fino';
-      document.querySelector('.cta').textContent = 'Ver servicios';
+      texts.forEach(el=> el.innerText = el.getAttribute('data-es') || el.innerText);
+      lang.innerText = 'EN';
     }
   });
-
-  book.addEventListener('click', ()=>{
-    // open WhatsApp link as quick booking (example)
-    window.open('https://wa.me/1234567890','_blank');
+  reservar && reservar.addEventListener('click', (e)=>{
+    e.preventDefault();
+    window.open('https://wa.me/15613709889','_blank');
   });
+  const faders = document.querySelectorAll('.section, .hero-inner');
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting) entry.target.style.opacity = 1;
+    });
+  }, {threshold:0.2});
+  faders.forEach(f=>{ f.style.opacity=0; obs.observe(f); });
 });
