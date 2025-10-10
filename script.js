@@ -1,66 +1,32 @@
-(function(){
-  'use strict';
-  const $ = (s)=>document.querySelector(s);
-  const $$ = (s)=>Array.from(document.querySelectorAll(s));
 
-  // Language default ES
-  let lang = localStorage.getItem('lt_lang') || 'es';
-  function setLang(to){
-    lang = (to==='en' ? 'en' : 'es');
-    $$('[data-es]').forEach(el=>{
-      const es = el.getAttribute('data-es');
-      const en = el.getAttribute('data-en');
-      if(lang==='en' && en!=null) el.textContent = en;
-      else if(lang==='es' && es!=null) el.textContent = es;
-    });
-    const btn = $('#lang-toggle');
-    if(btn) btn.textContent = (lang==='en' ? 'ES | EN' : 'EN | ES');
-    try{ localStorage.setItem('lt_lang', lang);}catch(e){}
-  }
+document.addEventListener('DOMContentLoaded', function(){
+  const hamburger = document.getElementById('hamburger');
+  const mainNav = document.getElementById('mainNav');
+  const lang = document.getElementById('langToggle');
+  const book = document.getElementById('bookBtn');
 
-  document.addEventListener('DOMContentLoaded', ()=>{
-    setLang(lang);
-
-    const hb = $('#hamburger');
-    const side = $('#side-menu');
-    const veil = $('#menu-veil');
-    const langBtn = $('#lang-toggle');
-
-    function openMenu(){
-      side.classList.add('active');
-      veil.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      hb.classList.add('is-active');
-      hb.setAttribute('aria-expanded','true');
-    }
-    function closeMenu(){
-      side.classList.remove('active');
-      veil.classList.remove('active');
-      document.body.style.overflow = '';
-      hb.classList.remove('is-active');
-      hb.setAttribute('aria-expanded','false');
-    }
-
-    if(hb){
-      hb.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        if(side.classList.contains('active')) closeMenu(); else openMenu();
-      });
-    }
-    if(veil){
-      veil.addEventListener('click', closeMenu);
-    }
-    // close on Esc
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
-
-    // close when clicking a link
-    if(side) side.querySelectorAll('a').forEach(a=> a.addEventListener('click', closeMenu));
-
-    // lang toggle
-    if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang==='es' ? 'en' : 'es'));
-
-    // hide intro
-    const intro = $('#intro');
-    if(intro) setTimeout(()=>{ intro.style.opacity='0'; intro.style.pointerEvents='none'; try{ intro.remove(); }catch(e){} }, 1200);
+  hamburger.addEventListener('click', ()=>{
+    mainNav.style.display = mainNav.style.display === 'flex' ? 'none' : 'flex';
   });
-})();
+
+  lang.addEventListener('click', ()=>{
+    // simple bilingual toggle (static example)
+    if(document.documentElement.lang === 'es'){
+      document.documentElement.lang = 'en';
+      lang.textContent = 'EN / ES';
+      // replace some visible strings (basic)
+      document.querySelector('.subtitle').textContent = 'Facial & Body Aesthetics — Angie Fino';
+      document.querySelector('.cta').textContent = 'See services';
+    } else {
+      document.documentElement.lang = 'es';
+      lang.textContent = 'ES / EN';
+      document.querySelector('.subtitle').textContent = 'Estética Facial y Corporal — Angie Fino';
+      document.querySelector('.cta').textContent = 'Ver servicios';
+    }
+  });
+
+  book.addEventListener('click', ()=>{
+    // open WhatsApp link as quick booking (example)
+    window.open('https://wa.me/1234567890','_blank');
+  });
+});
