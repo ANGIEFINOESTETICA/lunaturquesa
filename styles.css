@@ -64,14 +64,23 @@
   .nav-list a{font-size:22px}
 }
 /* ---- Estilos del texto del encabezado ---- */
+.brand-text {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente si aplica */
+  flex-direction: column;  /* asegura que el texto quede apilado */
+  text-align: center;      /* centra el texto dentro del bloque */
+  margin: 0 auto;
+}
+
 .brand-text .name {
   color: #008B8B; /* aguamarina oscuro */
-  text-align: center;
   font-size: 1.3rem;
   font-weight: 600;
-  margin: 0 auto;
-  max-width: 90%;
   line-height: 1.4;
+  max-width: 90%;
+  margin: 0 auto;
   word-wrap: break-word;
 }
 
@@ -79,8 +88,8 @@
 @media (max-width: 600px) {
   .brand-text .name {
     font-size: 1.1rem;
-    text-align: center;
     padding: 0 10px;
   }
 }
+
 
