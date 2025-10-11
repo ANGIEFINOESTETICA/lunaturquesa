@@ -67,29 +67,29 @@
 .brand-text {
   width: 100%;
   display: flex;
-  justify-content: center; /* centra horizontalmente */
-  align-items: center;     /* centra verticalmente si aplica */
-  flex-direction: column;  /* asegura que el texto quede apilado */
-  text-align: center;      /* centra el texto dentro del bloque */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   margin: 0 auto;
+  padding: 4px 12px;
 }
 
 .brand-text .name {
   color: #008B8B; /* aguamarina oscuro */
-  font-size: 1.3rem;
   font-weight: 600;
-  line-height: 1.4;
-  max-width: 90%;
+  line-height: 1.3;
   margin: 0 auto;
-  word-wrap: break-word;
+  max-width: 95%;
+  word-break: keep-all;
+  font-size: clamp(0.9rem, 3vw, 1.4rem);
+  /* 👆 Esto hace que el texto sea más pequeño en celulares y más grande en pantallas grandes */
 }
 
-/* Ajuste para celulares */
-@media (max-width: 600px) {
+/* Para pantallas muy pequeñas */
+@media (max-width: 400px) {
   .brand-text .name {
-    font-size: 1.1rem;
-    padding: 0 10px;
+    font-size: 0.85rem;
   }
 }
-
 
