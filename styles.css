@@ -63,3 +63,24 @@
   .portrait{width:180px;height:180px}
   .nav-list a{font-size:22px}
 }
+/* ---- Estilos del texto del encabezado ---- */
+.brand-text .name {
+  color: #008B8B; /* aguamarina oscuro */
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 auto;
+  max-width: 90%;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+  .brand-text .name {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0 10px;
+  }
+}
+
