@@ -1,105 +1,200 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Luna Turquesa — Estética Facial y Corporal</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script src="script.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Luna Turquesa – Estética Facial y Corporal</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">    
+  <meta name="description" content="Professional facial and body aesthetic treatments by Angie Fino in 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States">
+  <meta name="author" content="Angie Fino">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="header" id="site-header" aria-label="Encabezado">
-    <div class="left-group">
-      <a href="#top" class="logo-link"><img src="logo.png" alt="logo" class="logo"></a>
-      <div class="socials" aria-hidden="false">
-        <!-- Instagram (dorado), TikTok (dark), WhatsApp (green) -->
-        <a href="https://www.instagram.com/luna.turquesa9" target="_blank" class="social-icon instagram" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="none"><rect x="3" y="3" width="18" height="18" rx="5" fill="#C99B33"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@lunaturquesaestet" target="_blank" class="social-icon tiktok" aria-label="TikTok">
-          <svg viewBox="0 0 48 48" width="18" height="18" fill="none" stroke="none"><path d="M34.5 12.5c-.8-.1-2.4-.2-3.6-.2v8.2c0 7.1-5.8 12.9-12.9 12.9-1.2 0-2.3-.2-3.4-.6v3.3c0 .6-.6 1-1.1.8-5.3-2-9-6.9-9-12.9C5.5 8.2 10.6 3 17 3c.9 0 1.9.1 2.8.3v7.2c.6.1 1.5.2 2.3.2 0 0 8.4.1 11.4 1z" fill="#000"/></svg>
-        </a>
-        <a href="https://wa.me/15613709889" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="none"><circle cx="12" cy="12" r="10" fill="#25D366"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="brand-text">
-  <div class="name">Luna Turquesa Estética  </div>
-</div>
-
-
-    
+  <!-- Intro overlay with logo glow (one-time) -->
+  <div id="intro" class="intro">
+    <div class="intro-inner">
+      <img src="logo.png" alt="Luna Turquesa logo" class="intro-logo">
+      <div class="intro-glow"></div>
     </div>
   </div>
 
-    <div class="right-group">
-      <button id="lang-toggle" class="lang-btn" aria-label="Cambiar idioma">ES</button>
-      <button id="hamburger" class="hamburger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  <header class="header" id="top">
+    <div class="header-left">
+      <a href="#top" id="logo-link"><img src="logo.png" alt="Luna Turquesa logo" class="logo-header"></a>
+      <h1 class="brand-title">Luna Turquesa – Estética Facial y Corporal</h1>
+    </div>
+    <div class="header-right">
+      <nav class="socials" aria-label="Social links">
+        <a class="social" href="https://www.instagram.com/luna.turquesa9" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+        </a>
+        <a class="social" href="https://www.tiktok.com/@lunaturquesaestet" target="_blank" aria-label="TikTok">
+          <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true">
+            <path d="M34.5 12.5c-.8-.1-2.4-.2-3.6-.2v8.2c0 7.1-5.8 12.9-12.9 12.9-4.7 0-8.9-2.6-11.1-6.6-.3-.6-.1-1.3.5-1.6.6-.3 1.3-.1 1.6.5 1.8 3.6 5.6 5.8 9.4 5.8 6.3 0 11.4-5.1 11.4-11.4V14.3c.5.2 1.1.3 1.8.3.3 0 .6-.3.6-.6V13c0-.3-.2-.5-.5-.5z" fill="#25f4ee"></path>
+            <path d="M34.5 12.5c-.8-.1-2.4-.2-3.6-.2v8.2c0 7.1-5.8 12.9-12.9 12.9-1.2 0-2.3-.2-3.4-.6v3.3c0 .6-.6 1-1.1.8-5.3-2-9-6.9-9-12.9C5.5 8.2 10.6 3 17 3c.9 0 1.9.1 2.8.3v7.2c.6.1 1.5.2 2.3.2 0 0 8.4.1 11.4 1z" fill="#ee2d63"></path>
+            <path d="M34.5 12.5c-.8-.1-2.4-.2-3.6-.2v8.2c0 7.1-5.8 12.9-12.9 12.9v-5.4c6.3 0 11.4-5.1 11.4-11.4V14.3c.5.2 1.1.3 1.8.3.3 0 .6-.3.6-.6V13c0-.3-.2-.5-.5-.5z" fill="#000"></path>
+          </svg>
+        </a>
+        <a class="social" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#25D366"/><path d="M17.2 14.1c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.7.1-.1.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.7-1.8-1-2.4-.3-.6-.6-.5-.8-.5-.2 0-.4 0-.6 0-.2 0-.5.1-.8.3-.3.2-1 1-1 2.4s1 2.8 1.1 3c.1.2 1.9 3 4.6 4.2 3 .9 3.3.8 3.6.8.3 0 1 .4 1.1.8.1.4.1.7.1.8 0 .1 0 .2 0 .2 0 .2-.1.4-.5.6-.4.2-1.7.7-3.1.7-1.4 0-3.4-.6-5.1-1.8-1.7-1.2-2.9-2.8-3.5-4.5-.6-1.7-.4-3.6.7-5.2C5.9 6.6 7.9 5.6 10.3 5.5 12.7 5.4 14.9 6.4 16.6 8.3c1.7 1.8 2.4 4.1 2.3 6.4-.1 2.3-1 4.3-2.7 5.7z" fill="#fff"/></svg>
+        </a>
+      </nav>
+      <!-- mobile hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <!-- language toggle -->
+      <div class="lang-wrap">
+        <button id="lang-toggle" class="lang-btn" aria-pressed="false">EN | ES</button>
+      </div>
     </div>
   </header>
 
-  <!-- Fullscreen darker glass overlay menu -->
-  <div id="nav-overlay" class="nav-overlay" aria-hidden="true">
-    <div class="nav-overlay-inner" role="dialog" aria-modal="true">
-      <button id="close-nav" class="close-nav" aria-label="Cerrar menú">✕</button>
-      <ul class="nav-list">
-        <li><a href="#about" data-en="About" data-es="Sobre mí">About</a></li>
-        <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
-        <li><a href="#faciales" data-en="Facials" data-es="Faciales">Facials</a></li>
-        <li><a href="#corporales" data-en="Body" data-es="Corporales">Body</a></li>
-        <li><a href="#pestanas" data-en="Lashes" data-es="Pestañas y Cejas">Lashes</a></li>
-        <li><a href="#antes" data-en="Before & After" data-es="Antes & Después">Before & After</a></li>
-        <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
-      </ul>
-    </div>
-  </div>
+  <section class="hero">
+    <img src="logo.png" alt="Luna Turquesa logo" class="logo-hero">
+    <h2 class="hero-title" data-en="Facial and Body Aesthetics" data-es="Estética Facial y Corporal">Estética Facial y Corporal</h2>
+  </section>
 
-  <!-- Original content preserved -->
-  <main class="main-wrap" id="top">
-    <section id="about" class="about-section">
-      <img src="angie.png" alt="Angie Fino" class="portrait">
-      <div class="about-text">
-        <h2 class="section-title" data-en="About Me" data-es="Sobre mí">About Me</h2>
-        <p data-en="I’m Angie Fino, a specialist in facial and body aesthetics with over 10 years of experience in comprehensive skin care and wellness. My treatments are backed by safe and personalized protocols, using premium-quality products to ensure effective results. In my suite in 5550 Glades Road, Suite 500
-Boca Raton, FL 33431United States ,I prioritize patient safety and personalized care that elevates your experience.I’m Angie Fino, a professional nurse from Colombia and currently a licensed Medical Assistant in the United States, as well as a certified phlebotomist, licensed facial specialist, and licensed massage therapist. With over 10 years of experience, I have deep knowledge of anatomy, physiology, and biosecurity, allowing me to provide safe, effective, and personalized treatments for comprehensive skin care and wellness. My philosophy is to combine the science and art of aesthetics to create a unique experience that enhances your natural beauty and delivers authentic well-being.
-"
-           data-es="Soy Angie Fino, especialista en estética facial y corporal con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar.
-Mis tratamientos se basan en protocolos seguros y personalizados, utilizando productos de la más alta calidad para garantizar resultados efectivos.
-En mi suite ubicada en 5550 Glades Road, Suite 500, Boca Ratón, FL 33431, Estados Unidos, priorizo la seguridad del paciente y una atención personalizada que eleva tu experiencia.Soy Angie Fino, enfermera profesional de Colombia y actualmente asistente médica licenciada en los Estados Unidos, además de flebotomista certificada, especialista facial con licencia y terapeuta de masaje licenciada.
-Con más de 10 años de experiencia, poseo un profundo conocimiento en anatomía, fisiología y bioseguridad, lo que me permite ofrecer tratamientos seguros, eficaces y personalizados para el cuidado integral de la piel y el bienestar.
-Mi filosofía es combinar la ciencia y el arte de la estética para crear una experiencia única que resalte tu belleza natural y promueva un bienestar auténtico.">I’m Angie Fino, a specialist in facial and body aesthetics with over 10 years of experience in comprehensive skin care and wellness.</p>
+  <main class="content" id="main-content">
+
+    <section id="about" class="panel" data-en data-es>
+      <h2 class="section-title" data-en="About Me" data-es="Sobre mí">Sobre mí</h2>
+      <div class="about-grid">
+        <div class="portrait-wrap">
+          <img src="angie.png" alt="Angie Fino" class="portrait">
+        </div>
+        <div class="about-text">
+          <p data-en="I’m Angie Fino, a specialist in facial and body aesthetics with over 10 years of experience in comprehensive skin care and wellness. My treatments are backed by safe and personalized protocols, using premium-quality products to ensure effective results. In my suite in Wellington, Florida, I prioritize patient safety and personalized care that elevates your experience to a higher level."
+             data-es="Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar. Mis tratamientos están respaldados por protocolos seguros y personalizados, con productos de la más alta calidad para garantizar resultados efectivos. En mi suite 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States priorizo la seguridad del paciente y una atención personalizada que eleva tu experiencia a un nivel superior.">Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar. Mis tratamientos están respaldados por protocolos seguros y personalizados, con productos de la más alta calidad para garantizar resultados efectivos. En mi suite 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States priorizo la seguridad del paciente y una atención personalizada que eleva tu experiencia a un nivel superior.</p>
+
+          <p data-en="I’m a professional nurse from Colombia and currently a licensed Medical Assistant in the United States, as well as a certified phlebotomist, licensed facial specialist, and licensed massage therapist. With over 10 years of experience, I have deep knowledge of anatomy, physiology, and biosecurity, allowing me to provide safe, effective, and personalized treatments for comprehensive skin care and wellness. My philosophy is to combine the science and art of aesthetics to create a unique experience that enhances your natural beauty and delivers authentic well-being."
+             data-es="Soy Angie Fino, enfermera profesional de Colombia y actualmente Asistente Médica licenciada en los Estados Unidos, así como flebotomista certificada, especialista facial y terapeuta de masaje licenciada. Con más de 10 años de experiencia, tengo un profundo conocimiento de anatomía, fisiología y bioseguridad, lo que me permite ofrecer tratamientos seguros, efectivos y personalizados para el cuidado integral de la piel y el bienestar. Mi filosofía combina la ciencia y el arte de la estética para crear una experiencia única que realza tu belleza natural y entrega bienestar auténtico.">Soy Angie Fino, enfermera profesional de Colombia y actualmente Asistente Médica licenciada en los Estados Unidos, así como flebotomista certificada, especialista facial y terapeuta de masaje licenciada. Con más de 10 años de experiencia, tengo un profundo conocimiento de anatomía, fisiología y bioseguridad, lo que me permite ofrecer tratamientos seguros, efectivos y personalizados para el cuidado integral de la piel y el bienestar. Mi filosofía combina la ciencia y el arte de la estética para crear una experiencia única que realza tu belleza natural y entrega bienestar auténtico.</p>
+        </div>
       </div>
     </section>
 
-    <div class="slider"><div class="slides"><div class="slide"><img src="WhatsApp Image 2025-10-07 at 7.49.36 AM.jpeg" alt="Hero"></div><div class="slide"><img src="WhatsApp Image 2025-10-07 at 7.50.17 AM.jpeg" alt="Hero"></div><div class="slide"><img src="WhatsApp Image 2025-10-07 at 7.50.52 AM.jpeg" alt="Hero"></div></div></div>
+    <section id="services" class="panel">
+      <h2 class="section-title gold" data-en="Our Services" data-es="Nuestros Servicios">Nuestros Servicios</h2>
 
-    <section id="services" class="section">
-      <h2 data-en="Services" data-es="Servicios">Services</h2>
-      <div class="cards">
-        <article class="service-card"><h3 data-en="Facials" data-es="Faciales">Facials</h3><p> <p data-en="Professional facial cleansing, dermaplaning, microneedling, peels, and LED therapy" data-es="Limpieza facial profesional, dermaplaning, microneedling, peelings y terapia LED."> Professional facial cleansing, dermaplaning, microneedling, peels, and LED therapy</p></article>
-        <img src="limpiezafacial.png" alt="Facials" class="portrait">
-        <article class="service-card"><h3 data-en="Body" data-es="Corporales">Body</h3><p><p data-es="Drenaje linfático manual, envolvimientos reductores y masajes modeladores."data-en="Manual lymphatic drainage, slimming body wraps, and body contouring massages.">Manual lymphatic drainage, slimming body wraps, and body contouring massages.</p></article>
-         <img src="limpiezafacialprofunda.png" alt="body" class="portrait">
-        <article class="service-card"><h3 data-en="Lashes" data-es="Pestañas y Cejas">Lashes</h3><p><p data-es="Extensiones, lifting y diseño de cejas profesional."data-en="Eyelash extensions, lifting, and professional eyebrow design">Eyelash extensions, lifting, and professional eyebrow design</p></article>
-         <img src="peel.png" alt="Lashes" class="portrait">
+      <div class="subsection">
+        <h3 class="sub-title" data-en="Facial Services" data-es="Servicios Faciales">Servicios Faciales</h3>
+        <div class="services-grid">
+          <article class="service-card">
+            <img class="service-img" src="limpiezafacial.png" alt="Basic Facial">
+            <h4 data-en="Basic Facial Cleansing" data-es="Limpieza facial básica">Limpieza facial básica</h4>
+            <p data-en="Surface cleansing to remove impurities and keep skin fresh and healthy." data-es="Limpieza superficial para eliminar impurezas y mantener la piel fresca y saludable.">Limpieza superficial para eliminar impurezas y mantener la piel fresca y saludable.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Beneficio:</strong> <span data-en="Clean, revitalized skin." data-es="Piel limpia y revitalizada.">Piel limpia y revitalizada.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="limpiezafacialprofunda.png" alt="Deep Facial">
+            <h4 data-en="Deep Facial Cleansing" data-es="Limpieza facial profunda">Limpieza facial profunda</h4>
+            <p data-en="Deep cleansing with manual extraction to remove blackheads and dead skin cells." data-es="Higiene profunda con extracción manual para eliminar puntos negros y células muertas.">Higiene profunda con extracción manual para eliminar puntos negros y células muertas.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Beneficio:</strong> <span data-en="Purified pores and renewed skin." data-es="Poros purificados y piel renovada.">Poros purificados y piel renovada.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="dermaplaning.png" alt="Dermaplaning">
+            <h4 data-en="Dermaplaning" data-es="Dermaplaning">Dermaplaning</h4>
+            <p data-en="Manual exfoliation that removes dead skin and fine hair for smoother, brighter skin." data-es="Exfoliación manual que elimina células muertas y vello fino para una piel más suave y luminosa.">Exfoliación manual que elimina células muertas y vello fino para una piel más suave y luminosa.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Beneficio:</strong> <span data-en="Improved texture and natural glow." data-es="Mejora la textura y brillo natural.">Mejora la textura y brillo natural.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="microneedling.png" alt="Microneedling">
+            <h4 data-en="Microneedling" data-es="Microneedling">Microneedling</h4>
+            <p data-en="Stimulates collagen production to reduce scars, pigmentation, and fine lines." data-es="Estimula la producción de colágeno para reducir cicatrices, manchas y líneas finas.">Estimula la producción de colágeno para reducir cicatrices, manchas y líneas finas.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Beneficio:</strong> <span data-en="Rejuvenated, firmer skin." data-es="Piel rejuvenecida y firme.">Piel rejuvenecida y firme.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="peel.png" alt="Chemical Peels">
+            <h4 data-en="Chemical Peels" data-es="Peelings Químicos">Peelings Químicos</h4>
+            <p data-en="Treatments to renew the skin, improve spots, acne and signs of aging." data-es="Tratamientos para renovar la piel, mejorar manchas, acné y signos de envejecimiento.">Tratamientos para renovar la piel, mejorar manchas, acné y signos de envejecimiento.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Beneficio:</strong> <span data-en="Cellular renewal and improved clarity." data-es="Renovación celular y mejora de la claridad.">Renovación celular y mejora de la claridad.</span></p>
+          </article>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3 class="sub-title" data-en="Body Services" data-es="Servicios Corporales">Servicios Corporales</h3>
+        <div class="services-grid">
+          <article class="service-card">
+            <img class="service-img" src="body1.png" alt="Candle Massage">
+            <h4 data-en="Candle Relaxation Massage" data-es="Masaje relajante con velas">Masaje relajante con velas</h4>
+            <p data-en="A sensory experience combining warm natural oils from aromatic candles to deeply relax and nourish the skin." data-es="Combina calor y aceites aromáticos de velas naturales para aliviar el estrés y nutrir la piel.">Combina calor y aceites aromáticos de velas naturales para aliviar el estrés y nutrir la piel.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Beneficio:</strong> <span data-en="Deep relaxation and silky, hydrated skin." data-es="Relajación profunda y piel sedosa.">Relajación profunda y piel sedosa.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="body2.png" alt="Swedish Massage">
+            <h4 data-en="Swedish Massage" data-es="Masaje sueco">Masaje sueco</h4>
+            <p data-en="Classic technique using soft, flowing strokes to ease muscle tension and promote circulation." data-es="Técnica clásica con movimientos suaves y envolventes para liberar tensión muscular.">Técnica clásica con movimientos suaves y envolventes para liberar tensión muscular.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Beneficio:</strong> <span data-en="Physical relaxation, improved sleep, and overall well-being." data-es="Bienestar físico, mejora del sueño y circulación.">Bienestar físico, mejora del sueño y circulación.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="body3.png" alt="Sports Massage">
+            <h4 data-en="Sports Massage" data-es="Masaje para deportistas">Masaje para deportistas</h4>
+            <p data-en="Ideal before or after training. Helps relieve tension, improve performance, and speed up muscle recovery." data-es="Ideal antes o después del entrenamiento. Alivia tensiones, mejora el rendimiento y acelera la recuperación muscular.">Ideal antes o después del entrenamiento. Alivia tensiones, mejora el rendimiento y acelera la recuperación muscular.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Beneficio:</strong> <span data-en="Injury prevention and better mobility." data-es="Prevención de lesiones y mejor movilidad.">Prevención de lesiones y mejor movilidad.</span></p>
+          </article>
+
+          <article class="service-card">
+            <img class="service-img" src="body4.png" alt="Lymphatic Drainage">
+            <h4 data-en="Manual Lymphatic Drainage" data-es="Drenaje linfático manual">Drenaje linfático manual</h4>
+            <p data-en="Gentle technique that stimulates the lymphatic system to eliminate excess fluids and toxins." data-es="Técnica suave que estimula el sistema linfático para eliminar líquidos y toxinas.">Técnica suave que estimula el sistema linfático para eliminar líquidos y toxinas.</p>
+            <p><strong data-en="Benefit:" data-es="Beneficio:">Beneficio:</strong> <span data-en="Reduced swelling and improved circulation." data-es="Reducción de hinchazón y mejor circulación.">Reducción de hinchazón y mejor circulación.</span></p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="section contact-section">
-      <h2 data-en="Contact" data-es="Contacto">Contact</h2>
-      <p><strong>Address:</strong><br>5550 Glades Road, Suite 500<br>Boca Raton, FL 33431<br>United States</p>
-      <div class="map-wrap"><iframe class="map" src="https://www.google.com/maps?q=5550+Glades+Road+Suite+500+Boca+Raton+FL+33431&output=embed" allowfullscreen loading="lazy"></iframe></div>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/15613709889">+1 561 370 9889</a></p>
+    <section id="gallery" class="panel">
+      <h2 class="section-title gold">Galería</h2>
+      <div class="gallery">
+        <img src="gallery1.png" alt="spa1">
+        <img src="gallery2.png" alt="spa2">
+        <img src="gallery3.png" alt="spa3">
+      </div>
+    </section>
+
+    <section id="reviews" class="panel">
+      <h2 class="section-title gold">Opiniones</h2>
+      <blockquote>“Since I started treatments with Angie, my skin has never looked better. Her professionalism and care truly make a difference.” – Emily S.</blockquote>
+      <blockquote>“The personalized protocols and top-notch attention made me feel safe and well cared for during every session.” – Sarah M.</blockquote>
+      <blockquote>“Angie’s expertise and use of high-quality products gave me visible, effective results. Highly recommended for anyone seeking real skin transformation.” – Jessica T.</blockquote>
+    </section>
+
+    <section id="contact" class="panel contact-panel">
+      <h2 class="section-title gold">Contacto</h2>
+      <p><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/15613709889" target="_blank">+1 561 370 9889</a></p>
+      <p><strong>Correo:</strong> <a href="mailto:lunaturquesaestetica@gmail.com">lunaturquesaestetica@gmail.com</a></p>
+      <p><strong>Dirección:</strong> 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States</p>
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps?q=5550+Glades+Rd+Suite+500,+Boca+Raton,+FL+33431,+United+States&output=embed"
+          width="100%"
+          height="400"
+          style="border:0; border-radius:15px;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
     </section>
 
   </main>
 
-  <footer class="footer"><div>© 2025 Luna Turquesa — by ingeniero sergiolex</div></footer>
+  <a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">
+    <svg class="wh-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#FFFFFF" d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .002 5.373.002 12a11.8 11.8 0 001.64 6.04L0 24l6.15-2.03A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.25-6.18-3.48-8.52z"/></svg>
+    <span class="wh-text" data-en="Book your appointment" data-es="Reserva tu cita">Reserva tu cita</span>
+  </a>
 
-  <a class="whatsapp-float" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp"><svg class="wh-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#FFFFFF" d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .002 5.373.002 12a11.8 11.8 0 001.64 6.04L0 24l6.15-2.03A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.25-6.18-3.48-8.52z"/></svg><span data-en="Book via WhatsApp" data-es="Reservar por WhatsApp">Book via WhatsApp</span></a>
+  <footer class="footer">
+    <p>© 2025 Luna Turquesa — By Ingeniero SergioLexDiaz</p>
+  </footer>
 
 </body>
 </html>
