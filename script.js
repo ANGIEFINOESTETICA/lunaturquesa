@@ -1,79 +1,57 @@
 
-document.addEventListener('DOMContentLoaded', function(){
-  const hamburger = document.getElementById('hamburger');
-  const navOverlay = document.getElementById('nav-overlay');
-  const closeNav = document.getElementById('close-nav');
-  const langBtn = document.getElementById('lang-toggle');
-  const header = document.getElementById('site-header');
-
-  function setHeaderVar(){
-    if(header){
-      const h = Math.round(header.getBoundingClientRect().height);
-      document.documentElement.style.setProperty('--header-h', h + 'px');
-    }
-  }
-  setHeaderVar();
-  window.addEventListener('resize', setHeaderVar);
-
-  function openNav(){
-    navOverlay.classList.add('open');
-    navOverlay.setAttribute('aria-hidden','false');
-    hamburger.setAttribute('aria-expanded','true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeNavFunc(){
-    navOverlay.classList.remove('open');
-    navOverlay.setAttribute('aria-hidden','true');
-    hamburger.setAttribute('aria-expanded','false');
-    document.body.style.overflow = '';
-  }
-
-  if(hamburger) hamburger.addEventListener('click', openNav);
-  if(closeNav) closeNav.addEventListener('click', closeNavFunc);
-
-  // Close overlay when clicking a link and smooth scroll with offset
-  document.querySelectorAll('.nav-list a').forEach(a=>{
-    a.addEventListener('click', function(e){
-      const href = this.getAttribute('href');
-      if(href && href.startsWith('#')){
-        e.preventDefault();
-        const id = href.slice(1);
-        const el = document.getElementById(id);
-        if(el){
-          const headerH = header ? header.getBoundingClientRect().height : 88;
-          const rect = el.getBoundingClientRect();
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const target = rect.top + scrollTop - headerH - 12;
-          window.scrollTo({top: target, behavior: 'smooth'});
-        }
-      }
-      closeNavFunc();
-    });
-  });
-
-  // Close on ESC or click outside
-  document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeNavFunc(); });
-  navOverlay.addEventListener('click', e=>{ if(e.target === navOverlay) closeNavFunc(); });
-
-  // Language toggle (start in English)
-  let lang = 'en';
+(function(){
+  'use strict';
+  const $ = (s)=>document.querySelector(s);
+  const $$ = (s)=>Array.from(document.querySelectorAll(s));
+  let lang = localStorage.getItem('lt_lang') || 'es';
   function setLang(to){
-    document.querySelectorAll('[data-en]').forEach(el=>{
-      const en = el.getAttribute('data-en'), es = el.getAttribute('data-es');
-      if(en && es) el.textContent = to === 'en' ? en : es;
+    lang = (to==='en' ? 'en' : 'es');
+    $$('[data-es]').forEach(el=>{
+      const es = el.getAttribute('data-es');
+      const en = el.getAttribute('data-en');
+      if(lang==='en' && en!=null) el.textContent = en;
+      else if(lang==='es' && es!=null) el.textContent = es;
     });
-    lang = to;
-    if(langBtn) langBtn.textContent = to === 'en' ? 'ES' : 'EN';
+    const btn = $('#lang-toggle');
+    if(btn) btn.textContent = (lang==='en' ? 'ES | EN' : 'EN | ES');
+    try{ localStorage.setItem('lt_lang', lang);}catch(e){}
   }
-  if(langBtn){ langBtn.addEventListener('click', ()=> setLang(lang === 'en' ? 'es' : 'en')); setLang('en'); }
+  document.addEventListener('DOMContentLoaded', ()=>{
+    // init lang
+    setLang(lang);
+    const langBtn = $('#lang-toggle');
+    if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang==='es' ? 'en' : 'es'));
 
-  // Simple slider autoplay
-  const slidesWrap = document.querySelector('.slides');
-  if(slidesWrap){
-    const slides = slidesWrap.querySelectorAll('.slide');
-    let idx = 0;
-    function show(i){ slides.forEach((s,si)=> s.style.display = si === i ? 'block' : 'none'); }
-    show(0);
-    setInterval(()=>{ idx = (idx + 1) % slides.length; show(idx); }, 4500);
-  }
-});
+    // hamburger
+    const hb = $('#hamburger');
+    // create nav menu if not present
+    let nav = $('#nav-menu');
+    if(!nav){
+      nav = document.createElement('nav');
+      nav.id = 'nav-menu';
+      nav.className = 'nav-menu';
+      nav.innerHTML = '<a href="#about">Inicio</a><a href="#about">Sobre mí</a><a href="#services">Servicios</a><a href="#reviews">Opiniones</a><a href="#contact">Contacto</a>';
+      document.body.insertBefore(nav, document.querySelector('.hero') || document.body.firstChild);
+    }
+    if(hb){
+      hb.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        nav.classList.toggle('active');
+        hb.classList.toggle('is-active');
+      });
+    }
+    // click outside to close
+    document.addEventListener('click', (e)=>{
+      if(nav && !nav.contains(e.target) && hb && !hb.contains(e.target)){
+        nav.classList.remove('active');
+        hb.classList.remove('is-active');
+      }
+    });
+    // smooth scroll handled by CSS scroll-behavior; close nav on link click
+    nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{ nav.classList.remove('active'); if(hb) hb.classList.remove('is-active'); }));
+
+    // hide intro after short delay
+    const intro = $('#intro');
+    if(intro) setTimeout(()=>{ intro.style.opacity='0'; intro.style.pointerEvents='none'; try{ intro.remove(); }catch(e){} }, 1200);
+  });
+})();
