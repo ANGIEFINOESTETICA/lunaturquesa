@@ -33,6 +33,9 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 .socials a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;text-decoration:none}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1300}
 .hamburger .bar{display:block;width:26px;height:3px;background:var(--gold);margin:4px 0;border-radius:3px;transition:all .3s}
+/* hamburger */
+.hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;width:36px;height:32px;background:transparent;border:none;cursor:pointer;z-index:1400}
+.bar{width:26px;height:3px;background:var(--gold);margin:3px 0;border-radius:3px;transition:all .35s}
 
 /* hero */
 .hero{text-align:center;padding:20px 10px}
