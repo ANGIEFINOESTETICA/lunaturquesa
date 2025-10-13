@@ -16,7 +16,7 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 .logo-header::after{content:'';position:absolute;inset:0;border-radius:12px;box-shadow:0 0 30px 6px rgba(202,161,59,0.12);pointer-events:none;animation:logoGlow 3.2s ease-in-out infinite}
 @keyframes logoGlow{0%{box-shadow:0 0 0 0 rgba(202,161,59,0.06)}50%{box-shadow:0 0 60px 8px rgba(202,161,59,0.16)}100%{box-shadow:0 0 0 0 rgba(202,161,59,0.06)}}
 
-.brand-title{font-weight:700;font-size:18px;color:var(--text);margin:0}
+.brand-title{margin:0;font-size:20px;color:var(--aqua);font-weight:700}
 
 /* socials and header-right */
 .header-right{display:flex;align-items:center;gap:10px}
