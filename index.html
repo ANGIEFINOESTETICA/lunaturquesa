@@ -80,7 +80,7 @@
     <button id="lang-toggle" class="lang-btn" aria-pressed="false">EN | ES</button>
   </div>
        
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <button class="hamburger" id="hamburgerv2" aria-label="Toggle menu" aria-expanded="false">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
     </div>
@@ -246,11 +246,11 @@
   </footer>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
+  const hamburgerv2 = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
+  hamburgerv2.addEventListener('click', () => {
+    hamburgerv2.classList.toggle('active');
     menu.classList.toggle('open');
   });
 
