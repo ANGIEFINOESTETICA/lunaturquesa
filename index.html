@@ -58,24 +58,23 @@
       </nav>
   </div>
        </header>
-       <!-- ======= Menú hamburguesa limpio ======= -->
-<button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+       <!-- ===== BOTÓN HAMBURGUESA FUERA DEL HEADER ===== -->
+<button class="hamburger" id="hamburger" aria-label="Abrir menú">
   <span class="bar"></span>
   <span class="bar"></span>
   <span class="bar"></span>
 </button>
 
+<!-- ===== MENÚ LATERAL FUERA DEL HEADER ===== -->
 <nav class="menu" id="menu">
   <ul>
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#top">Inicio</a></li>
     <li><a href="#services">Servicios</a></li>
     <li><a href="#gallery">Galería</a></li>
     <li><a href="#reviews">Opiniones</a></li>
     <li><a href="#contact">Contacto</a></li>
   </ul>
 </nav>
-<!-- ======= Fin del menú ======= -->
 
         <!-- bilingual button centered under logo -->
   <div class="lang-wrap">
@@ -247,7 +246,23 @@
     <p>© 2025 Luna Turquesa — By Ingeniero SergioLexDiaz</p>
   </footer>
 
-<script src="script.js"></script>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    menu.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      menu.classList.remove('open');
+    });
+  });
+</script>
+
 </body>
 </html>
 
