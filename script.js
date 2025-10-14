@@ -1,76 +1,65 @@
 (function(){
   'use strict';
-
-  // ==== Helpers ====
   const $ = (s)=>document.querySelector(s);
   const $$ = (s)=>Array.from(document.querySelectorAll(s));
 
-  // ==== Language handling ====
+  // language storage
   let lang = localStorage.getItem('lt_lang') || 'es';
   function setLang(to){
-    lang = (to === 'en' ? 'en' : 'es');
-    $$('[data-es]').forEach(el=>{
-      const es = el.getAttribute('data-es');
-      const en = el.getAttribute('data-en');
-      if(lang === 'en' && en != null) el.textContent = en;
-      else if(lang === 'es' && es != null) el.textContent = es;
-    });
+    lang = (to==='en' ? 'en' : 'es');
+    // for this zipped version basic: change lang button label only (extendable)
     const btn = $('#lang-toggle');
-    if(btn) btn.textContent = (lang === 'en' ? 'ES | EN' : 'EN | ES');
-    try { localStorage.setItem('lt_lang', lang); } catch(e){}
+    if(btn) btn.textContent = (lang==='en' ? 'ES | EN' : 'EN | ES');
+    try{ localStorage.setItem('lt_lang', lang);}catch(e){}
   }
 
   document.addEventListener('DOMContentLoaded', ()=>{
 
-    // Initialize language
     setLang(lang);
-    const langBtn = $('#lang-toggle');
-    if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang === 'es' ? 'en' : 'es'));
 
-    // Hamburger menu logic
-    const hb = $('#hamburgerv2');
-    const nav = $('#menu');
+    const hb = $('#hamburger');
+    const side = $('#side-menu');
     const veil = $('#menu-veil');
 
-    if(hb && nav){
-      hb.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        const isOpen = hb.classList.toggle('active');
-        nav.classList.toggle('open', isOpen);
-        if(veil) veil.setAttribute('aria-hidden', !isOpen);
-        hb.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-
-      // Close when clicking outside
-      document.addEventListener('click', (e)=>{
-        if(!nav.contains(e.target) && !hb.contains(e.target)){
-          nav.classList.remove('open');
-          hb.classList.remove('active');
-          if(veil) veil.setAttribute('aria-hidden', 'true');
-          hb.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Close on menu link click
-      nav.querySelectorAll('a').forEach(a=>{
-        a.addEventListener('click', ()=>{
-          nav.classList.remove('open');
-          hb.classList.remove('active');
-          if(veil) veil.setAttribute('aria-hidden', 'true');
-          hb.setAttribute('aria-expanded', 'false');
-        });
-      });
+    function openMenu(){
+      side.classList.add('active');
+      veil.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      hb.classList.add('is-active');
+      hb.setAttribute('aria-expanded','true');
+    }
+    function closeMenu(){
+      side.classList.remove('active');
+      veil.classList.remove('active');
+      document.body.style.overflow = '';
+      hb.classList.remove('is-active');
+      hb.setAttribute('aria-expanded','false');
     }
 
-    // Intro animation removal
+    if(hb){
+      hb.addEventListener('click', (e)=>{ e.stopPropagation(); if(side.classList.contains('active')) closeMenu(); else openMenu(); });
+    }
+    if(veil) veil.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+
+    // close menu when clicking on a menu item (for multi-page navigation)
+    if(side) side.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> {
+      closeMenu();
+    }));
+
+    // hide intro with nice transition
     const intro = $('#intro');
     if(intro){
-      setTimeout(()=>{
-        intro.classList.add('hide');
-        setTimeout(()=> intro.remove(), 800);
-      }, 1200);
+      setTimeout(()=>{ intro.classList.add('hide'); intro.style.opacity='0'; try{ intro.remove(); }catch(e){} }, 1200);
     }
 
-    console.log('✅ script.js loaded');
+    // small accessibility: if user taps outside header, close menus
+    document.addEventListener('click', (e)=>{
+      const header = document.querySelector('.header');
+      if(side && !side.contains(e.target) && !header.contains(e.target)){
+        closeMenu();
+      }
+    });
+
   });
 })();
