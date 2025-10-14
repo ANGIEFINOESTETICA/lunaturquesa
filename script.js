@@ -81,3 +81,5 @@ window.addEventListener('load', () => {
     }, 2000); // cambia a 1000 o 3000 si quieres que dure menos o más
   }
 });
+console.log("✅ El script está funcionando correctamente");
+
