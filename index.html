@@ -99,13 +99,6 @@
   <div class="lang-wrap">
     <button id="lang-toggle" class="lang-btn" aria-pressed="false">EN | ES</button>
   </div>
-       
-      <button class="hamburger" id="hamburgerv2" aria-label="Toggle menu" aria-expanded="false">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-    </div>
-         
-
       
       <!-- veil and right-side sliding menu -->
   <div id="menu-veil" class="menu-veil" aria-hidden="true"></div>
@@ -266,7 +259,7 @@
   </footer>
 
 <script>
-  const hamburgerv2 = document.getElementById('hamburger');
+  const hamburgerv2 = document.getElementById('hamburgerv2');
   const menu = document.getElementById('menu');
 
   hamburgerv2.addEventListener('click', () => {
@@ -276,7 +269,7 @@
 
   document.querySelectorAll('.menu a').forEach(link => {
     link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
+      hamburgerv2.classList.remove('active');
       menu.classList.remove('open');
     });
   });
