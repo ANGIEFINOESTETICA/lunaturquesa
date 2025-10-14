@@ -31,10 +31,10 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 /* socials and header-right */
 .header-right{display:flex;align-items:center;gap:10px}
 .socials a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;text-decoration:none}
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1300}
-.hamburger .bar{display:block;width:26px;height:3px;background:var(--gold);margin:4px 0;border-radius:3px;transition:all .3s}
+.hamburgerv2{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1300}
+.hamburgerv2 .bar{display:block;width:26px;height:3px;background:var(--gold);margin:4px 0;border-radius:3px;transition:all .3s}
 /* hamburger */
-.hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;width:36px;height:32px;background:transparent;border:none;cursor:pointer;z-index:1400}
+.hamburgerv2{display:flex;flex-direction:column;justify-content:center;align-items:center;width:36px;height:32px;background:transparent;border:none;cursor:pointer;z-index:1400}
 .bar{width:26px;height:3px;background:var(--gold);margin:3px 0;border-radius:3px;transition:all .35s}
 
 /* hero */
@@ -71,7 +71,7 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 
 /* responsive */
 @media(max-width:900px){
-  .hamburger{display:block}
+  .hamburgerv2 {display:block}
   .header-right{gap:8px}
   .logo-header{width:78px;height:78px}
 }
@@ -91,7 +91,7 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   cursor: pointer;
 }
 
-.hamburger .bar {
+.hamburgerv2 .bar {
   height: 3px;
   width: 100%;
   background-color: #009999; /* Color aguamarina */
@@ -100,13 +100,13 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 }
 
 /* Animación cuando está activo */
-.hamburger.active .bar:nth-child(1) {
+.hamburgerv2.active .bar:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
 }
-.hamburger.active .bar:nth-child(2) {
+.hamburgerv2.active .bar:nth-child(2) {
   opacity: 0;
 }
-.hamburger.active .bar:nth-child(3) {
+.hamburgerv2.active .bar:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
 }
 
