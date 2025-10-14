@@ -72,3 +72,12 @@ document.querySelectorAll('.menu a').forEach(link => {
   });
 });
 
+// === Animación del logo de inicio ===
+window.addEventListener('load', () => {
+  const intro = document.getElementById('intro');
+  if (intro) {
+    setTimeout(() => {
+      intro.classList.add('hidden');
+    }, 2000); // cambia a 1000 o 3000 si quieres que dure menos o más
+  }
+});
