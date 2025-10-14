@@ -78,7 +78,7 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 /* ===== BOTÓN HAMBURGUESA ===== */
 .hamburgerv2 {
   position: fixed;
-  top: 20px;
+  margin-top: 90px;
   right: 20px;
   z-index: 2000;
   display: flex;
