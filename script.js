@@ -29,7 +29,7 @@
     if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang === 'es' ? 'en' : 'es'));
 
     // ==== Menú hamburguesa ====
-    const hb = $('#hamburger');
+    const hb = $('#hamburgerv2');
     const nav = $('#menu');
 
     if(hb && nav){
