@@ -1,85 +1,71 @@
-
 (function(){
   'use strict';
+
+  // ==== Atajos para seleccionar elementos ====
   const $ = (s)=>document.querySelector(s);
   const $$ = (s)=>Array.from(document.querySelectorAll(s));
+
+  // ==== Idioma ====
   let lang = localStorage.getItem('lt_lang') || 'es';
+
   function setLang(to){
-    lang = (to==='en' ? 'en' : 'es');
+    lang = (to === 'en' ? 'en' : 'es');
     $$('[data-es]').forEach(el=>{
       const es = el.getAttribute('data-es');
       const en = el.getAttribute('data-en');
-      if(lang==='en' && en!=null) el.textContent = en;
-      else if(lang==='es' && es!=null) el.textContent = es;
+      if(lang === 'en' && en != null) el.textContent = en;
+      else if(lang === 'es' && es != null) el.textContent = es;
     });
     const btn = $('#lang-toggle');
-    if(btn) btn.textContent = (lang==='en' ? 'ES | EN' : 'EN | ES');
-    try{ localStorage.setItem('lt_lang', lang);}catch(e){}
+    if(btn) btn.textContent = (lang === 'en' ? 'ES | EN' : 'EN | ES');
+    try { localStorage.setItem('lt_lang', lang); } catch(e){}
   }
+
   document.addEventListener('DOMContentLoaded', ()=>{
-    // init lang
+
+    // ==== Inicializar idioma ====
     setLang(lang);
     const langBtn = $('#lang-toggle');
-    if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang==='es' ? 'en' : 'es'));
+    if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang === 'es' ? 'en' : 'es'));
 
-    // hamburger
+    // ==== Menú hamburguesa ====
     const hb = $('#hamburger');
-    // create nav menu if not present
-    let nav = $('#nav-menu');
-    if(!nav){
-      nav = document.createElement('nav');
-      nav.id = 'nav-menu';
-      nav.className = 'nav-menu';
-      nav.innerHTML = '<a href="#about">Inicio</a><a href="#about">Sobre mí</a><a href="#services">Servicios</a><a href="#reviews">Opiniones</a><a href="#contact">Contacto</a>';
-      document.body.insertBefore(nav, document.querySelector('.hero') || document.body.firstChild);
-    }
-    if(hb){
+    const nav = $('#menu');
+
+    if(hb && nav){
       hb.addEventListener('click', (e)=>{
         e.stopPropagation();
-        nav.classList.toggle('active');
-        hb.classList.toggle('is-active');
+        hb.classList.toggle('active');
+        nav.classList.toggle('open');
+      });
+
+      // Cierra el menú al hacer clic fuera
+      document.addEventListener('click', (e)=>{
+        if(!nav.contains(e.target) && !hb.contains(e.target)){
+          nav.classList.remove('open');
+          hb.classList.remove('active');
+        }
+      });
+
+      // Cierra el menú al hacer clic en un enlace
+      nav.querySelectorAll('a').forEach(a=>{
+        a.addEventListener('click', ()=>{
+          nav.classList.remove('open');
+          hb.classList.remove('active');
+        });
       });
     }
-    // click outside to close
-    document.addEventListener('click', (e)=>{
-      if(nav && !nav.contains(e.target) && hb && !hb.contains(e.target)){
-        nav.classList.remove('active');
-        hb.classList.remove('is-active');
-      }
-    });
-    // smooth scroll handled by CSS scroll-behavior; close nav on link click
-    nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{ nav.classList.remove('active'); if(hb) hb.classList.remove('is-active'); }));
 
-    // hide intro after short delay
+    // ==== Animación del logo de inicio ====
     const intro = $('#intro');
-    if(intro) setTimeout(()=>{ intro.style.opacity='0'; intro.style.pointerEvents='none'; try{ intro.remove(); }catch(e){} }, 1200);
+    if(intro){
+      // Desvanece y elimina el intro después de un momento
+      setTimeout(()=>{
+        intro.classList.add('hide');
+        setTimeout(()=> intro.remove(), 800); // elimina el elemento después del fade
+      }, 1200);
+    }
+
+    console.log("✅ El script está funcionando correctamente");
   });
 })();
-
-// ======= MENÚ HAMBURGUESA =======
-const hamburger = document.getElementById('hamburger');
-const menu = document.getElementById('menu');
-
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  menu.classList.toggle('open');
-});
-
-document.querySelectorAll('.menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    menu.classList.remove('open');
-  });
-});
-
-// === Animación del logo de inicio ===
-window.addEventListener('load', () => {
-  const intro = document.getElementById('intro');
-  if (intro) {
-    setTimeout(() => {
-      intro.classList.add('hidden');
-    }, 2000); // cambia a 1000 o 3000 si quieres que dure menos o más
-  }
-});
-console.log("✅ El script está funcionando correctamente");
-
