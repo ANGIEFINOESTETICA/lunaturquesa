@@ -57,25 +57,18 @@
 })();
 
 // ======= MENÚ HAMBURGUESA =======
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger");
-  const menu = document.getElementById("menu");
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
 
-  hamburger.addEventListener("click", () => {
-    menu.classList.toggle("open");
-    hamburger.classList.toggle("active");
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  menu.classList.toggle('open');
+});
 
-    // Cambia el aria-expanded para accesibilidad
-    const expanded = hamburger.getAttribute("aria-expanded") === "true";
-    hamburger.setAttribute("aria-expanded", !expanded);
-  });
-
-  // Cierra el menú cuando se hace clic en un enlace
-  document.querySelectorAll("#menu a").forEach(link => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("open");
-      hamburger.classList.remove("active");
-      hamburger.setAttribute("aria-expanded", "false");
-    });
+document.querySelectorAll('.menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    menu.classList.remove('open');
   });
 });
+
