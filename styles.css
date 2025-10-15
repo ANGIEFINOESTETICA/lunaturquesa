@@ -174,4 +174,58 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   align-items: center;
   gap: 6px; /* asegura espacio uniforme */
 }
+/* --- Ajuste visual de iconos sociales en header --- */
+.header .socials {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* separa los grupos de iconos */
+}
+
+.header .socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* espacio entre icono y texto */
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px; /* mejora legibilidad */
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.header .socials a:hover {
+  transform: translateY(-2px);
+  color: var(--gold);
+}
+
+.header .socials svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* --- Espaciado y refinamiento adicional --- */
+.header .socials {
+  flex-wrap: wrap; /* permite que los iconos bajen si no caben */
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.header .socials a {
+  padding: 4px 6px; /* da aire interno a cada enlace */
+}
+
+.header .socials span {
+  margin-left: 4px;
+  font-size: 9px; /* 🔹 más pequeño */
+  letter-spacing: 0.2px;
+  color: #004c4c; /* tono turquesa oscuro */
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+  .header .socials span {
+    font-size: 8px; /* más pequeño en móviles */
+    display: none; /* oculta etiquetas si queda muy justo */
+  }
+}
 
