@@ -1,106 +1,80 @@
-/* Cleaned / organized styles.css (kept original palette & rules, minor tidy-up) */
+
 :root{
   --aguamarina:#a7e7e0;
+  --white:#ffffff;
   --gold:#caa13b;
   --gold-bright:#ffd766;
-  --white:#ffffff;
   --text:#052b2a;
+  --veil: rgba(167,231,224,0.16);
 }
 *{box-sizing:border-box}
-html {scroll-behavior: smooth;}
+html{scroll-behavior:smooth}
 body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:linear-gradient(180deg,var(--aguamarina) 0%, var(--white) 60%);-webkit-font-smoothing:antialiased;}
 
-/* Header */
-.header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:rgba(255,255,255,0.85);position:sticky;top:0;z-index:1200;border-bottom:1px solid rgba(202,161,59,0.06)}
+/* header */
+.header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:transparent;position:sticky;top:0;z-index:1200}
 .header-left{display:flex;align-items:center;gap:12px}
-.logo-header{width:96px;height:96px;border-radius:12px;border:6px solid var(--gold);background:var(--white);object-fit:contain;position:relative;box-shadow:0 12px 30px rgba(202,161,59,0.12)}
+.logo-header{width:96px;height:96px;border-radius:12px;border:6px solid var(--gold);background:var(--white);object-fit:contain;position:relative;z-index:1300}
+.logo-header::after{content:'';position:absolute;inset:0;border-radius:12px;box-shadow:0 0 18px 6px rgba(202,161,59,0.12);pointer-events:none;animation:logoGlow 4s ease-in-out infinite}
+@keyframes logoGlow{0%{box-shadow:0 0 6px 2px rgba(202,161,59,0.06)}50%{box-shadow:0 0 48px 10px rgba(202,161,59,0.18)}100%{box-shadow:0 0 6px 2px rgba(202,161,59,0.06)}}
+.brand-title{font-weight:700;font-size:18px;color:var(--text);margin:0}
 
-/* socials */
-.socials{display:flex;gap:12px;align-items:center}
-.social{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--gold);font-size:12px}
+/* header right */
+.header-right{display:flex;align-items:center;gap:10px}
+.socials a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;text-decoration:none;color:var(--text);font-weight:700}
+.lang-wrap{margin-right:8px}
+.lang-btn{background:linear-gradient(90deg,var(--gold),var(--gold-bright));border:none;color:#111;padding:8px 10px;border-radius:8px;font-weight:700;cursor:pointer}
 
-/* lang button under logo */
-.lang-wrap{display:flex;justify-content:center;margin-top:10px;margin-bottom:6px}
-.lang-btn{border:2px solid var(--gold);background:transparent;color:var(--gold);padding:8px 14px;border-radius:8px;font-weight:700;cursor:pointer}
-
-/* Hamburger (use class .hamburgerv2 and id #hamburgerv2 simultaneously) */
-/* default hidden on large screens (if you prefer show for all, remove display:none rule) */
-.hamburgerv2{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1300}
-.hamburgerv2 .bar{display:block;width:26px;height:3px;background:var(--gold);margin:4px 0;border-radius:3px;transition:all .3s}
-
-/* general bars (fallback selector if markup uses .bar) */
+/* hamburger */
+.hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;width:36px;height:32px;background:transparent;border:none;cursor:pointer;z-index:1400}
 .bar{width:26px;height:3px;background:var(--gold);margin:3px 0;border-radius:3px;transition:all .35s}
 
-/* show hamburger on smaller screens */
-@media(max-width:900px){
-  .hamburgerv2 {display:flex;flex-direction:column;justify-content:center;align-items:center;width:36px;height:32px;background:transparent;border:none;cursor:pointer;z-index:1400}
-  .header-right{gap:8px}
-  .logo-header{width:78px;height:78px}
-}
+/* side menu */
+.side-menu{position:fixed;right:-360px;top:0;height:100vh;width:320px;background:linear-gradient(180deg,rgba(255,255,255,0.88),rgba(255,255,255,0.82));backdrop-filter:blur(8px);box-shadow:-20px 30px 60px rgba(3,57,54,0.06);padding:36px 20px;display:flex;flex-direction:column;gap:12px;transition:right .45s cubic-bezier(.2,.9,.2,1);z-index:1500;border-left:3px solid rgba(202,161,59,0.06)}
+.side-menu.active{right:0}
+.menu-item{display:block;padding:12px 14px;border-radius:8px;text-decoration:none;color:var(--text);font-weight:700;transition:all .28s;opacity:0;transform:translateX(12px)}
+.side-menu.active .menu-item{opacity:1;transform:translateX(0);transition:all .36s cubic-bezier(.2,.9,.2,1)}
+.menu-item:hover{color:var(--gold);text-shadow:0 0 10px rgba(202,161,59,0.12)}
 
-/* Explicit floating / fixed positioning so it is visible */
-.hamburgerv2 {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 2000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 36px;
-  height: 36px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
+/* veil */
+.menu-veil{position:fixed;inset:0;background:var(--veil);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .4s;z-index:1400}
+.menu-veil.active{opacity:1;visibility:visible}
 
-/* visible bars color */
-.hamburgerv2 .bar {
-  height: 4px;
-  width: 22px;
-  background-color: #009999; /* aguamarina */
-  border-radius: 5px;
-  transition: transform .3s, opacity .2s;
-}
+/* content */
+.content{max-width:1100px;margin:0 auto;padding:20px}
+.hero{display:flex;flex-direction:column;align-items:center;padding:32px 10px}
+.logo-hero{width:120px;height:120px;border-radius:12px;border:6px solid var(--white);background:var(--white);object-fit:contain}
+.hero-title{font-size:22px;color:var(--text)}
 
-/* Active / animated state */
-.hamburgerv2.active .bar:nth-child(1) {
-  transform: rotate(45deg) translateY(6px);
-}
-.hamburgerv2.active .bar:nth-child(2) {
-  opacity: 0;
-}
-.hamburgerv2.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translateY(-6px);
-}
+/* about */
+.about-grid{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.portrait{width:320px;border-radius:10px;object-fit:cover;box-shadow:0 12px 30px rgba(3,57,54,0.06)}
 
-/* Side menu */
-.menu {
-  position: fixed;
-  top: 0;
-  right: -260px;
-  width: 240px;
-  height: 100vh;
-  background-color: rgba(0, 102, 102, 0.95);
-  padding-top: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: right 0.3s ease;
-  z-index: 1500;
-}
-.menu.open { right: 0; }
+/* services */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.service-card{background:var(--white);padding:14px;border-radius:12px;box-shadow:0 12px 30px rgba(3,57,54,0.06);transition:transform .32s,box-shadow .32s;overflow:hidden}
+.service-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(3,57,54,0.08);border:2px solid var(--gold)}
+.service-img{width:100%;height:200px;object-fit:cover;border-radius:8px;transition:transform .5s}
+.service-card:hover .service-img{transform:scale(1.06)}
 
-.menu ul { list-style: none; padding: 0; margin: 0; }
-.menu li { margin: 20px 0; }
-.menu a { color: white; text-decoration: none; font-size: 18px; font-weight: 500; transition: color 0.2s; }
-.menu a:hover { color: #66ffff; }
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px;transition:transform .3s}
+.gallery img:hover{transform:scale(1.04)}
 
-/* other content (kept minimal) */
-.hero{text-align:center;padding:20px 10px}
-.logo-hero{width:200px;filter:drop-shadow(0 0 12px rgba(201,155,51,0.45));border-radius:10px}
-.content{max-width:1100px;margin:0 auto;padding:18px}
+/* whatsapp float */
+.whatsapp-float{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,#25D366,#16b24a);color:#fff;padding:12px 14px;border-radius:999px;text-decoration:none;display:flex;align-items:center;gap:8px;box-shadow:0 18px 48px rgba(37,211,102,0.14);z-index:1600}
 
+/* intro overlay */
 .intro{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.7));z-index:2000}
+.intro-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px}
 .intro-logo{width:160px;border-radius:14px;border:8px solid var(--gold);background:var(--white);box-shadow:0 18px 60px rgba(202,161,59,0.18)}
+
+/* responsive */
+@media(max-width:900px){
+  .side-menu{width:100%;right:-100%;}
+  .side-menu.active{right:0}
+  .hamburger{width:40px;height:36px}
+  .logo-header{width:78px;height:78px}
+  .portrait{width:260px}
+}
