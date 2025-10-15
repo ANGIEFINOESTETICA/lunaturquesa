@@ -164,4 +164,14 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
     margin-right: 10px;
   }
 }
+/* --- Espacio entre ícono y texto en los botones del header --- */
+.header .socials a svg {
+  margin-right: 6px; /* separa el ícono del texto */
+}
+
+.header .socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* asegura espacio uniforme */
+}
 
