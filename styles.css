@@ -234,11 +234,16 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
     display: none; /* oculta etiquetas si queda muy justo */
   }
 }
-/* ...todo tu CSS anterior... */
-
 /* Evita que el header tape el contenido al hacer scroll */
 body {
-  scroll-padding-top: 110px; /* ajusta al alto del header */
+  scroll-padding-top: 110px; /* 🖥️ espacio para pantallas grandes */
+}
+
+/* 🔹 Ajuste automático en pantallas pequeñas (celulares) */
+@media (max-width: 600px) {
+  body {
+    scroll-padding-top: 90px; /* 📱 header más compacto */
+  }
 }
 
 
