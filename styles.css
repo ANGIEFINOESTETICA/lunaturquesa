@@ -11,13 +11,19 @@
 html{scroll-behavior:smooth}
 body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:linear-gradient(180deg,var(--aguamarina) 0%, var(--white) 60%);-webkit-font-smoothing:antialiased;}
 
-/* header */
-.header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:transparent;position:sticky;top:0;z-index:1200}
-.header-left{display:flex;align-items:center;gap:12px}
-.logo-header{width:96px;height:96px;border-radius:12px;border:6px solid var(--gold);background:var(--white);object-fit:contain;position:relative;z-index:1300}
-.logo-header::after{content:'';position:absolute;inset:0;border-radius:12px;box-shadow:0 0 18px 6px rgba(202,161,59,0.12);pointer-events:none;animation:logoGlow 4s ease-in-out infinite}
-@keyframes logoGlow{0%{box-shadow:0 0 6px 2px rgba(202,161,59,0.06)}50%{box-shadow:0 0 48px 10px rgba(202,161,59,0.18)}100%{box-shadow:0 0 6px 2px rgba(202,161,59,0.06)}}
-.brand-title{font-weight:700;font-size:18px;color:var(--text);margin:0}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.9); /* fondo suave */
+  backdrop-filter: blur(6px); /* efecto vidrio */
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* línea inferior */
+}
+
 
 /* header right */
 .header-right{display:flex;align-items:center;gap:10px}
@@ -228,4 +234,11 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
     display: none; /* oculta etiquetas si queda muy justo */
   }
 }
+/* ...todo tu CSS anterior... */
+
+/* Evita que el header tape el contenido al hacer scroll */
+body {
+  scroll-padding-top: 110px; /* ajusta al alto del header */
+}
+
 
