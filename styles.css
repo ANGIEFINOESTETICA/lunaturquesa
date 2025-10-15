@@ -134,4 +134,34 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   color: var(--gold);
   transform: scale(1.05);
 }
+/* --- Ajuste de espaciado entre íconos del header --- */
+.header .socials {
+  display: flex;
+  align-items: center;
+  gap: 18px; /* separa los iconos entre sí */
+  margin-right: 20px; /* separa del botón EN|ES */
+}
+
+.header .socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.header .socials a:hover {
+  transform: scale(1.15);
+  color: #009999;
+}
+
+/* --- Ajuste extra si en pantallas pequeñas se pegan --- */
+@media (max-width: 768px) {
+  .header .socials {
+    gap: 14px;
+    margin-right: 10px;
+  }
+}
 
