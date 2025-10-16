@@ -332,5 +332,32 @@ body {
   }
 }
 
+/* ---- Ajustes de estilo para la sección About Me ---- */
+.about-text {
+  text-align: justify;
+  line-height: 1.8;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px 15px;
+}
+
+.about-text p {
+  text-indent: 1.5em;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 768px) {
+  .about-text {
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 10px;
+  }
+  .about-text p {
+    text-indent: 1em;
+  }
+}
 
 
