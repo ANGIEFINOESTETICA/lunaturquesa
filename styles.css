@@ -331,22 +331,32 @@ body {
     font-size: 16px;
   }
 }
-/* ---- Estilo unificado para About Me ---- */
 .about-text {
   font-family: 'Poppins', sans-serif;
   text-align: justify;
   line-height: 1.8;
   color: var(--text);
-  background-color: var(--white); /* igual que el resto */
+  background-color: var(--white);
   border: 2px solid var(--gold);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(202, 161, 59, 0.2);
+  border-radius: 14px;
+  padding: 25px 20px;       /* más espacio interior */
+  margin: 15px auto;        /* separación del resto */
+  max-width: 90%;
+  box-shadow: 0 4px 20px rgba(202, 161, 59, 0.15);
   transition: all 0.4s ease;
 }
 
-/* Efecto al pasar el cursor — igual que el resto del sitio */
+/* Efecto hover luxury */
 .about-text:hover {
-  box-shadow: 0 0 20px rgba(202, 161, 59, 0.45);
+  box-shadow: 0 0 25px rgba(202, 161, 59, 0.4);
   transform: scale(1.01);
+}
+
+/* Responsive: en móvil se ajusta mejor */
+@media (max-width: 768px) {
+  .about-text {
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 18px;
+  }
 }
