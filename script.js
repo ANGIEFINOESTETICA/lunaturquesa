@@ -1,64 +1,74 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* === PANTALLA DE INTRODUCCIÓN CON LOGO === */
-  const intro = document.getElementById("intro");
+  /* === INTRO LOGO === */
+  const intro = document.getElementById("introducción");
   if (intro) {
     window.addEventListener("load", () => {
       setTimeout(() => {
-        intro.classList.add("hidden");
+        intro.classList.add("oculto");
         setTimeout(() => intro.remove(), 900);
       }, 1400);
     });
   }
 
   /* === MENÚ HAMBURGUESA === */
-  const hamburger = document.getElementById("hamburger");
-  const sideMenu = document.getElementById("menu-lateral");
-  const menuVeil = document.getElementById("menu-veil");
+  const hamburguesa = document.getElementById("hamburguesa");
+  const sideMenu = document.getElementById("menú lateral");
+  const menuVeil = document.getElementById("menú-velo");
 
-  if (hamburger && sideMenu && menuVeil) {
-    hamburger.addEventListener("click", () => {
-      const isOpen = sideMenu.classList.toggle("open");
-      hamburger.classList.toggle("active", isOpen);
-      menuVeil.classList.toggle("visible", isOpen);
-      hamburger.setAttribute("aria-expanded", isOpen);
-      sideMenu.setAttribute("aria-hidden", !isOpen);
-      document.body.style.overflow = isOpen ? "hidden" : "";
-    });
+  if (hamburguesa && sideMenu && menuVeil) {
+    const openMenu = () => {
+      sideMenu.classList.add("abrir");
+      menuVeil.classList.add("visible");
+      document.body.style.overflow = "hidden";
+      hamburguesa.classList.add("activo");
+      hamburguesa.setAttribute("aria-expanded", "true");
+      sideMenu.setAttribute("aria-hidden", "false");
+    };
 
-    // Cerrar menú al hacer clic fuera
-    menuVeil.addEventListener("click", () => {
-      sideMenu.classList.remove("open");
-      hamburger.classList.remove("active");
+    const closeMenu = () => {
+      sideMenu.classList.remove("abrir");
       menuVeil.classList.remove("visible");
-      hamburger.setAttribute("aria-expanded", "false");
-      sideMenu.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      hamburguesa.classList.remove("activo");
+      hamburguesa.setAttribute("aria-expanded", "false");
+      sideMenu.setAttribute("aria-hidden", "true");
+    };
+
+    hamburguesa.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (sideMenu.classList.contains("abrir")) closeMenu();
+      else openMenu();
     });
 
-    // Cerrar menú al hacer clic en un enlace del menú
-    document.querySelectorAll(".menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        sideMenu.classList.remove("open");
-        hamburger.classList.remove("active");
-        menuVeil.classList.remove("visible");
-        document.body.style.overflow = "";
-      });
+    menuVeil.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    document.querySelectorAll(".menu-item").forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
   }
 
   /* === CAMBIO DE IDIOMA === */
   const langToggle = document.getElementById("lang-toggle");
   if (langToggle) {
-    let isEnglish = false;
-    langToggle.addEventListener("click", () => {
-      isEnglish = !isEnglish;
-      langToggle.textContent = isEnglish ? "ES | EN" : "EN | ES";
-
-      document.querySelectorAll("[data-es]").forEach(el => {
-        const es = el.getAttribute("data-es");
-        const en = el.getAttribute("data-en");
-        el.textContent = isEnglish && en ? en : es;
+    let currentLang = localStorage.getItem("lt_lang") || "es";
+    const updateLanguage = (lang) => {
+      document.querySelectorAll("[data-es]").forEach((el) => {
+        const text = lang === "en" ? el.dataset.en : el.dataset.es;
+        if (text) el.textContent = text;
       });
+      langToggle.textContent = lang === "en" ? "ES | EN" : "EN | ES";
+      localStorage.setItem("lt_lang", lang);
+    };
+
+    updateLanguage(currentLang);
+
+    langToggle.addEventListener("click", () => {
+      currentLang = currentLang === "es" ? "en" : "es";
+      updateLanguage(currentLang);
     });
   }
 });
