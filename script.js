@@ -1,77 +1,59 @@
-(function () {
-  'use strict';
-  const $ = (s) => document.querySelector(s);
-  const $$ = (s) => Array.from(document.querySelectorAll(s));
-
-  // Idioma predeterminado ES
-  let lang = localStorage.getItem('lt_lang') || 'es';
-
-  function setLang(a) {
-    lang = a === 'en' ? 'en' : 'es';
-    $$('[data-es]').forEach(el => {
-      const es = el.getAttribute('data-es');
-      const en = el.getAttribute('data-en');
-      if (lang === 'en' && en != null) el.textContent = en;
-      else if (lang === 'es' && es != null) el.textContent = es;
+document.addEventListener("DOMContentLoaded", () => {
+  /* === PANTALLA DE INTRO CON LOGO === */
+  const intro = document.getElementById("intro");
+  if (intro) {
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        intro.classList.add("hidden");
+        setTimeout(() => intro.remove(), 900);
+      }, 1400);
     });
-
-    const btn = $('#lang-toggle');
-    if (btn) btn.textContent = (lang === 'en' ? 'ES | EN' : 'EN | ES');
-
-    try { localStorage.setItem('lt_lang', lang); } catch (e) { }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    setLang(lang);
+  /* === MENÚ HAMBURGUESA === */
+  const hamburger = document.getElementById("hamburger");
+  const sideMenu = document.getElementById("side-menu");
+  const menuVeil = document.getElementById("menu-veil");
 
-    const hb = $('#hamburguesa');
-    const side = $('#menu-lateral');
-    const veil = $('#menu-veil');
-    const langBtn = $('#lang-toggle');
-
-    function openMenu() {
-      side.classList.add('activo');
-      veil.classList.add('activo');
-      document.body.style.overflow = 'hidden';
-      hb.classList.add('is-active');
-      hb.setAttribute('aria-expanded', 'true');
-    }
-
-    function closeMenu() {
-      side.classList.remove('activo');
-      veil.classList.remove('activo');
-      document.body.style.overflow = '';
-      hb.classList.remove('is-active');
-      hb.setAttribute('aria-expanded', 'false');
-    }
-
-    if (hb) {
-      hb.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (side.classList.contains('activo')) closeMenu();
-        else openMenu();
-      });
-    }
-
-    if (veil) veil.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+  if (hamburger && sideMenu && menuVeil) {
+    hamburger.addEventListener("click", () => {
+      const isOpen = sideMenu.classList.toggle("open");
+      hamburger.classList.toggle("active", isOpen);
+      menuVeil.classList.toggle("visible", isOpen);
+      hamburger.setAttribute("aria-expanded", isOpen);
+      sideMenu.setAttribute("aria-hidden", !isOpen);
     });
 
-    if (side) side.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', closeMenu)
-    );
+    // Cerrar menú al hacer clic fuera
+    menuVeil.addEventListener("click", () => {
+      sideMenu.classList.remove("open");
+      hamburger.classList.remove("active");
+      menuVeil.classList.remove("visible");
+      hamburger.setAttribute("aria-expanded", "false");
+      sideMenu.setAttribute("aria-hidden", "true");
+    });
 
-    if (langBtn)
-      langBtn.addEventListener('click', () => setLang(lang === 'es' ? 'en' : 'es'));
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll(".menu-item").forEach(link => {
+      link.addEventListener("click", () => {
+        sideMenu.classList.remove("open");
+        hamburger.classList.remove("active");
+        menuVeil.classList.remove("visible");
+      });
+    });
+  }
 
-    // Ocultar la introducción después de 1.2s
-    const intro = $('#intro');
-    if (intro)
-      setTimeout(() => {
-        intro.style.opacity = '0';
-        intro.style.pointerEvents = 'none';
-        try { intro.remove(); } catch (e) { }
-      }, 1200);
-  });
-})();
+  /* === CAMBIO DE IDIOMA === */
+  const langToggle = document.getElementById("lang-toggle");
+  if (langToggle) {
+    let isEnglish = false;
+    langToggle.addEventListener("click", () => {
+      isEnglish = !isEnglish;
+      langToggle.textContent = isEnglish ? "ES | EN" : "EN | ES";
+
+      document.querySelectorAll("[data-en]").forEach(el => {
+        el.textContent = isEnglish ? el.dataset.en : el.dataset.es;
+      });
+    });
+  }
+});
