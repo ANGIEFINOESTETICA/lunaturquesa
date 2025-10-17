@@ -399,3 +399,38 @@ body {
     font-size: 10px;
   }
 }
+/* --- Efecto elegante de borde dorado y sombra en secciones y menú --- */
+.section-title, .header nav a {
+  background-color: #fff;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 6px 12px;
+  color: var(--text);
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.section-title:hover, .header nav a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(218, 165, 32, 0.25); /* dorado suave */
+}
+
+/* Para que el efecto también se vea bien dentro del menú hamburguesa */
+@media (max-width: 768px) {
+  .header nav a {
+    display: block;
+    margin: 8px 0;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .header nav a:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: 0 4px 10px rgba(218, 165, 32, 0.25);
+  }
+}
