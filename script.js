@@ -1,81 +1,75 @@
-(function () {
+(function(){
   'use strict';
 
-  const $ = (s) => document.querySelector(s);
-  const $$ = (s) => Array.from(document.querySelectorAll(s));
+  // ==== Shortcuts ====
+  const $ = (s)=>document.querySelector(s);
+  const $$ = (s)=>Array.from(document.querySelectorAll(s));
 
-  // ==== Idioma ====
-  let lang = localStorage.getItem('lt_lang') || 'es';
+  // ==== Language ====
+  let lang = localStorage.getItem('lt_lang') || 'en';
 
-  function setLang(to) {
-    lang = to === 'en' ? 'en' : 'es';
-    $$('[data-es]').forEach((el) => {
+  function setLang(to){
+    lang = (to === 'es' ? 'es' : 'en');
+    $$('[data-es]').forEach(el=>{
       const es = el.getAttribute('data-es');
       const en = el.getAttribute('data-en');
-      if (lang === 'en' && en != null) el.textContent = en;
-      else if (lang === 'es' && es != null) el.textContent = es;
+      if(lang === 'es' && es != null) el.textContent = es;
+      else if(lang === 'en' && en != null) el.textContent = en;
     });
     const btn = $('#lang-toggle');
-    if (btn) btn.textContent = lang === 'en' ? 'ES | EN' : 'EN | ES';
-    try {
-      localStorage.setItem('lt_lang', lang);
-    } catch (e) {}
+    if(btn) btn.textContent = (lang === 'es' ? 'EN | ES' : 'ES | EN');
+    try { localStorage.setItem('lt_lang', lang); } catch(e){}
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // ==== Inicializar idioma ====
+  document.addEventListener('DOMContentLoaded', ()=>{
+
+    // ==== Init language ====
     setLang(lang);
     const langBtn = $('#lang-toggle');
-    if (langBtn)
-      langBtn.addEventListener('click', () =>
-        setLang(lang === 'es' ? 'en' : 'es')
-      );
+    if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang === 'en' ? 'es' : 'en'));
 
-    // ==== Menú hamburguesa ====
+    // ==== Hamburger menu ====
     const hb = $('#hamburger');
-    const menu = $('#side-menu');
-    const veil = $('#menu-veil');
+    const nav = $('#menu');
 
-    if (hb && menu && veil) {
-      hb.addEventListener('click', (e) => {
+    if(hb && nav){
+      hb.addEventListener('click', (e)=>{
         e.stopPropagation();
         hb.classList.toggle('active');
-        menu.classList.toggle('active');
-        veil.classList.toggle('active');
+        nav.classList.toggle('open');
       });
 
-      // Cierra al hacer clic fuera
-      document.addEventListener('click', (e) => {
-        if (
-          !menu.contains(e.target) &&
-          !hb.contains(e.target) &&
-          veil.classList.contains('active')
-        ) {
-          menu.classList.remove('active');
+      // Close menu when clicking outside
+      document.addEventListener('click', (e)=>{
+        if(!nav.contains(e.target) && !hb.contains(e.target)){
+          nav.classList.remove('open');
           hb.classList.remove('active');
-          veil.classList.remove('active');
         }
       });
 
-      // Cierra al hacer clic en un enlace
-      menu.querySelectorAll('a').forEach((a) => {
-        a.addEventListener('click', () => {
-          menu.classList.remove('active');
+      // Close menu when clicking a link
+      nav.querySelectorAll('a').forEach(a=>{
+        a.addEventListener('click', ()=>{
+          nav.classList.remove('open');
           hb.classList.remove('active');
-          veil.classList.remove('active');
         });
       });
     }
 
-    // ==== Animación del logo inicial ====
+    // ==== Intro logo animation ====
     const intro = $('#intro');
-    if (intro) {
-      setTimeout(() => {
-        intro.classList.add('hide');
-        setTimeout(() => intro.remove(), 800);
-      }, 1200);
+    if(intro){
+      intro.style.display = 'flex';
+      intro.style.opacity = '1';
+      setTimeout(()=>{
+        intro.style.transition = 'opacity 0.8s ease';
+        intro.style.opacity = '0';
+        setTimeout(()=>{
+          intro.remove();
+        }, 800);
+      }, 2200); // 2.2 seconds
     }
 
-    console.log('✅ Script funcionando correctamente');
+    console.log("✅ Script loaded correctly");
   });
 })();
