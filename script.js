@@ -1,50 +1,71 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // ====== ANIMACIÓN DEL LOGO DE INICIO ======
-  const intro = document.getElementById("intro");
-  if (intro) {
-    setTimeout(() => {
-      intro.classList.add("hidden");
-    }, 2000); // cambia el tiempo si quieres más o menos duración
+(function(){
+  'use strict';
+
+  // ==== Atajos para seleccionar elementos ====
+  const $ = (s)=>document.querySelector(s);
+  const $$ = (s)=>Array.from(document.querySelectorAll(s));
+
+  // ==== Idioma ====
+  let lang = localStorage.getItem('lt_lang') || 'es';
+
+  function setLang(to){
+    lang = (to === 'en' ? 'en' : 'es');
+    $$('[data-es]').forEach(el=>{
+      const es = el.getAttribute('data-es');
+      const en = el.getAttribute('data-en');
+      if(lang === 'en' && en != null) el.textContent = en;
+      else if(lang === 'es' && es != null) el.textContent = es;
+    });
+    const btn = $('#lang-toggle');
+    if(btn) btn.textContent = (lang === 'en' ? 'ES | EN' : 'EN | ES');
+    try { localStorage.setItem('lt_lang', lang); } catch(e){}
   }
 
-  // ====== MENÚ HAMBURGUESA ======
-  const hamburger = document.getElementById("hamburger");
-  const menu = document.getElementById("menu");
+  document.addEventListener('DOMContentLoaded', ()=>{
 
-  if (hamburger && menu) {
-    hamburger.addEventListener("click", () => {
-      hamburger.classList.toggle("active");
-      menu.classList.toggle("open");
-    });
-
-    // Cierra el menú al hacer clic en un enlace
-    menu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        menu.classList.remove("open");
-      });
-    });
-  }
-
-  // ====== BOTÓN DE IDIOMA (si existe) ======
-  const langBtn = document.getElementById("lang-toggle");
-  if (langBtn) {
-    let lang = localStorage.getItem("lt_lang") || "es";
-
-    const setLang = (to) => {
-      lang = to;
-      document.querySelectorAll("[data-es]").forEach(el => {
-        const es = el.getAttribute("data-es");
-        const en = el.getAttribute("data-en");
-        el.textContent = lang === "en" && en ? en : es;
-      });
-      langBtn.textContent = lang === "en" ? "ES | EN" : "EN | ES";
-      localStorage.setItem("lt_lang", lang);
-    };
-
+    // ==== Inicializar idioma ====
     setLang(lang);
-    langBtn.addEventListener("click", () => setLang(lang === "es" ? "en" : "es"));
-  }
+    const langBtn = $('#lang-toggle');
+    if(langBtn) langBtn.addEventListener('click', ()=> setLang(lang === 'es' ? 'en' : 'es'));
 
-  console.log("✅ Script funcionando correctamente");
-});
+    // ==== Menú hamburguesa ====
+    const hb = $('#hamburger');
+    const nav = $('#menu');
+
+    if(hb && nav){
+      hb.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        hb.classList.toggle('active');
+        nav.classList.toggle('open');
+      });
+
+      // Cierra el menú al hacer clic fuera
+      document.addEventListener('click', (e)=>{
+        if(!nav.contains(e.target) && !hb.contains(e.target)){
+          nav.classList.remove('open');
+          hb.classList.remove('active');
+        }
+      });
+
+      // Cierra el menú al hacer clic en un enlace
+      nav.querySelectorAll('a').forEach(a=>{
+        a.addEventListener('click', ()=>{
+          nav.classList.remove('open');
+          hb.classList.remove('active');
+        });
+      });
+    }
+
+    // ==== Animación del logo de inicio ====
+    const intro = $('#intro');
+    if(intro){
+      // Desvanece y elimina el intro después de un momento
+      setTimeout(()=>{
+        intro.classList.add('hide');
+        setTimeout(()=> intro.remove(), 800); // elimina el elemento después del fade
+      }, 1200);
+    }
+
+    console.log("✅ El script está funcionando correctamente");
+  });
+})();
