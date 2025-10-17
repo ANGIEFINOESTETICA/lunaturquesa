@@ -1,42 +1,81 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger");
-  const sideMenu = document.getElementById("side-menu");
-  const menuVeil = document.getElementById("menu-veil");
-  const langToggle = document.getElementById("lang-toggle");
-  const intro = document.getElementById("intro");
+(function () {
+  'use strict';
 
-  // 🟡 Desvanecer intro (logo)
-  if (intro) {
-    setTimeout(() => {
-      intro.style.opacity = "0";
-      setTimeout(() => {
-        intro.style.display = "none";
-      }, 1000);
-    }, 800);
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+  // ==== Idioma ====
+  let lang = localStorage.getItem('lt_lang') || 'es';
+
+  function setLang(to) {
+    lang = to === 'en' ? 'en' : 'es';
+    $$('[data-es]').forEach((el) => {
+      const es = el.getAttribute('data-es');
+      const en = el.getAttribute('data-en');
+      if (lang === 'en' && en != null) el.textContent = en;
+      else if (lang === 'es' && es != null) el.textContent = es;
+    });
+    const btn = $('#lang-toggle');
+    if (btn) btn.textContent = lang === 'en' ? 'ES | EN' : 'EN | ES';
+    try {
+      localStorage.setItem('lt_lang', lang);
+    } catch (e) {}
   }
 
-  // 🍔 Menú hamburguesa
-  const toggleMenu = () => {
-    const isActive = sideMenu.classList.toggle("active");
-    menuVeil.classList.toggle("active", isActive);
-    hamburger.setAttribute("aria-expanded", isActive);
-  };
+  document.addEventListener('DOMContentLoaded', () => {
+    // ==== Inicializar idioma ====
+    setLang(lang);
+    const langBtn = $('#lang-toggle');
+    if (langBtn)
+      langBtn.addEventListener('click', () =>
+        setLang(lang === 'es' ? 'en' : 'es')
+      );
 
-  hamburger.addEventListener("click", toggleMenu);
-  menuVeil.addEventListener("click", toggleMenu);
+    // ==== Menú hamburguesa ====
+    const hb = $('#hamburger');
+    const menu = $('#side-menu');
+    const veil = $('#menu-veil');
 
-  document.querySelectorAll(".menu-item").forEach(link => {
-    link.addEventListener("click", toggleMenu);
+    if (hb && menu && veil) {
+      hb.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hb.classList.toggle('active');
+        menu.classList.toggle('active');
+        veil.classList.toggle('active');
+      });
+
+      // Cierra al hacer clic fuera
+      document.addEventListener('click', (e) => {
+        if (
+          !menu.contains(e.target) &&
+          !hb.contains(e.target) &&
+          veil.classList.contains('active')
+        ) {
+          menu.classList.remove('active');
+          hb.classList.remove('active');
+          veil.classList.remove('active');
+        }
+      });
+
+      // Cierra al hacer clic en un enlace
+      menu.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => {
+          menu.classList.remove('active');
+          hb.classList.remove('active');
+          veil.classList.remove('active');
+        });
+      });
+    }
+
+    // ==== Animación del logo inicial ====
+    const intro = $('#intro');
+    if (intro) {
+      setTimeout(() => {
+        intro.classList.add('hide');
+        setTimeout(() => intro.remove(), 800);
+      }, 1200);
+    }
+
+    console.log('✅ Script funcionando correctamente');
   });
-
-  // 🌐 Cambio de idioma
-  let currentLang = "es";
-  langToggle.addEventListener("click", () => {
-    currentLang = currentLang === "es" ? "en" : "es";
-    document.querySelectorAll("[data-es]").forEach(el => {
-      const text = el.getAttribute(`data-${currentLang}`);
-      if (text) el.textContent = text;
-    });
-    langToggle.textContent = currentLang === "es" ? "EN | ES" : "ES | EN";
-  });
-});
+})();
