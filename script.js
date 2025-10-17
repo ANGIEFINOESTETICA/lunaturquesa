@@ -30,13 +30,15 @@
 
     // ==== Menú hamburguesa ====
     const hb = $('#hamburger');
-    const nav = $('#menu');
+    const nav = $('#side-menu');   // ✅ ID corregido
+    const veil = $('#menu-veil');  // ✅ Velo del fondo
 
     if(hb && nav){
       hb.addEventListener('click', (e)=>{
         e.stopPropagation();
         hb.classList.toggle('active');
         nav.classList.toggle('open');
+        if(veil) veil.classList.toggle('show');
       });
 
       // Cierra el menú al hacer clic fuera
@@ -44,6 +46,7 @@
         if(!nav.contains(e.target) && !hb.contains(e.target)){
           nav.classList.remove('open');
           hb.classList.remove('active');
+          if(veil) veil.classList.remove('show');
         }
       });
 
@@ -52,20 +55,9 @@
         a.addEventListener('click', ()=>{
           nav.classList.remove('open');
           hb.classList.remove('active');
+          if(veil) veil.classList.remove('show');
         });
       });
     }
 
-    // ==== Animación del logo de inicio ====
-    const intro = $('#intro');
-    if(intro){
-      // Desvanece y elimina el intro después de un momento
-      setTimeout(()=>{
-        intro.classList.add('hide');
-        setTimeout(()=> intro.remove(), 800); // elimina el elemento después del fade
-      }, 1200);
-    }
-
-    console.log("✅ El script está funcionando correctamente");
-  });
-})();
+    // ==== Animación del lo
