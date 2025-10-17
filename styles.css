@@ -456,3 +456,25 @@ body {
   border-radius: 10px;
   margin-bottom: 12px;
 }
+const translations = {
+  es: {
+    service1_desc: "Cuidado profesional adaptado a las necesidades de tu piel para limpiar, hidratar y rejuvenecer, utilizando protocolos seguros y productos de alta calidad.",
+    service1_benefits: `
+      <li>Mejora de la textura y luminosidad de la piel.</li>
+      <li>Hidratación profunda y equilibrio cutáneo.</li>
+      <li>Limpieza de impurezas y poros.</li>
+      <li>Reducción de signos de envejecimiento y fatiga.</li>
+      <li>Resultados visibles desde la primera sesión.</li>
+    `
+  },
+  en: {
+    service1_desc: "Professional care tailored to your skin's needs to cleanse, hydrate, and rejuvenate using safe protocols and high-quality products.",
+    service1_benefits: `
+      <li>Improves skin texture and radiance.</li>
+      <li>Deep hydration and balance.</li>
+      <li>Removes impurities and unclogs pores.</li>
+      <li>Reduces signs of aging and fatigue.</li>
+      <li>Visible results from the first session.</li>
+    `
+  }
+};
