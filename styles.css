@@ -360,3 +360,42 @@ body {
     padding: 18px;
   }
 }
+/* --- Ajuste visual de iconos sociales en header (versión final) --- */
+.header .socials {
+  display: flex;
+  align-items: center;
+  gap: 18px; /* separa los grupos de iconos */
+}
+
+.header .socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* espacio entre icono y texto */
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 13px;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.header .socials a:hover {
+  transform: translateY(-2px);
+  color: var(--gold);
+}
+
+.header .socials svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+  .header .socials {
+    gap: 12px;
+  }
+  .header .socials a {
+    gap: 5px;
+    font-size: 10px;
+  }
+}
