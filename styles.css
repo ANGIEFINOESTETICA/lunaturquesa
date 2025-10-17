@@ -434,3 +434,25 @@ body {
     box-shadow: 0 4px 10px rgba(218, 165, 32, 0.25);
   }
 }
+/* --- Estilo de tarjetas de servicios --- */
+.service-card {
+  background-color: #fff;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 6px 16px rgba(218, 165, 32, 0.25);
+  transform: translateY(-4px);
+}
+
+/* Imagen dentro de la tarjeta */
+.service-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
