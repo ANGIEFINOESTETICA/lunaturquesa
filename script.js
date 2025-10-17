@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* === PANTALLA DE INTRO CON LOGO === */
+  /* === PANTALLA DE INTRODUCCIÓN CON LOGO === */
   const intro = document.getElementById("intro");
   if (intro) {
     window.addEventListener("load", () => {
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* === MENÚ HAMBURGUESA === */
   const hamburger = document.getElementById("hamburger");
-  const sideMenu = document.getElementById("side-menu");
+  const sideMenu = document.getElementById("menu-lateral");
   const menuVeil = document.getElementById("menu-veil");
 
   if (hamburger && sideMenu && menuVeil) {
@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       menuVeil.classList.toggle("visible", isOpen);
       hamburger.setAttribute("aria-expanded", isOpen);
       sideMenu.setAttribute("aria-hidden", !isOpen);
+      document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
     // Cerrar menú al hacer clic fuera
@@ -31,14 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
       menuVeil.classList.remove("visible");
       hamburger.setAttribute("aria-expanded", "false");
       sideMenu.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
     });
 
-    // Cerrar menú al hacer clic en un enlace
-    document.querySelectorAll(".menu-item").forEach(link => {
+    // Cerrar menú al hacer clic en un enlace del menú
+    document.querySelectorAll(".menu a").forEach(link => {
       link.addEventListener("click", () => {
         sideMenu.classList.remove("open");
         hamburger.classList.remove("active");
         menuVeil.classList.remove("visible");
+        document.body.style.overflow = "";
       });
     });
   }
@@ -51,8 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
       isEnglish = !isEnglish;
       langToggle.textContent = isEnglish ? "ES | EN" : "EN | ES";
 
-      document.querySelectorAll("[data-en]").forEach(el => {
-        el.textContent = isEnglish ? el.dataset.en : el.dataset.es;
+      document.querySelectorAll("[data-es]").forEach(el => {
+        const es = el.getAttribute("data-es");
+        const en = el.getAttribute("data-en");
+        el.textContent = isEnglish && en ? en : es;
       });
     });
   }
