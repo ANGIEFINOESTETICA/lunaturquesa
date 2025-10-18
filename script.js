@@ -1,85 +1,64 @@
-(function () {
-  'use strict';
-
-  // === Selectores rápidos ===
-  const $ = (s) => document.querySelector(s);
-  const $$ = (s) => Array.from(document.querySelectorAll(s));
-
-  // === Idioma por defecto ===
-  let lang = localStorage.getItem('lt_lang') || 'es';
-
-  function setLang(to) {
-    lang = to === 'en' ? 'en' : 'es';
-    $$('[data-es]').forEach(el => {
-      const es = el.getAttribute('data-es');
-      const en = el.getAttribute('data-en');
-      if (lang === 'en' && en != null) el.textContent = en;
-      else if (lang === 'es' && es != null) el.textContent = es;
+document.addEventListener("DOMContentLoaded", () => {
+  /* === PANTALLA DE INTRODUCCIÓN CON LOGO === */
+  const intro = document.getElementById("intro");
+  if (intro) {
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        intro.classList.add("hidden");
+        setTimeout(() => intro.remove(), 900);
+      }, 1400);
     });
-
-    const btn = $('#lang-toggle');
-    if (btn) btn.textContent = (lang === 'en' ? 'ES | EN' : 'EN | ES');
-    try { localStorage.setItem('lt_lang', lang); } catch (e) { }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  /* === MENÚ HAMBURGUESA === */
+  const hamburger = document.getElementById("hamburger");
+  const sideMenu = document.getElementById("menu-lateral");
+  const menuVeil = document.getElementById("menu-veil");
 
-    // === Iniciar idioma ===
-    setLang(lang);
-    const langBtn = $('#lang-toggle');
-    if (langBtn)
-      langBtn.addEventListener('click', () => setLang(lang === 'es' ? 'en' : 'es'));
-
-    // === Menú hamburguesa ===
-    const hb = $('#hamburger');
-    const sideMenu = $('#menu-lateral');
-    const veil = $('#menu-veil');
-
-    function openMenu() {
-      if (sideMenu) sideMenu.classList.add('active');
-      if (veil) veil.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      if (hb) hb.classList.add('is-active');
-      if (hb) hb.setAttribute('aria-expanded', 'true');
-    }
-
-    function closeMenu() {
-      if (sideMenu) sideMenu.classList.remove('active');
-      if (veil) veil.classList.remove('active');
-      document.body.style.overflow = '';
-      if (hb) hb.classList.remove('is-active');
-      if (hb) hb.setAttribute('aria-expanded', 'false');
-    }
-
-    if (hb) {
-      hb.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (sideMenu && sideMenu.classList.contains('active')) closeMenu();
-        else openMenu();
-      });
-    }
-
-    if (veil) veil.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+  if (hamburger && sideMenu && menuVeil) {
+    hamburger.addEventListener("click", () => {
+      const isOpen = sideMenu.classList.toggle("open");
+      hamburger.classList.toggle("active", isOpen);
+      menuVeil.classList.toggle("visible", isOpen);
+      hamburger.setAttribute("aria-expanded", isOpen);
+      sideMenu.setAttribute("aria-hidden", !isOpen);
+      document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
-    if (sideMenu)
-      sideMenu.querySelectorAll('a').forEach(a =>
-        a.addEventListener('click', closeMenu)
-      );
+    // Cerrar menú al hacer clic fuera
+    menuVeil.addEventListener("click", () => {
+      sideMenu.classList.remove("open");
+      hamburger.classList.remove("active");
+      menuVeil.classList.remove("visible");
+      hamburger.setAttribute("aria-expanded", "false");
+      sideMenu.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    });
 
-    // === Ocultar la introducción del logo ===
-    const intro = $('#intro');
-    if (intro) {
-      setTimeout(() => {
-        intro.style.opacity = '0';
-        intro.style.pointerEvents = 'none';
-        try { intro.remove(); } catch (e) { }
-      }, 1200); // ajusta el tiempo si quieres
-    }
+    // Cerrar menú al hacer clic en un enlace del menú
+    document.querySelectorAll(".menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        sideMenu.classList.remove("open");
+        hamburger.classList.remove("active");
+        menuVeil.classList.remove("visible");
+        document.body.style.overflow = "";
+      });
+    });
+  }
 
-  });
+  /* === CAMBIO DE IDIOMA === */
+  const langToggle = document.getElementById("lang-toggle");
+  if (langToggle) {
+    let isEnglish = false;
+    langToggle.addEventListener("click", () => {
+      isEnglish = !isEnglish;
+      langToggle.textContent = isEnglish ? "ES | EN" : "EN | ES";
 
-})();
-console.log("✅ Script cargado correctamente sin errores");
+      document.querySelectorAll("[data-es]").forEach(el => {
+        const es = el.getAttribute("data-es");
+        const en = el.getAttribute("data-en");
+        el.textContent = isEnglish && en ? en : es;
+      });
+    });
+  }
+});
