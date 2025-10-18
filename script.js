@@ -1,20 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const menu = document.getElementById('side-menu');
-  const burger = document.getElementById('hamburger');
-  const langBtn = document.getElementById('lang-toggle');
-  let lang = localStorage.getItem('lang') || 'en';
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("side-menu");
+  const veil = document.getElementById("menu-veil");
+  const burger = document.getElementById("hamburger");
+  const langBtn = document.getElementById("lang-toggle");
 
-  burger.addEventListener('click', () => menu.classList.toggle('active'));
+  // Menú hamburguesa
+  burger.addEventListener("click", () => {
+    menu.classList.toggle("active");
+    veil.classList.toggle("active");
+  });
+  veil.addEventListener("click", () => {
+    menu.classList.remove("active");
+    veil.classList.remove("active");
+  });
 
-  function setLang(l) {
-    lang = l;
-    document.querySelectorAll('[data-en]').forEach(el => {
-      el.textContent = el.getAttribute('data-' + lang);
+  // Cambio de idioma
+  let currentLang = "en";
+  langBtn.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "es" : "en";
+    document.querySelectorAll("[data-en]").forEach(el => {
+      const text = el.getAttribute(`data-${currentLang}`);
+      if (text) el.textContent = text;
     });
-    localStorage.setItem('lang', lang);
-    langBtn.textContent = lang === 'en' ? 'EN | ES' : 'ES | EN';
-  }
-
-  langBtn.addEventListener('click', () => setLang(lang === 'en' ? 'es' : 'en'));
-  setLang(lang);
+    langBtn.textContent = currentLang === "en" ? "EN | ES" : "ES | EN";
+  });
 });

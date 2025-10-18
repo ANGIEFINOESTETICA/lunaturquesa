@@ -2,78 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luna Turquesa – Facial & Body Aesthetics</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Professional facial and body aesthetic treatments by Angie Fino">
+  <meta name="author" content="Angie Fino">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="header">
+  <header class="header" id="top">
     <div class="header-left">
       <img src="logo.png" alt="Luna Turquesa logo" class="logo-header">
+      <div class="brand-text">
+        <h1 class="brand-title">Luna Turquesa</h1>
+        <p>Facial & Body Aesthetics</p>
+      </div>
     </div>
     <div class="header-right">
-      <button id="lang-toggle" class="lang-btn">EN | ES</button>
-      <button class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav class="socials">
+        <a href="https://www.instagram.com/luna.turquesa9" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@lunaturquesaestet" target="_blank">TikTok</a>
+        <a href="https://wa.me/15613709889" target="_blank">WhatsApp</a>
+      </nav>
+      <div class="lang-wrap">
+        <button id="lang-toggle" class="lang-btn" aria-pressed="false">EN | ES</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
     </div>
   </header>
 
+  <div id="menu-veil" class="menu-veil"></div>
   <nav id="side-menu" class="side-menu">
-    <a href="#about" class="menu-item" data-en="About Me" data-es="Sobre Mí">About Me</a>
+    <a href="#about" class="menu-item" data-en="About Me" data-es="Sobre mí">About Me</a>
     <a href="#services" class="menu-item" data-en="Our Services" data-es="Nuestros Servicios">Our Services</a>
     <a href="#available" class="menu-item" data-en="Available Services" data-es="Servicios Disponibles">Available Services</a>
-    <a href="#reviews" class="menu-item" data-en="Reviews" data-es="Reseñas">Reviews</a>
-    <a href="#body" class="menu-item" data-en="Body Services" data-es="Servicios Corporales">Body Services</a>
+    <a href="#body" class="menu-item" data-en="Body Treatments" data-es="Tratamientos Corporales">Body Treatments</a>
+    <a href="#reviews" class="menu-item" data-en="Reviews" data-es="Opiniones">Reviews</a>
     <a href="#contact" class="menu-item" data-en="Contact" data-es="Contacto">Contact</a>
   </nav>
 
   <main class="content">
-    <section id="about" class="panel">
-      <h2 data-en="About Me" data-es="Sobre Mí">About Me</h2>
-      <p data-en="I’m Angie Fino, a specialist in facial and body aesthetics with over 10 years of experience in comprehensive skin care and wellness. My treatments are backed by safe and personalized protocols, using premium-quality products to ensure effective results." 
-         data-es="Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar. Mis tratamientos están respaldados por protocolos seguros y personalizados, con productos de la más alta calidad para garantizar resultados efectivos.">
-         I’m Angie Fino, a specialist in facial and body aesthetics with over 10 years of experience in comprehensive skin care and wellness. My treatments are backed by safe and personalized protocols, using premium-quality products to ensure effective results.
+    <section id="about">
+      <h2 data-en="About Me" data-es="Sobre mí">About Me</h2>
+      <p data-en="I’m Angie Fino, a specialist in facial and body aesthetics..." 
+         data-es="Soy Angie Fino, especialista en estética facial y corporal...">
+         I’m Angie Fino, a specialist in facial and body aesthetics...
       </p>
     </section>
 
-    <section id="services" class="panel">
+    <section id="services">
       <h2 data-en="Our Services" data-es="Nuestros Servicios">Our Services</h2>
-      <p data-en="Professional care tailored to your skin’s needs to cleanse, hydrate, and rejuvenate." 
-         data-es="Cuidado profesional adaptado a las necesidades de tu piel para limpiar, hidratar y rejuvenecer.">
-         Professional care tailored to your skin’s needs to cleanse, hydrate, and rejuvenate.
+      <p data-en="Personalized facial treatments..." 
+         data-es="Tratamientos faciales personalizados...">
+         Personalized facial treatments...
       </p>
     </section>
 
-    <section id="available" class="panel">
-      <h2 data-en="Available Services" data-es="Servicios Disponibles">Available Services</h2>
-      <ul>
-        <li data-en="Basic Facial Cleansing – Surface cleansing to remove impurities and keep skin fresh." 
-            data-es="Limpieza facial básica – Limpieza superficial para eliminar impurezas y mantener la piel fresca.">
-            Basic Facial Cleansing – Surface cleansing to remove impurities and keep skin fresh.
-        </li>
-      </ul>
+    <section id="reviews">
+      <h2 data-en="Reviews" data-es="Opiniones">Reviews</h2>
+      <blockquote>“Since I started treatments with Angie, my skin has never looked better.”</blockquote>
     </section>
 
-    <section id="reviews" class="panel">
-      <h2>Reviews</h2>
-      <blockquote>“Since I started treatments with Angie, my skin has never looked better.” – Emily S.</blockquote>
-    </section>
-
-    <section id="body" class="panel">
-      <h2 data-en="Body Services" data-es="Servicios Corporales">Body Services</h2>
-      <p data-en="Personalized body massages & therapies designed for deep relaxation and balance." 
-         data-es="Masajes y terapias corporales personalizadas diseñadas para una relajación profunda y equilibrio.">
-         Personalized body massages & therapies designed for deep relaxation and balance.
-      </p>
-    </section>
-
-    <section id="contact" class="panel">
+    <section id="contact">
       <h2 data-en="Contact" data-es="Contacto">Contact</h2>
-      <p><strong>Phone:</strong> +1 561 370 9889</p>
+      <p><strong>Phone / WhatsApp:</strong> +1 561 370 9889</p>
       <p><strong>Email:</strong> lunaturquesaestetica@gmail.com</p>
+      <p><strong>Address:</strong> 📍 5550 Glades Road, Suite 500, Boca Raton, FL</p>
     </section>
   </main>
+
+  <footer class="footer">
+    <p>© 2025 Luna Turquesa — By Ingeniero SergioLexDiaz</p>
+  </footer>
 </body>
 </html>

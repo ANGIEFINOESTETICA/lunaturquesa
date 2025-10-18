@@ -1,17 +1,16 @@
 :root {
   --gold: #caa13b;
-  --white: #ffffff;
+  --white: #fff;
   --text: #052b2a;
 }
-body { font-family: 'Poppins', sans-serif; margin: 0; color: var(--text); }
-.header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: rgba(255,255,255,0.9); position: sticky; top: 0; z-index: 100; }
-.logo-header { width: 80px; height: auto; border: 4px solid var(--gold); border-radius: 12px; }
-.lang-btn { background: var(--gold); border: none; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
-.hamburger { background: none; border: none; display: flex; flex-direction: column; gap: 4px; cursor: pointer; }
-.bar { width: 24px; height: 3px; background: var(--gold); }
-.side-menu { position: fixed; right: -260px; top: 0; height: 100%; width: 240px; background: var(--white); display: flex; flex-direction: column; padding: 20px; transition: 0.4s; box-shadow: -2px 0 10px rgba(0,0,0,0.1); }
-.side-menu.active { right: 0; }
-.menu-item { padding: 10px; border-radius: 6px; text-decoration: none; color: var(--text); font-weight: 600; }
-.menu-item:hover { border: 2px solid var(--gold); color: var(--gold); }
-.content { padding: 20px; max-width: 900px; margin: auto; }
-.panel { margin-bottom: 40px; background: var(--white); padding: 20px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+body {font-family:'Poppins',sans-serif;margin:0;color:var(--text);background:#fff;}
+.header {display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:rgba(255,255,255,.95);position:sticky;top:0;z-index:1200;}
+.menu-item {text-decoration:none;color:var(--text);font-weight:700;display:block;padding:10px 0;transition:all .3s;}
+.menu-item:hover {color:var(--gold);text-shadow:0 0 8px rgba(202,161,59,.5);}
+.lang-btn {background:linear-gradient(90deg,var(--gold),#ffd766);border:none;color:#111;padding:8px 10px;border-radius:8px;font-weight:700;cursor:pointer;}
+.hamburger{display:flex;flex-direction:column;gap:4px;background:transparent;border:none;cursor:pointer;}
+.bar{width:25px;height:3px;background:var(--gold);border-radius:3px;}
+.side-menu{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:rgba(255,255,255,.95);box-shadow:-4px 0 15px rgba(0,0,0,.1);transition:right .4s;display:flex;flex-direction:column;padding:20px;}
+.side-menu.active{right:0;}
+.menu-veil{position:fixed;inset:0;background:rgba(0,0,0,.2);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .3s;}
+.menu-veil.active{opacity:1;visibility:visible;}
