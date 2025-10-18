@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luna Turquesa – Estética Facial y Corporal</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <meta name="description" content="Professional facial and body aesthetic treatments by Angie Fino">
+  <meta name="description" content="Tratamientos estéticos faciales y corporales profesionales por Angie Fino">
   <meta name="author" content="Angie Fino">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
   <!-- Intro overlay -->
   <div id="intro" class="intro">
     <div class="intro-inner">
@@ -21,32 +22,44 @@
     </div>
   </div>
 
+  <!-- HEADER -->
   <header class="header" id="top">
     <div class="header-left">
-      <a href="#top" id="logo-link"><img src="logo.png" alt="Luna Turquesa logo" class="logo-header"></a>
+      <a href="#top" id="logo-link">
+        <img src="logo.png" alt="Luna Turquesa logo" class="logo-header">
+      </a>
       <div class="brand-text" style="text-align:center;">
-        <div class="name" style="color:#009999;font-size:22px;font-weight:bold;">Luna Turquesa</div>
-        <div style="font-size:14px;color:#006666;margin-top:4px;" data-es="Estética Facial y Corporal" data-en="Facial and Body Aesthetics">Estética Facial y Corporal</div>
+        Luna Turquesa
+        <div style="font-size:14px; color:#006666; margin-top:4px;">Estética Facial y Corporal</div>
       </div>
     </div>
 
     <div class="header-right">
-      <nav class="socials">
-        <a class="social" href="https://www.instagram.com/luna.turquesa9" target="_blank" aria-label="Instagram">Instagram</a>
-        <a class="social" href="https://www.tiktok.com/@lunaturquesaestet" target="_blank" aria-label="TikTok">TikTok</a>
-        <a class="social" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">WhatsApp</a>
+      <nav class="socials" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/luna.turquesa9" target="_blank">
+          <img src="instagram.png" alt="Instagram" width="28" height="28">
+        </a>
+        <a href="https://www.tiktok.com/@lunaturquesaestet" target="_blank">
+          <img src="tiktok.png" alt="TikTok" width="28" height="28">
+        </a>
+        <a href="https://wa.me/15613709889" target="_blank">
+          <img src="whatsapp.png" alt="WhatsApp" width="28" height="28">
+        </a>
       </nav>
+
+      <div class="lang-wrap">
+        <button id="lang-toggle" class="lang-btn" aria-pressed="false">ES | EN</button>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </header>
 
-  <div class="lang-wrap">
-    <button id="lang-toggle" class="lang-btn" aria-pressed="false">EN | ES</button>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
-  </div>
-
-  <!-- Overlay y menú lateral -->
+  <!-- Side menu -->
   <div id="menu-veil" class="menu-veil" aria-hidden="true"></div>
   <nav id="side-menu" class="side-menu" aria-hidden="true" aria-label="Main navigation">
     <a href="#top" class="menu-item" data-es="Inicio" data-en="Home">Inicio</a>
@@ -57,10 +70,11 @@
     <a href="#contact" class="menu-item" data-es="Contacto" data-en="Contact">Contacto</a>
   </nav>
 
+  <!-- MAIN CONTENT -->
   <main class="content" id="main-content">
 
     <!-- HERO -->
-    <section class="hero" id="home">
+    <section class="hero" id="inicio">
       <img src="logo.png" alt="Luna Turquesa" class="logo-hero">
       <h2 class="hero-title" data-es="Estética Facial y Corporal" data-en="Facial and Body Aesthetics">
         Estética Facial y Corporal
@@ -69,13 +83,18 @@
 
     <!-- ABOUT -->
     <section id="about" class="panel">
-      <h2 class="section-title" data-es="Sobre mí" data-en="About Me">Sobre mí</h2>
+      <h2 class="section-title" data-es="Sobre mí" data-en="About me">Sobre mí</h2>
       <div class="about-grid">
-        <div class="portrait-wrap"><img src="angie.png" alt="Angie" class="portrait"></div>
+        <div class="portrait-wrap">
+          <img src="angie.png" alt="Angie" class="portrait">
+        </div>
         <div class="about-text">
-          <p data-es="Soy Angie Fino, especialista en estética facial y corporal, con más de 10 años de experiencia en el cuidado integral de la piel y el bienestar. Mis tratamientos están respaldados por protocolos seguros y personalizados, con productos de la más alta calidad para garantizar resultados efectivos. En mi suite 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States priorizo la seguridad del paciente y una atención personalizada que eleva tu experiencia a un nivel superior."
-             data-en="I’m Angie Fino, a specialist in facial and body aesthetics with over 10 years of experience in comprehensive skin care and wellness. My treatments are based on safe and personalized protocols, using high-quality products to ensure effective results. At my suite 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States, I prioritize safety and personalized attention that elevates your experience.">
-            Soy Angie Fino, especialista en estética facial y corporal...
+          <p data-es="Angie Fino – Especialista en Estética Facial y Corporal
+Con más de 10 años de experiencia en el cuidado de la piel, el bienestar y la estética médica..." 
+data-en="Angie Fino – Specialist in Facial and Body Aesthetics
+With over 10 years of experience in skin care, wellness, and medical aesthetics...">
+            Angie Fino – Especialista en Estética Facial y Corporal
+            Con más de 10 años de experiencia en el cuidado de la piel y el bienestar...
           </p>
         </div>
       </div>
@@ -84,28 +103,24 @@
     <!-- SERVICES -->
     <section id="services" class="panel">
       <h2 class="section-title gold" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</h2>
+
       <div class="services-grid">
         <article class="service-card">
-          <img class="service-img" src="limpiezafacial.png" alt="Limpieza facial básica">
-          <h4 data-es="Limpieza facial básica" data-en="Basic Facial">Limpieza facial básica</h4>
+          <img src="limpiezafacial.png" alt="Limpieza facial básica" class="service-img">
+          <h4 data-es="Limpieza facial básica" data-en="Basic Facial Cleansing">Limpieza facial básica</h4>
           <p data-es="Limpieza superficial para eliminar impurezas y mantener la piel fresca y saludable."
-             data-en="Surface cleansing to remove impurities and keep skin fresh and healthy.">Limpieza superficial...</p>
+             data-en="Surface cleansing to remove impurities and keep your skin fresh and healthy.">
+             Limpieza superficial para eliminar impurezas y mantener la piel fresca y saludable.
+          </p>
         </article>
 
         <article class="service-card">
-          <img class="service-img" src="limpiezafacialprofunda.png" alt="Limpieza facial profunda">
-          <h4 data-es="Limpieza facial profunda" data-en="Deep Facial">Limpieza facial profunda</h4>
+          <img src="limpiezafacialprofunda.png" alt="Limpieza facial profunda" class="service-img">
+          <h4 data-es="Limpieza facial profunda" data-en="Deep Facial Cleansing">Limpieza facial profunda</h4>
           <p data-es="Higiene profunda con extracción manual para eliminar puntos negros y células muertas."
              data-en="Deep cleansing with manual extraction to remove blackheads and dead skin cells.">
-             Higiene profunda...</p>
-        </article>
-
-        <article class="service-card">
-          <img class="service-img" src="dermaplaning.png" alt="Dermaplaning">
-          <h4>Dermaplaning</h4>
-          <p data-es="Exfoliación manual que elimina células muertas y vello fino para una piel más suave y luminosa."
-             data-en="Manual exfoliation that removes dead skin and fine hair for smoother, brighter skin.">
-             Exfoliación manual...</p>
+             Higiene profunda con extracción manual para eliminar puntos negros y células muertas.
+          </p>
         </article>
       </div>
     </section>
@@ -114,9 +129,9 @@
     <section id="gallery" class="panel">
       <h2 class="section-title gold" data-es="Galería" data-en="Gallery">Galería</h2>
       <div class="gallery">
-        <img src="gallery1.png" alt="gallery1">
-        <img src="gallery2.png" alt="gallery2">
-        <img src="gallery3.png" alt="gallery3">
+        <img src="gallery1.png" alt="Galería 1">
+        <img src="gallery2.png" alt="Galería 2">
+        <img src="gallery3.png" alt="Galería 3">
       </div>
     </section>
 
@@ -130,22 +145,29 @@
     <!-- CONTACT -->
     <section id="contact" class="panel contact-panel">
       <h2 class="section-title gold" data-es="Contacto" data-en="Contact">Contacto</h2>
-      <p><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/15613709889" target="_blank">+1 561 370 9889</a></p>
-      <p><strong>Correo:</strong> <a href="mailto:lunaturquesaestetica@gmail.com">lunaturquesaestetica@gmail.com</a></p>
-      <p><strong>Dirección:</strong> 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431, United States</p>
+      <p><strong>Teléfono / WhatsApp:</strong> 
+        <a href="https://wa.me/15613709889" target="_blank">+1 561 370 9889</a>
+      </p>
+      <p><strong>Correo:</strong> 
+        <a href="mailto:lunaturquesaestetica@gmail.com">lunaturquesaestetica@gmail.com</a>
+      </p>
+      <p><strong>Dirección:</strong> 📍 5550 Glades Road, Suite 500, Boca Raton, FL 33431</p>
       <div class="map-wrap">
-        <iframe src="https://www.google.com/maps?q=5550+Glades+Rd+Suite+500,+Boca+Raton,+FL+33431,+United+States&output=embed"
-          width="100%" height="360" style="border:0;border-radius:12px" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps?q=5550+Glades+Rd+Suite+500,+Boca+Raton,+FL+33431,+United+States&output=embed" width="100%" height="360" style="border:0;border-radius:12px;" loading="lazy"></iframe>
       </div>
     </section>
+
   </main>
 
-  <a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/15613709889" target="_blank">
+  <!-- WhatsApp floating button -->
+  <a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/15613709889" target="_blank" aria-label="WhatsApp">
     <span class="wh-text" data-es="Reserva tu cita" data-en="Book your appointment">Reserva tu cita</span>
   </a>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2025 Luna Turquesa — By Ingeniero SergioLexDiaz</p>
+    <p>© 2025 Luna Turquesa — Por Ingeniero SergioLexDiaz</p>
   </footer>
+
 </body>
 </html>
