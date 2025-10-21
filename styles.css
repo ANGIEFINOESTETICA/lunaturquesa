@@ -536,3 +536,11 @@ const translations = {
   left: 0;
   color: var(--gold);
 }
+.panel {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.panel[style*="display: block"] {
+  opacity: 1;
+}
