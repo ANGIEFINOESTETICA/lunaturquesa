@@ -11,43 +11,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* === MENÚ HAMBURGUESA === */
-  const hamburger = document.getElementById("hamburger");
-  const sideMenu = document.getElementById("menu-lateral");
-  const menuVeil = document.getElementById("menu-veil");
+const hamburger = document.getElementById("hamburger");
+const sideMenu = document.getElementById("side-menu");
+const menuVeil = document.getElementById("menu-veil");
 
-  if (hamburger && sideMenu && menuVeil) {
-    // Función central para abrir/cerrar
-    const toggleMenu = (open) => {
-      sideMenu.classList.toggle("active", open);
-      hamburger.classList.toggle("active", open);
-      menuVeil.classList.toggle("active", open);
+if (hamburger && sideMenu && menuVeil) {
+  hamburger.addEventListener("click", () => {
+    const isOpen = sideMenu.classList.toggle("active");
+    hamburger.classList.toggle("active", isOpen);
+    menuVeil.classList.toggle("active", isOpen);
 
-      // ARIA y overflow del body
-      hamburger.setAttribute("aria-expanded", open ? "true" : "false");
-      sideMenu.setAttribute("aria-hidden", open ? "false" : "true");
-      document.body.style.overflow = open ? "hidden" : "";
-    };
+    hamburger.setAttribute("aria-expanded", isOpen);
+    sideMenu.setAttribute("aria-hidden", !isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  });
 
-    // Click en hamburguesa
-    hamburger.addEventListener("click", () => {
-      toggleMenu(!sideMenu.classList.contains("active"));
+  // Cerrar al hacer clic fuera
+  menuVeil.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+    hamburger.classList.remove("active");
+    menuVeil.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  // Cerrar al hacer clic en un enlace
+  document.querySelectorAll(".menu-item").forEach(link => {
+    link.addEventListener("click", () => {
+      sideMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+      menuVeil.classList.remove("active");
+      document.body.style.overflow = "";
     });
-
-    // Click en velo para cerrar
-    menuVeil.addEventListener("click", () => toggleMenu(false));
-
-    // Click en enlaces del menú para cerrar (usa la clase real .menu-item)
-    document.querySelectorAll(".menu-item").forEach(link => {
-      link.addEventListener("click", () => toggleMenu(false));
-    });
-
-    // Cerrar con Escape
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && sideMenu.classList.contains("active")) {
-        toggleMenu(false);
-      }
-    });
-  }
+  });
+}
 
   /* === CAMBIO DE IDIOMA === */
   const langToggle = document.getElementById("lang-toggle");
