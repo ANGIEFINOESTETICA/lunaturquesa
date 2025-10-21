@@ -72,7 +72,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
-/* === SISTEMA DE PESTAÑAS (MOSTRAR SOLO UNA SECCIÓN A LA VEZ) === */
+/* === SISTEMA DE PESTAÑAS CON TRANSICIÓN SUAVE === */
 const menuLinks = document.querySelectorAll('.side-menu a');
 const sections = document.querySelectorAll('main section.panel');
 
@@ -80,9 +80,11 @@ if (menuLinks.length && sections.length) {
   // Oculta todas las secciones excepto la primera
   sections.forEach((sec, index) => {
     sec.style.display = index === 0 ? 'block' : 'none';
+    sec.style.opacity = index === 0 ? '1' : '0';
+    sec.style.transition = 'opacity 0.6s ease';
   });
 
-  // Escucha los clics en el menú lateral
+  // Al hacer clic en un enlace del menú
   menuLinks.forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -91,11 +93,19 @@ if (menuLinks.length && sections.length) {
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
-        // Ocultar todas
-        sections.forEach(sec => sec.style.display = 'none');
-        // Mostrar la seleccionada
-        targetSection.style.display = 'block';
-        // Cerrar el menú hamburguesa si estaba abierto
+        // Ocultar todas con fade out
+        sections.forEach(sec => {
+          sec.style.opacity = '0';
+          setTimeout(() => (sec.style.display = 'none'), 600);
+        });
+
+        // Mostrar la seleccionada con fade in
+        setTimeout(() => {
+          targetSection.style.display = 'block';
+          setTimeout(() => (targetSection.style.opacity = '1'), 50);
+        }, 600);
+
+        // Cerrar el menú hamburguesa si está abierto
         document.getElementById('hamburger').classList.remove('active');
         document.getElementById('menu-veil').classList.remove('visible');
         document.getElementById('side-menu').classList.remove('open');
@@ -104,5 +114,3 @@ if (menuLinks.length && sections.length) {
     });
   });
 }
-
-
