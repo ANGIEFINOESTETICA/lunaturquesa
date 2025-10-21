@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* === PANTALLA DE INTRODUCCIÓN CON LOGO === */
   const intro = document.getElementById("intro");
   if (intro) {
     window.addEventListener("load", () => {
@@ -10,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* === MENÚ HAMBURGUESA === */
   const hamburger = document.getElementById("hamburger");
   const sideMenu = document.getElementById("menu-lateral");
   const menuVeil = document.getElementById("menu-veil");
@@ -25,18 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
-    // Cerrar menú al hacer clic fuera
     menuVeil.addEventListener("click", () => {
       sideMenu.classList.remove("open");
       hamburger.classList.remove("active");
       menuVeil.classList.remove("visible");
-      hamburger.setAttribute("aria-expanded", "false");
-      sideMenu.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
     });
 
-    // Cerrar menú al hacer clic en un enlace del menú
-    document.querySelectorAll(".menu a").forEach(link => {
+    document.querySelectorAll(".menu-item").forEach(link => {
       link.addEventListener("click", () => {
         sideMenu.classList.remove("open");
         hamburger.classList.remove("active");
@@ -46,14 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* === CAMBIO DE IDIOMA === */
   const langToggle = document.getElementById("lang-toggle");
   if (langToggle) {
     let isEnglish = false;
     langToggle.addEventListener("click", () => {
       isEnglish = !isEnglish;
       langToggle.textContent = isEnglish ? "ES | EN" : "EN | ES";
-
       document.querySelectorAll("[data-es]").forEach(el => {
         const es = el.getAttribute("data-es");
         const en = el.getAttribute("data-en");
