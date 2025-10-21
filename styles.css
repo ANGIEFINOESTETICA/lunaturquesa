@@ -1,3 +1,4 @@
+
 :root{
   --aguamarina:#a7e7e0;
   --white:#ffffff;
@@ -136,6 +137,331 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 
 .social:hover {
   background: rgba(202,161,59,0.08);
+  color: var(--gold);
+  transform: scale(1.05);
+}
+/* --- Ajuste de espaciado entre íconos del header --- */
+.header .socials {
+  display: flex;
+  align-items: center;
+  gap: 18px; /* separa los iconos entre sí */
+  margin-right: 20px; /* separa del botón EN|ES */
+}
+
+.header .socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.header .socials a:hover {
+  transform: scale(1.15);
+  color: #009999;
+}
+
+/* --- Ajuste extra si en pantallas pequeñas se pegan --- */
+@media (max-width: 768px) {
+  .header .socials {
+    gap: 14px;
+    margin-right: 10px;
+  }
+}
+/* --- Espacio entre ícono y texto en los botones del header --- */
+.header .socials a svg {
+  margin-right: 6px; /* separa el ícono del texto */
+}
+
+.header .socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* asegura espacio uniforme */
+}
+/* --- Ajuste visual de iconos sociales en header --- */
+.header .socials {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* separa los grupos de iconos */
+}
+
+.header .socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* espacio entre icono y texto */
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px; /* mejora legibilidad */
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.header .socials a:hover {
+  transform: translateY(-2px);
+  color: var(--gold);
+}
+
+.header .socials svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* --- Espaciado y refinamiento adicional --- */
+.header .socials {
+  flex-wrap: wrap; /* permite que los iconos bajen si no caben */
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.header .socials a {
+  padding: 4px 6px; /* da aire interno a cada enlace */
+}
+
+.header .socials span {
+  margin-left: 4px;
+  font-size: 9px; /* 🔹 más pequeño */
+  letter-spacing: 0.2px;
+  color: #004c4c; /* tono turquesa oscuro */
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+  .header .socials span {
+    font-size: 8px; /* más pequeño en móviles */
+    display: none; /* oculta etiquetas si queda muy justo */
+  }
+}
+/* Evita que el header tape el contenido al hacer scroll */
+body {
+  scroll-padding-top: 110px; /* 🖥️ espacio para pantallas grandes */
+}
+
+/* 🔹 Ajuste automático en pantallas pequeñas (celulares) */
+@media (max-width: 600px) {
+  body {
+    scroll-padding-top: 90px; /* 📱 header más compacto */
+  }
+}
+/* === HEADER ACTUALIZADO === */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 2px solid rgba(201, 155, 51, 0.08);
+  backdrop-filter: blur(6px); /* efecto vidrio */
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+}
+
+/* Logo dentro del header */
+.logo-header {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  border: 6px solid var(--gold);
+  background: white;
+  padding: 6px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-header:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(202, 161, 59, 0.3);
+}
+
+/* Texto al lado del logo */
+.brand-title {
+  margin: 0;
+  font-size: 20px;
+  color: var(--aguamarina);
+  font-weight: 700;
+}
+
+/* === LOGO GRANDE CENTRADO DEBAJO DEL ENCABEZADO === */
+.hero-logo-section {
+  text-align: center;
+  margin: 60px auto 30px;
+}
+
+.logo-hero {
+  width: 260px;
+  height: auto;
+  border-radius: 16px;
+  border: 8px solid var(--gold);
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+  padding: 10px;
+  object-fit: contain;
+  box-shadow: 0 8px 30px rgba(202, 161, 59, 0.25);
+}
+
+/* Texto debajo del logo grande */
+.hero-subtitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--aguamarina);
+  text-shadow: 0 0 8px rgba(167, 231, 224, 0.6);
+  margin-top: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* === Ajuste en pantallas pequeñas === */
+@media (max-width: 768px) {
+  .logo-header {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo-hero {
+    width: 200px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .brand-title {
+    font-size: 16px;
+  }
+}
+.about-text {
+  font-family: 'Poppins', sans-serif;
+  text-align: justify;
+  line-height: 1.8;
+  color: var(--text);
+  background-color: var(--white);
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  padding: 25px 20px;       /* más espacio interior */
+  margin: 15px auto;        /* separación del resto */
+  max-width: 90%;
+  box-shadow: 0 4px 20px rgba(202, 161, 59, 0.15);
+  transition: all 0.4s ease;
+}
+
+/* Efecto hover luxury */
+.about-text:hover {
+  box-shadow: 0 0 25px rgba(202, 161, 59, 0.4);
+  transform: scale(1.01);
+}
+
+/* Responsive: en móvil se ajusta mejor */
+@media (max-width: 768px) {
+  .about-text {
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 18px;
+  }
+}
+/* --- Ajuste visual de iconos sociales en header (versión final) --- */
+.header .socials {
+  display: flex;
+  align-items: center;
+  gap: 18px; /* separa los grupos de iconos */
+}
+
+.header .socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* espacio entre icono y texto */
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 13px;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.header .socials a:hover {
+  transform: translateY(-2px);
+  color: var(--gold);
+}
+
+.header .socials svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+  .header .socials {
+    gap: 12px;
+  }
+  .header .socials a {
+    gap: 5px;
+    font-size: 10px;
+  }
+}
+/* --- Efecto elegante de borde dorado y sombra en secciones y menú --- */
+.section-title, .header nav a {
+  background-color: #fff;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 6px 12px;
+  color: var(--text);
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.section-title:hover, .header nav a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(218, 165, 32, 0.25); /* dorado suave */
+}
+
+/* Para que el efecto también se vea bien dentro del menú hamburguesa */
+@media (max-width: 768px) {
+  .header nav a {
+    display: block;
+    margin: 8px 0;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .header nav a:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: 0 4px 10px rgba(218, 165, 32, 0.25);
+  }
+}
+/* --- Estilo de tarjetas de servicios --- */
+.service-card {
+  background-color: #fff;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 6px 16px rgba(218, 165, 32, 0.25);
+  transform: translateY(-4px);
+}
+
+/* Imagen dentro de la tarjeta */
+.service-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+const translations = {
+  es: {
+    service1_desc: "Cuidado profesional adaptado a las necesidades de tu piel para limpiar, hidratar y rejuvenecer, utilizando protocolos seguros y productos de alta calidad.",
+    service1_benefits: `
+      <li>Mejora de la textura y luminosidad de la piel.</li>
+      <li>Hidratación profunda y equilibrio cutáneo.</li>
       <li>Limpieza de impurezas y poros.</li>
       <li>Reducción de signos de envejecimiento y fatiga.</li>
       <li>Resultados visibles desde la primera sesión.</li>
