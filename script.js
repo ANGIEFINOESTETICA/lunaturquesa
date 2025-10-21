@@ -20,9 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const isOpen = sideMenu.classList.toggle("active");
       hamburger.classList.toggle("active", isOpen);
       menuVeil.classList.toggle("active", isOpen);
+
+      hamburger.setAttribute("aria-expanded", isOpen);
+      sideMenu.setAttribute("aria-hidden", !isOpen);
       document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
+    // Cerrar al hacer clic fuera
     menuVeil.addEventListener("click", () => {
       sideMenu.classList.remove("active");
       hamburger.classList.remove("active");
@@ -30,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.overflow = "";
     });
 
+    // Cerrar al hacer clic en un enlace
     document.querySelectorAll(".menu-item").forEach(link => {
       link.addEventListener("click", () => {
         sideMenu.classList.remove("active");
@@ -56,7 +61,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* === SISTEMA DE PESTAÑAS CON TRANSICIÓN SUAVE + SCROLL SIN SALTOS === */
+  /* === DESPLAZAMIENTO SUAVE ENTRE SECCIONES === */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  /* === SISTEMA DE PESTAÑAS CON TRANSICIÓN SUAVE === */
   const menuLinks = document.querySelectorAll('.side-menu a');
   const sections = document.querySelectorAll('main section.panel');
 
@@ -68,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sec.style.transition = 'opacity 0.6s ease';
     });
 
+    // Al hacer clic en un enlace del menú
     menuLinks.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
@@ -76,28 +94,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const targetSection = document.getElementById(targetId);
 
         if (targetSection) {
-          // Fade out de todas las secciones
+          // Ocultar todas con fade out
           sections.forEach(sec => {
             sec.style.opacity = '0';
             setTimeout(() => (sec.style.display = 'none'), 600);
           });
 
-          // Fade in de la sección seleccionada después de 600ms
+          // Mostrar la seleccionada con fade in
           setTimeout(() => {
             targetSection.style.display = 'block';
-            setTimeout(() => {
-              targetSection.style.opacity = '1';
-              // Scroll suave después de que el fade in esté completo (600ms)
-              setTimeout(() => {
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }, 600);
-            }, 50);
+            setTimeout(() => (targetSection.style.opacity = '1'), 50);
           }, 600);
 
-          // Cerrar menú hamburguesa
-          sideMenu.classList.remove('active');
+          // Cerrar el menú hamburguesa si está abierto
           hamburger.classList.remove('active');
           menuVeil.classList.remove('active');
+          sideMenu.classList.remove('active');
           document.body.style.overflow = "";
         }
       });
