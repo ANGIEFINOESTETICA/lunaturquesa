@@ -11,39 +11,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* === MENÚ HAMBURGUESA === */
-  const hamburger = document.getElementById("hamburger");
-  const sideMenu = document.getElementById("side-menu");
-  const menuVeil = document.getElementById("menu-veil");
+const hamburger = document.getElementById("hamburger");
+const sideMenu = document.getElementById("side-menu");
+const menuVeil = document.getElementById("menu-veil");
 
-  if (hamburger && sideMenu && menuVeil) {
-    hamburger.addEventListener("click", () => {
-      const isOpen = sideMenu.classList.toggle("active");
-      hamburger.classList.toggle("active", isOpen);
-      menuVeil.classList.toggle("active", isOpen);
+if (hamburger && sideMenu && menuVeil) {
+  hamburger.addEventListener("click", () => {
+    const isOpen = sideMenu.classList.toggle("active");
+    hamburger.classList.toggle("active", isOpen);
+    menuVeil.classList.toggle("active", isOpen);
 
-      hamburger.setAttribute("aria-expanded", isOpen);
-      sideMenu.setAttribute("aria-hidden", !isOpen);
-      document.body.style.overflow = isOpen ? "hidden" : "";
-    });
+    hamburger.setAttribute("aria-expanded", isOpen);
+    sideMenu.setAttribute("aria-hidden", !isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  });
 
-    // Cerrar al hacer clic fuera
-    menuVeil.addEventListener("click", () => {
+  // Cerrar al hacer clic fuera
+  menuVeil.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+    hamburger.classList.remove("active");
+    menuVeil.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  // Cerrar al hacer clic en un enlace
+  document.querySelectorAll(".menu-item").forEach(link => {
+    link.addEventListener("click", () => {
       sideMenu.classList.remove("active");
       hamburger.classList.remove("active");
       menuVeil.classList.remove("active");
       document.body.style.overflow = "";
     });
-
-    // Cerrar al hacer clic en un enlace
-    document.querySelectorAll(".menu-item").forEach(link => {
-      link.addEventListener("click", () => {
-        sideMenu.classList.remove("active");
-        hamburger.classList.remove("active");
-        menuVeil.classList.remove("active");
-        document.body.style.overflow = "";
-      });
-    });
-  }
+  });
+}
 
   /* === CAMBIO DE IDIOMA === */
   const langToggle = document.getElementById("lang-toggle");
@@ -60,59 +60,57 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+});
+/* === DESPLAZAMIENTO SUAVE ENTRE SECCIONES === */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href");
+    const target = document.querySelector(targetId);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
+/* === SISTEMA DE PESTAÑAS CON TRANSICIÓN SUAVE === */
+const menuLinks = document.querySelectorAll('.side-menu a');
+const sections = document.querySelectorAll('main section.panel');
 
-  /* === DESPLAZAMIENTO SUAVE ENTRE SECCIONES === */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href");
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth" });
+if (menuLinks.length && sections.length) {
+  // Oculta todas las secciones excepto la primera
+  sections.forEach((sec, index) => {
+    sec.style.display = index === 0 ? 'block' : 'none';
+    sec.style.opacity = index === 0 ? '1' : '0';
+    sec.style.transition = 'opacity 0.6s ease';
+  });
+
+  // Al hacer clic en un enlace del menú
+  menuLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        // Ocultar todas con fade out
+        sections.forEach(sec => {
+          sec.style.opacity = '0';
+          setTimeout(() => (sec.style.display = 'none'), 600);
+        });
+
+        // Mostrar la seleccionada con fade in
+        setTimeout(() => {
+          targetSection.style.display = 'block';
+          setTimeout(() => (targetSection.style.opacity = '1'), 50);
+        }, 600);
+
+        // Cerrar el menú hamburguesa si está abierto
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('menu-veil').classList.remove('visible');
+        document.getElementById('side-menu').classList.remove('open');
+        document.body.style.overflow = "";
       }
     });
   });
-
-  /* === SISTEMA DE PESTAÑAS CON TRANSICIÓN SUAVE === */
-  const menuLinks = document.querySelectorAll('.side-menu a');
-  const sections = document.querySelectorAll('main section.panel');
-
-  if (menuLinks.length && sections.length) {
-    // Oculta todas las secciones excepto la primera
-    sections.forEach((sec, index) => {
-      sec.style.display = index === 0 ? 'block' : 'none';
-      sec.style.opacity = index === 0 ? '1' : '0';
-      sec.style.transition = 'opacity 0.6s ease';
-    });
-
-    // Al hacer clic en un enlace del menú
-    menuLinks.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-
-        const targetId = link.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-
-        if (targetSection) {
-          // Ocultar todas con fade out
-          sections.forEach(sec => {
-            sec.style.opacity = '0';
-            setTimeout(() => (sec.style.display = 'none'), 600);
-          });
-
-          // Mostrar la seleccionada con fade in
-          setTimeout(() => {
-            targetSection.style.display = 'block';
-            setTimeout(() => (targetSection.style.opacity = '1'), 50);
-          }, 600);
-
-          // Cerrar el menú hamburguesa si está abierto
-          hamburger.classList.remove('active');
-          menuVeil.classList.remove('active');
-          sideMenu.classList.remove('active');
-          document.body.style.overflow = "";
-        }
-      });
-    });
-  }
-});
+}
