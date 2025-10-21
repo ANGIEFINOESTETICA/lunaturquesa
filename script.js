@@ -17,9 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (hamburger && sideMenu && menuVeil) {
     hamburger.addEventListener("click", () => {
-      const isOpen = sideMenu.classList.toggle("open");
-      hamburger.classList.toggle("active", isOpen);
-      menuVeil.classList.toggle("visible", isOpen);
+     const isOpen = sideMenu.classList.toggle("active");
+hamburger.classList.toggle("active", isOpen);
+menuVeil.classList.toggle("active", isOpen);
+
       hamburger.setAttribute("aria-expanded", isOpen);
       sideMenu.setAttribute("aria-hidden", !isOpen);
       document.body.style.overflow = isOpen ? "hidden" : "";
