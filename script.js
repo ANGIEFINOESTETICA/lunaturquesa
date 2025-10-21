@@ -16,34 +16,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuVeil = document.getElementById("menu-veil");
 
   if (hamburger && sideMenu && menuVeil) {
+    // Función central para abrir/cerrar
+    const toggleMenu = (open) => {
+      sideMenu.classList.toggle("active", open);
+      hamburger.classList.toggle("active", open);
+      menuVeil.classList.toggle("active", open);
+
+      // ARIA y overflow del body
+      hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+      sideMenu.setAttribute("aria-hidden", open ? "false" : "true");
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+
+    // Click en hamburguesa
     hamburger.addEventListener("click", () => {
-     const isOpen = sideMenu.classList.toggle("active");
-hamburger.classList.toggle("active", isOpen);
-menuVeil.classList.toggle("active", isOpen);
-
-      hamburger.setAttribute("aria-expanded", isOpen);
-      sideMenu.setAttribute("aria-hidden", !isOpen);
-      document.body.style.overflow = isOpen ? "hidden" : "";
+      toggleMenu(!sideMenu.classList.contains("active"));
     });
 
-    // Cerrar menú al hacer clic fuera
-    menuVeil.addEventListener("click", () => {
-      sideMenu.classList.remove("open");
-      hamburger.classList.remove("active");
-      menuVeil.classList.remove("visible");
-      hamburger.setAttribute("aria-expanded", "false");
-      sideMenu.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
+    // Click en velo para cerrar
+    menuVeil.addEventListener("click", () => toggleMenu(false));
+
+    // Click en enlaces del menú para cerrar (usa la clase real .menu-item)
+    document.querySelectorAll(".menu-item").forEach(link => {
+      link.addEventListener("click", () => toggleMenu(false));
     });
 
-    // Cerrar menú al hacer clic en un enlace del menú
-    document.querySelectorAll(".menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        sideMenu.classList.remove("open");
-        hamburger.classList.remove("active");
-        menuVeil.classList.remove("visible");
-        document.body.style.overflow = "";
-      });
+    // Cerrar con Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && sideMenu.classList.contains("active")) {
+        toggleMenu(false);
+      }
     });
   }
 
