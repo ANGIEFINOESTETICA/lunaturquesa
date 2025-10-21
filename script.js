@@ -72,4 +72,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+/* === SISTEMA DE PESTAÑAS (MOSTRAR SOLO UNA SECCIÓN A LA VEZ) === */
+const menuLinks = document.querySelectorAll('.side-menu a');
+const sections = document.querySelectorAll('main section.panel');
+
+if (menuLinks.length && sections.length) {
+  // Oculta todas las secciones excepto la primera
+  sections.forEach((sec, index) => {
+    sec.style.display = index === 0 ? 'block' : 'none';
+  });
+
+  // Escucha los clics en el menú lateral
+  menuLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        // Ocultar todas
+        sections.forEach(sec => sec.style.display = 'none');
+        // Mostrar la seleccionada
+        targetSection.style.display = 'block';
+        // Cerrar el menú hamburguesa si estaba abierto
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('menu-veil').classList.remove('visible');
+        document.getElementById('side-menu').classList.remove('open');
+        document.body.style.overflow = "";
+      }
+    });
+  });
+}
+
 
