@@ -604,3 +604,94 @@ img {
   display: block;
   border-radius: 12px; /* opcional: bordes suaves */
 }
+
+/* === Ajustes generales para todas las imágenes de secciones === */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* === Corrige el grid de servicios === */
+.services-grid,
+.serviciosdisponiblesdeMasajesyTerapias-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px 10px;
+}
+
+/* === Tarjetas de servicios === */
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  max-width: 320px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* === Todas las imágenes dentro de las cards === */
+.service-card img,
+.serviciosdisponiblesdeMasajesyTerapias-img {
+  width: 100%;
+  height: 220px; /* fija altura uniforme */
+  object-fit: cover; /* recorta sin deformar */
+  border-bottom: 4px solid #caa13b; /* opcional dorado elegante */
+}
+
+/* === Textos dentro de las cards === */
+.service-card h4 {
+  color: #0d5049;
+  font-size: 1.1rem;
+  margin: 15px 0 8px;
+}
+
+.service-card p {
+  color: #444;
+  font-size: 0.95rem;
+  padding: 0 15px 15px;
+}
+
+/* === Galería general === */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.gallery img {
+  border-radius: 12px;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* === Responsive móvil === */
+@media (max-width: 768px) {
+  .service-card img {
+    height: 180px;
+  }
+
+  .services-grid,
+  .serviciosdisponiblesdeMasajesyTerapias-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
