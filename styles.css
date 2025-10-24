@@ -699,4 +699,8 @@ img {
   padding-left: 0;  /* Quita el sangrado izquierdo */
   margin-left: 0;
 }
-
+.benefits li {
+  margin-bottom: 8px;  /* Espaciado entre líneas */
+  display: flex;
+  align-items: flex-start;
+}
