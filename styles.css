@@ -694,4 +694,9 @@ img {
     align-items: center;
   }
 }
+.benefits {
+  list-style: none; /* Quita los puntos */
+  padding-left: 0;  /* Quita el sangrado izquierdo */
+  margin-left: 0;
+}
 
