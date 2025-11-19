@@ -704,3 +704,32 @@ img {
   display: flex;
   align-items: flex-start;
 }
+
+/* ======== SECCIÓN DE PESTAÑAS ======== */
+#serviciospestañas .service-image-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#serviciospestañas .service-image-container .service-img {
+  width: 100%;
+  height: auto;
+  max-height: 420px;        /* evita que salga larga */
+  object-fit: cover;        /* recorta bonito */
+  border-radius: 18px;      /* mismo estilo que tus otras imágenes */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  display: block;
+}
+
+/* PARA PANTALLAS MÓVILES */
+@media (max-width: 600px) {
+  #serviciospestañas .service-image-container .service-img {
+    max-height: 260px;
+    border-radius: 14px;
+  }
+}
+
