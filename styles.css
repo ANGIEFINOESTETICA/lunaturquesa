@@ -241,3 +241,16 @@ footer p {
   background: var(--gold-bright);
   color: var(--dark);
 }
+
+/* Logo del hero oculto mientras está la intro */
+.logo-hero {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Cuando el body tenga la clase 'intro-done', aparece */
+body.intro-done .logo-hero {
+  opacity: 1;
+}
+
+
