@@ -114,3 +114,17 @@ if (menuLinks.length && sections.length) {
     });
   });
 }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const intro = document.getElementById("intro");
+
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      intro.classList.add("hidden");
+      setTimeout(() => intro.remove(), 900);
+    }, 1800); // ⏳ Duración del intro = 1.8 segundos
+  });
+});
+
