@@ -251,3 +251,11 @@ body{
   display:flex;
   align-items:flex-start;
 }
+
+/* Tamaño correcto del logo PRINCIPAL del header */
+.logo-header {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
