@@ -278,3 +278,14 @@ body{
     border-radius:14px;
   }
 }
+
+/* === LOGO DEL HEADER (CORREGIDO) === */
+.logo-header {
+  width: 70px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+
