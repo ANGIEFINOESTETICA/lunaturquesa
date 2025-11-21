@@ -76,19 +76,20 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 .intro-logo{width:160px;border-radius:14px;border:8px solid var(--gold);background:var(--white);box-shadow:0 18px 60px rgba(202,161,59,0.18)}
 
 /* responsive */
-@media (max-width:900px){
-  .side-menu{width:100%; right:-100%;}
+@media(max-width:900px){
+  .side-menu{width:100%;right:-100%;}
   .side-menu.active{right:0}
-  .hamburger{width:40px; height:36px}
-  .logo-header{width:78px; height:78px}
+  .hamburger{width:40px;height:36px}
+  .logo-header{width:78px;height:78px}
+  .portrait{width:260px}
 
-  /* SOLO se ajusta esto ↓ */
-  .portrait{
-    width:160px;     /* más pequeño, no gigante */
-    max-width:80%;   /* evita que desborde en pantallas pequeñas */
-    height:auto;
+  /* tamaño del logo en celulares */
+  .hero img,
+  .logo-hero {
+    max-width: 140px !important;
   }
 }
+
 /* --- Botón de WhatsApp en header --- */
 .header-whatsapp {
   display: inline-flex;
@@ -188,6 +189,19 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 .gallery img:hover {
   transform: scale(1.05);
 }
+
+
+/* === FIX DEFINITIVO PARA EL LOGO GIGANTE DEL HERO === */
+.hero img,
+.logo-hero {
+  max-width: 160px !important;
+  width: 100%;
+  height: auto !important;
+  object-fit: contain !important;
+  margin: 0 auto;
+}
+
+
 
 /* === Responsive móvil === */
 @media (max-width: 768px) {
