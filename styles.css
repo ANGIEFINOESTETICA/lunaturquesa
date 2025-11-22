@@ -8,294 +8,182 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:linear-gradient(180deg,var(--aguamarina) 0%, var(--white) 60%);-webkit-font-smoothing:antialiased;}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,var(--aguamarina) 0%, var(--white) 60%);
+  -webkit-font-smoothing:antialiased;
+}
 
+/* HEADER */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
-  background: rgba(255, 255, 255, 0.9); /* fondo suave */
-  backdrop-filter: blur(6px); /* efecto vidrio */
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
   z-index: 1200;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* línea inferior */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-
-/* header right */
 .header-right{display:flex;align-items:center;gap:10px}
-.socials a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;text-decoration:none;color:var(--text);font-weight:700}
+.socials a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;height:38px;
+  border-radius:8px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+}
 .lang-wrap{margin-right:8px}
-.lang-btn{background:linear-gradient(90deg,var(--gold),var(--gold-bright));border:none;color:#111;padding:8px 10px;border-radius:8px;font-weight:700;cursor:pointer}
+.lang-btn{
+  background:linear-gradient(90deg,var(--gold),var(--gold-bright));
+  border:none;
+  color:#111;
+  padding:8px 10px;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+}
 
-/* hamburger */
-.hamburger{display:flex;flex-direction:column;justify-content:center;align-items:center;width:36px;height:32px;background:transparent;border:none;cursor:pointer;z-index:1400}
-.bar{width:26px;height:3px;background:var(--gold);margin:3px 0;border-radius:3px;transition:all .35s}
+/* HAMBURGER */
+.hamburger{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:36px;
+  height:32px;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  z-index:1400;
+}
+.bar{
+  width:26px;
+  height:3px;
+  background:var(--gold);
+  margin:3px 0;
+  border-radius:3px;
+  transition:all .35s;
+}
+  object-fit:cover;
+  box-shadow:0 12px 30px rgba(3,57,54,0.06);
+}
 
-/* side menu */
-.side-menu{position:fixed;right:-360px;top:0;height:100vh;width:320px;background:linear-gradient(180deg,rgba(255,255,255,0.88),rgba(255,255,255,0.82));backdrop-filter:blur(8px);box-shadow:-20px 30px 60px rgba(3,57,54,0.06);padding:36px 20px;display:flex;flex-direction:column;gap:12px;transition:right .45s cubic-bezier(.2,.9,.2,1);z-index:1500;border-left:3px solid rgba(202,161,59,0.06)}
-.side-menu.active{right:0}
-.menu-item{display:block;padding:12px 14px;border-radius:8px;text-decoration:none;color:var(--text);font-weight:700;transition:all .28s;opacity:0;transform:translateX(12px)}
-.side-menu.active .menu-item{opacity:1;transform:translateX(0);transition:all .36s cubic-bezier(.2,.9,.2,1)}
-.menu-item:hover{color:var(--gold);text-shadow:0 0 10px rgba(202,161,59,0.12)}
-
-/* veil */
-.menu-veil{position:fixed;inset:0;background:var(--veil);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .4s;z-index:1400}
-.menu-veil.active{opacity:1;visibility:visible}
-
-/* content */
-.content{max-width:1100px;margin:0 auto;padding:20px}
-.hero{display:flex;flex-direction:column;align-items:center;padding:32px 10px}
-.logo-hero{width:120px;height:120px;border-radius:12px;border:6px solid var(--white);background:var(--white);object-fit:contain}
-.hero-title{font-size:22px;color:var(--text)}
-
-/* about */
-.about-grid{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.portrait{width:320px;border-radius:10px;object-fit:cover;box-shadow:0 12px 30px rgba(3,57,54,0.06)}
-
-/* services */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.service-card{background:var(--white);padding:14px;border-radius:12px;box-shadow:0 12px 30px rgba(3,57,54,0.06);transition:transform .32s,box-shadow .32s;overflow:hidden}
-.service-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(3,57,54,0.08);border:2px solid var(--gold)}
-.service-img{width:100%;height:200px;object-fit:cover;border-radius:8px;transition:transform .5s}
+/* SERVICES */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+.service-card{
+  background:var(--white);
+  padding:14px;
+  border-radius:12px;
+  box-shadow:0 12px 30px rgba(3,57,54,0.06);
+  transition:transform .32s,box-shadow .32s;
+  overflow:hidden
+}
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(3,57,54,0.08);
+  border:2px solid var(--gold)
+}
+.service-img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:8px;
+  transition:transform .5s;
+}
 .service-card:hover .service-img{transform:scale(1.06)}
 
-/* gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
-.gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px;transition:transform .3s}
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:10px;
+}
+.gallery img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:10px;
+  transition:transform .3s;
+}
 .gallery img:hover{transform:scale(1.04)}
 
-/* whatsapp float */
-.whatsapp-float{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,#25D366,#16b24a);color:#fff;padding:12px 14px;border-radius:999px;text-decoration:none;display:flex;align-items:center;gap:8px;box-shadow:0 18px 48px rgba(37,211,102,0.14);z-index:1600}
+/* WHATSAPP FLOAT */
+.whatsapp-float{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  background:linear-gradient(90deg,#25D366,#16b24a);
+  color:#fff;
+  padding:12px 14px;
+  border-radius:999px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  box-shadow:0 18px 48px rgba(37,211,102,0.14);
+  z-index:1600;
+}
 
-/* intro overlay */
-.intro{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.7));z-index:2000}
-.intro-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px}
-.intro-logo{width:160px;border-radius:14px;border:8px solid var(--gold);background:var(--white);box-shadow:0 18px 60px rgba(202,161,59,0.18)}
+/* === INTRO OVERLAY (CORREGIDO) === */
+.intro{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.7));
+  z-index:2000;
+}
 
-/* responsive */
-@media(max-width:900px){
-  .side-menu{width:100%;right:-100%;}
-  .side-menu.active{right:0}
-  .hamburger{width:40px;height:36px}
-  .logo-header{width:78px;height:78px}
-  .portrait{width:260px}
+/* Tamaño correcto del logo */
+.intro-logo{
+  width:180px;
+  height:auto;
+}
 
-  /* tamaño del logo en celulares */
-  .hero img,
-  .logo-hero {
-    max-width: 140px !important;
+/* Glow */
+.intro-glow{
+  position:absolute;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background:rgba(0,200,200,0.25);
+  filter:blur(50px);
+}
+
+/* ======= SECCIÓN DE PESTAÑAS ======= */
+#serviciospestañas .service-image-container{
+  width:100%;
+  max-width:900px;
+  margin:0 auto 30px auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+#serviciospestañas .service-image-container .service-img{
+  width:100%;
+  height:auto;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.15);
+}
+@media (max-width:600px){
+  #serviciospestañas .service-image-container .service-img{
+    max-height:260px;
+    border-radius:14px;
   }
-}
-
-/* --- Botón de WhatsApp en header --- */
-.header-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  background: linear-gradient(90deg, #25D366, #16b24a);
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.3s ease;
-}
-
-.header-whatsapp svg {
-  width: 22px;
-  height: 22px;
-  fill: #fff;
-}
-
-.header-whatsapp:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 14px rgba(37, 211, 102, 0.3);
-}
-/* --- Social icons in header --- */
-.socials {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.social {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
-.social svg {
-  width: 22px;
-  height: 22px;
-  max-width: 320px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-/* === Todas las imágenes dentro de las cards === */
-.service-card img,
-.serviciosdisponiblesdeMasajesyTerapias-img {
-  width: 100%;
-  height: 220px; /* fija altura uniforme */
-  object-fit: cover; /* recorta sin deformar */
-  border-bottom: 4px solid #caa13b; /* opcional dorado elegante */
-}
-
-/* === Textos dentro de las cards === */
-.service-card h4 {
-  color: #0d5049;
-  font-size: 1.1rem;
-  margin: 15px 0 8px;
-}
-
-.service-card p {
-  color: #444;
-  font-size: 0.95rem;
-  padding: 0 15px 15px;
-}
-
-/* === Galería general === */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.gallery img {
-  border-radius: 12px;
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-
-/* === FIX DEFINITIVO PARA EL LOGO GIGANTE DEL HERO === */
-.hero img,
-.logo-hero {
-  max-width: 160px !important;
-  width: 100%;
-  height: auto !important;
-  object-fit: contain !important;
-  margin: 0 auto;
-}
-
-
-
-/* === Responsive móvil === */
-@media (max-width: 768px) {
-  .service-card img {
-    height: 180px;
-  }
-
-  .services-grid,
-  .serviciosdisponiblesdeMasajesyTerapias-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-.benefits {
-  list-style: none; /* Quita los puntos */
-  padding-left: 0;  /* Quita el sangrado izquierdo */
-  margin-left: 0;
-}
-.benefits li {
-  margin-bottom: 8px;  /* Espaciado entre líneas */
-  display: flex;
-  align-items: flex-start;
-}
-/* === ARREGLO DEFINITIVO DEL LOGO GIGANTE DEL INTRO === */
-.intro-logo {
-  max-width: 150px !important; 
-  width: 100%;
-  height: auto !important;
-  display: block;
-  margin: 0 auto;
-  object-fit: contain !important;
-}
-.intro-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-.logo-hero {
-  max-width: 160px !important;
-  width: 100%;
-  height: auto !important;
-  object-fit: contain !important;
-  margin: 0 auto;
-}
-
-/* === Fix definitivo del logo gigante en el HEADER === */
-.header img {
-  max-width: 120px !important;
-  height: auto !important;
-  object-fit: contain !important;
-  display: block;
-}
-/* === Regla específica para evitar que el header use estilos del HERO === */
-.logo-header {
-  max-width: 100px !important;
-  width: 100%;
-  height: auto !important;
-  object-fit: contain !important;
-  display: block;
-}
-/* === HEADER ELEGANTE, MÁS PEQUEÑO Y LOGO FIJO === */
-
-.header {
-  padding: 6px 14px !important; /* más delgado */
-  height: 62px !important;       /* header pequeño */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Icono del logo en el header (esquina superior izquierda) */
-.logo-header {
-  max-width: 48px !important;
-  height: auto !important;
-  object-fit: contain !important;
-  margin-right: 10px;
-}
-
-/* Texto del nombre "Luna Turquesa" dentro del header */
-.header .brand-text .name {
-  font-size: 20px !important;
-  font-weight: 700;
-  color: var(--gold) !important; /* dorado */
-}
-
-/* Subtítulo del header */
-.header .brand-text div:nth-child(2) {
-  font-size: 12px !important;
-  margin-top: 2px !important;
-}
-
-/* Evitar que el header tome estilos del HERO */
-.header img:not(.logo-header) {
-  max-width: none !important;
 }
