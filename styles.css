@@ -37,7 +37,7 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 /* side menu */
 .side-menu{position:fixed;right:-360px;top:0;height:100vh;width:320px;background:linear-gradient(180deg,rgba(255,255,255,0.88),rgba(255,255,255,0.82));backdrop-filter:blur(8px);box-shadow:-20px 30px 60px rgba(3,57,54,0.06);padding:36px 20px;display:flex;flex-direction:column;gap:12px;transition:right .45s cubic-bezier(.2,.9,.2,1);z-index:1500;border-left:3px solid rgba(202,161,59,0.06)}
 .side-menu.active{right:0}
-.menu-item{display:block;padding:14px 16px;border-radius:8px;text-decoration:none;color:var(--text);font-weight:700;transition:all .28s;opacity:0;transform:translateX(12px)}
+.menu-item{display:block;padding:16px 20px;border-radius:8px;text-decoration:none;color:var(--text);font-weight:700;transition:all .28s;opacity:0;transform:translateX(12px)}
 .side-menu.active .menu-item{opacity:1;transform:translateX(0);transition:all .36s cubic-bezier(.2,.9,.2,1)}
 .menu-item:hover{color:var(--gold);text-shadow:0 0 10px rgba(202,161,59,0.12)}
 
@@ -139,7 +139,7 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 
 /* === Fix definitivo del logo gigante en el HEADER === */
 .header img {
-  max-width: 60px !important;
+  max-width: 40px !important;
   height: auto !important;
   object-fit: contain !important;
   display: block;
