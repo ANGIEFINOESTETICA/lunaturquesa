@@ -73,12 +73,6 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 /* intro overlay */
 .intro{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.7));z-index:2000}
 .intro-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-
 /* === Fix definitivo del logo gigante en el HEADER === */
 .header img {
   max-width: 40px !important;
@@ -86,8 +80,25 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   object-fit: contain !important;
   display: block;
 }
+/* === Regla específica para evitar que el header use estilos del HERO === */
+.logo-header {
+  max-width: 100px !important;
+  width: 100%;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+}
+/* === HEADER ELEGANTE, MÁS PEQUEÑO Y LOGO FIJO === */
 
-/* Logo del header */
+.header {
+  padding: 8px 16px !important; /* más delgado */
+  height: 72px !important;       /* header pequeño */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Icono del logo en el header (esquina superior izquierda) */
 .logo-header {
   max-width: 48px !important;
   height: auto !important;
@@ -95,12 +106,25 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   margin-right: 10px;
 }
 
-/* Evitar que el header use estilos del HERO */
-.header img:not(.logo-header) {
-  max-width: none !important;
+/* Texto del nombre "Luna Turquesa" dentro del header */
+.header .brand-text .name {
+  font-size: 20px !important;
+  font-weight: 700;
+  color: var(--gold) !important; /* dorado */
 }
 
-/* ===== HEADER MEJORADO ===== */
+/* Subtítulo del header */
+.header .brand-text div:nth-child(2) {
+  font-size: 12px !important;
+  margin-top: 2px !important;
+}
+
+/* Evitar que el header tome estilos del HERO */
+.header img:not(.logo-header) {
+  max-width: none !important;
+
+
+  /* ===== HEADER MEJORADO ===== */
 .header {
   display: flex;
   justify-content: space-between;
@@ -112,7 +136,6 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   top: 0;
   z-index: 1200;
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  height: 72px;
 }
 
 /* Icono pequeño del lado izquierdo */
@@ -122,7 +145,7 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   object-fit: contain;
 }
 
-/* Botones del header */
+/* Botones del header más largos y elegantes */
 .nav-links a {
   padding: 10px 20px;
   font-size: 17px;
@@ -130,7 +153,7 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   letter-spacing: 0.5px;
 }
 
-/* ===== LOGO DEL HERO ===== */
+/* ===== LOGO DEL CENTRO (HERO) ===== */
 .logo-hero {
   width: 180px;
   max-width: 85%;
@@ -138,23 +161,16 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   display: block;
   margin: 0 auto 10px auto;
 
-  border: 3px solid #caa13b; /* dorado */
+  /* borde dorado elegante */
+  border: 3px solid #caa13b;
   border-radius: 16px;
   padding: 10px;
   background: white;
   box-shadow: 0 0 18px rgba(202, 161, 59, 0.45);
 }
 
-.hero-title {
-  font-size: 22px;
-  color: var(--gold);
-  text-align: center;
-  margin-top: 10px;
-}
-
-/* ===== RESPONSIVE ===== */
+/* Ajustes responsivos */
 @media (max-width: 768px) {
-
   .nav-links a {
     padding: 12px 0;
     font-size: 18px;
@@ -168,4 +184,6 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   .header .logo-small {
     width: 42px !important;
   }
+}
+
 }
