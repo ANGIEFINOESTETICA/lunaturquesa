@@ -264,3 +264,38 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   object-fit: contain !important;
   display: block;
 }
+/* === HEADER ELEGANTE, MÁS PEQUEÑO Y LOGO FIJO === */
+
+.header {
+  padding: 6px 14px !important; /* más delgado */
+  height: 62px !important;       /* header pequeño */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Icono del logo en el header (esquina superior izquierda) */
+.logo-header {
+  max-width: 48px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  margin-right: 10px;
+}
+
+/* Texto del nombre "Luna Turquesa" dentro del header */
+.header .brand-text .name {
+  font-size: 20px !important;
+  font-weight: 700;
+  color: var(--gold) !important; /* dorado */
+}
+
+/* Subtítulo del header */
+.header .brand-text div:nth-child(2) {
+  font-size: 12px !important;
+  margin-top: 2px !important;
+}
+
+/* Evitar que el header tome estilos del HERO */
+.header img:not(.logo-header) {
+  max-width: none !important;
+}
