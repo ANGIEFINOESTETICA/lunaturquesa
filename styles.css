@@ -256,3 +256,11 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   object-fit: contain !important;
   display: block;
 }
+/* === Regla específica para evitar que el header use estilos del HERO === */
+.logo-header {
+  max-width: 100px !important;
+  width: 100%;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+}
