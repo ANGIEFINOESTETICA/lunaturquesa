@@ -225,3 +225,19 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   display: flex;
   align-items: flex-start;
 }
+/* === ARREGLO DEFINITIVO DEL LOGO GIGANTE DEL INTRO === */
+.intro-logo {
+  max-width: 150px !important; 
+  width: 100%;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain !important;
+}
+.intro-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
