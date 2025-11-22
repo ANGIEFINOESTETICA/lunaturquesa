@@ -186,4 +186,68 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 /* Evitar que el header tome estilos del HERO */
 .header img:not(.logo-header) {
   max-width: none !important;
+
+
+  /* ===== HEADER MEJORADO ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Icono pequeño del lado izquierdo */
+.header .logo-small {
+  width: 48px !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+/* Botones del header más largos y elegantes */
+.nav-links a {
+  padding: 10px 20px;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* ===== LOGO DEL CENTRO (HERO) ===== */
+.logo-hero {
+  width: 180px;
+  max-width: 85%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+
+  /* borde dorado elegante */
+  border: 3px solid #caa13b;
+  border-radius: 16px;
+  padding: 10px;
+  background: white;
+  box-shadow: 0 0 18px rgba(202, 161, 59, 0.45);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .nav-links a {
+    padding: 12px 0;
+    font-size: 18px;
+  }
+
+  .logo-hero {
+    width: 150px;
+    border-width: 3px;
+  }
+
+  .header .logo-small {
+    width: 42px !important;
+  }
+}
+
 }
