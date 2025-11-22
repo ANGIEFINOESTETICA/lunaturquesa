@@ -155,8 +155,8 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 /* === HEADER ELEGANTE, MÁS PEQUEÑO Y LOGO FIJO === */
 
 .header {
-  padding: 6px 14px !important; /* más delgado */
-  height: 62px !important;       /* header pequeño */
+  padding: 8px 16px !important; /* más delgado */
+  height: 72px !important;       /* header pequeño */
   display: flex;
   justify-content: space-between;
   align-items: center;
