@@ -249,3 +249,10 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   margin: 0 auto;
 }
 
+/* === Fix definitivo del logo gigante en el HEADER === */
+.header img {
+  max-width: 120px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+}
