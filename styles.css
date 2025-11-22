@@ -46,7 +46,7 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
 .menu-veil.active{opacity:1;visibility:visible}
 
 /* content */
-.content{max-width:1100px;margin:0 auto;padding:20px}
+.content{max-width:600px;margin:0 auto;padding:20px}
 .hero{display:flex;flex-direction:column;align-items:center;padding:32px 10px}
 .logo-hero{width:120px;height:120px;border-radius:12px;border:6px solid var(--white);background:var(--white);object-fit:contain}
 .hero-title{font-size:22px;color:var(--text)}
@@ -177,7 +177,7 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   }
 
   .logo-hero {
-    width: 150px;
+    width: 60px;
     border-width: 3px;
   }
 
