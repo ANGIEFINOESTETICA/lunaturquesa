@@ -241,3 +241,11 @@ body{margin:0;font-family:'Poppins',sans-serif;color:var(--text);background:line
   justify-content: center;
   gap: 12px;
 }
+.logo-hero {
+  max-width: 160px !important;
+  width: 100%;
+  height: auto !important;
+  object-fit: contain !important;
+  margin: 0 auto;
+}
+
