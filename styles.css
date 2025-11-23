@@ -254,3 +254,24 @@ body{
 @media (max-width:768px){
   .service-card img{height:180px}
 }
+/* imágenes de servicios */
+.service-card img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  border: 3px solid var(--gold);
+  padding: 4px;
+  background: white;
+}
+
+/* grid de servicios — Poner aquí */
+.services-grid,
+.service-list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
