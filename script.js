@@ -91,4 +91,15 @@ if (menuLinks.length && sections.length) {
         // Mostrar la seleccionada con fade in
         setTimeout(() => {
           targetSection.style.display = 'block';
-          setTimeout(() => (targetSection.style.opacity = '1
+          setTimeout(() => (targetSection.style.opacity = '1'), 50);
+        }, 600);
+
+        // Cerrar el menú hamburguesa
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('menu-veil').classList.remove('active');
+        document.getElementById('side-menu').classList.remove('active');
+        document.body.style.overflow = "";
+      }
+    });
+  });
+}
