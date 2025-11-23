@@ -179,4 +179,11 @@ img {
   display: flex;
   align-items: flex-start;
 }
-lunaturquesa/styles.css at 03ff2fe584e56d6ff66ef8fa04effe0be4dc20e0 · ANGIEFINOESTETICA/lunaturquesa
+.logo-hero {
+  width: 130px !important;
+  height: 130px !important;
+  max-width: 130px !important;
+  display: block;
+  margin: 20px auto;
+}
+
