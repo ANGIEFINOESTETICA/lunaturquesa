@@ -1,6 +1,4 @@
-
-
-  /* === MENÚ HAMBURGUESA === */
+/* === MENÚ HAMBURGUESA === */
 const hamburger = document.getElementById("hamburger");
 const sideMenu = document.getElementById("side-menu");
 const menuVeil = document.getElementById("menu-veil");
@@ -35,22 +33,22 @@ if (hamburger && sideMenu && menuVeil) {
   });
 }
 
-  /* === CAMBIO DE IDIOMA === */
-  const langToggle = document.getElementById("lang-toggle");
-  if (langToggle) {
-    let isEnglish = false;
-    langToggle.addEventListener("click", () => {
-      isEnglish = !isEnglish;
-      langToggle.textContent = isEnglish ? "ES | EN" : "EN | ES";
+/* === CAMBIO DE IDIOMA === */
+const langToggle = document.getElementById("lang-toggle");
+if (langToggle) {
+  let isEnglish = false;
+  langToggle.addEventListener("click", () => {
+    isEnglish = !isEnglish;
+    langToggle.textContent = isEnglish ? "ES | EN" : "EN | ES";
 
-      document.querySelectorAll("[data-es]").forEach(el => {
-        const es = el.getAttribute("data-es");
-        const en = el.getAttribute("data-en");
-        el.textContent = isEnglish && en ? en : es;
-      });
+    document.querySelectorAll("[data-es]").forEach(el => {
+      const es = el.getAttribute("data-es");
+      const en = el.getAttribute("data-en");
+      el.textContent = isEnglish && en ? en : es;
     });
-  }
-});
+  });
+}
+
 /* === DESPLAZAMIENTO SUAVE ENTRE SECCIONES === */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
@@ -62,6 +60,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
 /* === SISTEMA DE PESTAÑAS CON TRANSICIÓN SUAVE === */
 const menuLinks = document.querySelectorAll('.side-menu a');
 const sections = document.querySelectorAll('main section.panel');
@@ -92,15 +91,4 @@ if (menuLinks.length && sections.length) {
         // Mostrar la seleccionada con fade in
         setTimeout(() => {
           targetSection.style.display = 'block';
-          setTimeout(() => (targetSection.style.opacity = '1'), 50);
-        }, 600);
-
-        // Cerrar el menú hamburguesa si está abierto
-        document.getElementById('hamburger').classList.remove('active');
-        document.getElementById('menu-veil').classList.remove('visible');
-        document.getElementById('side-menu').classList.remove('open');
-        document.body.style.overflow = "";
-      }
-    });
-  });
-}
+          setTimeout(() => (targetSection.style.opacity = '1
