@@ -1,14 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  /* === PANTALLA DE INTRODUCCIÓN CON LOGO === */
-  const intro = document.getElementById("intro");
-  if (intro) {
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        intro.classList.add("hidden");
-        setTimeout(() => intro.remove(), 900);
-      }, 1400);
-    });
-  }
+
 
   /* === MENÚ HAMBURGUESA === */
 const hamburger = document.getElementById("hamburger");
