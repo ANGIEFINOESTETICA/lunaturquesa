@@ -827,3 +827,86 @@ header.header, .header {
         height: 26px !important;
     }
 }
+/* -------------------------------
+  Tipografía profesional para títulos
+  Playfair Display (Google Fonts)
+  Pegar al final de tu style.css
+---------------------------------*/
+
+/* 1) Importar la fuente desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap');
+
+/* 2) Variables (opcional) */
+:root{
+  --titulo-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  --titulo-color: #2b2b2b;        /* color principal del título */
+  --titulo-weight: 700;           /* 400 / 600 / 700 / 900 según necesitas */
+  --titulo-letter-spacing: -0.02em;
+  --titulo-line-height: 1.05;
+}
+
+/* 3) Estilo para H1 (títulos principales) */
+h1, .titulo-principal {
+  font-family: var(--titulo-family);
+  color: var(--titulo-color);
+  font-weight: var(--titulo-weight);
+  letter-spacing: var(--titulo-letter-spacing);
+  line-height: var(--titulo-line-height);
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4) Tamaños responsivos recomendados */
+h1, .titulo-principal {
+  font-size: clamp(28px, 4.6vw, 48px); /* escala desde móvil hasta desktop */
+}
+
+/* 5) Variante más elegante (delgada) para secciones hero/encabezados */
+.titulo-elegante {
+  font-family: var(--titulo-family);
+  font-weight: 600;
+  font-size: clamp(22px, 3.6vw, 36px);
+  letter-spacing: 0;
+  color: #18303a;
+}
+
+/* 6) Si quieres un pequeño subtítulo debajo */
+.titulo-sub {
+  font-family: "Montserrat", Arial, sans-serif; /* complementar sans-serif */
+  font-weight: 500;
+  font-size: 14px;
+  color: #7b7b7b;
+  margin-top: 8px;
+}
+
+/* 7) Opcional: sombra muy sutil para dar peso (usar con moderación) */
+.titulo-principal--sombra {
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3), 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* 8) Uso si quieres aplicar la imagen que subiste como fondo de bloque (ruta local) */
+/* Nota: la ruta local al archivo que subiste es /mnt/data/b2fa3f27-c635-4c86-9ba0-d06f001cf3c7.png
+   Si tu servidor transforma esa ruta a URL, reemplaza la ruta según corresponda. */
+.titulo-con-fondo {
+  background-image: url('/mnt/data/b2fa3f27-c635-4c86-9ba0-d06f001cf3c7.png');
+  background-size: cover;
+  background-position: center;
+  color: white; /* ajustar según la imagen */
+  padding: 40px 20px;
+  display: inline-block;
+}
+
+/* 9) Ejemplo rápido de estilo para botones o CTAs relacionados con el título */
+.btn-cta-primario {
+  font-family: var(--titulo-family);
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#2f9c9a,#206a6a);
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+}
