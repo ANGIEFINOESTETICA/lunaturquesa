@@ -755,3 +755,75 @@ ul li {
     box-shadow: 0 22px 50px rgba(3,57,54,0.09);
     border-color: var(--gold);
 }
+/* ===================================== */
+/*      FIX GENERAL – HEADER RESPONSIVE  */
+/* ===================================== */
+
+header.header, .header {
+    height: auto !important;
+    padding: 6px 12px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+/* LOGO MÁS PEQUEÑO Y RESPONSIVE */
+.logo-header {
+    width: 70px !important;
+    height: auto !important;
+}
+
+/* CONTENEDORES */
+.header-left,
+.header-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+/* BOTONES */
+.socials a {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.lang-btn {
+    padding: 6px 10px !important;
+    font-size: 14px !important;
+}
+
+/* ÍCONO HAMBURGUESA */
+.hamburger, .hamburger-btn {
+    width: 28px !important;
+    height: 28px !important;
+}
+
+/* ===================================== */
+/*         RESPONSIVE HEADER             */
+/* ===================================== */
+
+@media (max-width: 768px) {
+
+    .header {
+        padding: 6px 8px !important;
+    }
+
+    .logo-header {
+        width: 60px !important;
+    }
+
+    .socials a {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .lang-btn {
+        font-size: 12px !important;
+        padding: 5px 8px !important;
+    }
+
+    .hamburger, .hamburger-btn {
+        width: 26px !important;
+        height: 26px !important;
+    }
+}
