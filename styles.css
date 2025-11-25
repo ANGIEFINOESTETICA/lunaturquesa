@@ -656,3 +656,27 @@ ul li {
         margin: 0 auto;
     }
 }
+/* ===================================== */
+/*   PORTRAIT – AJUSTE FINAL A 230px     */
+/* ===================================== */
+
+.portrait,
+.about-card .portrait {
+    width: auto !important;
+    max-width: 230px !important;   /* ← tamaño definitivo solicitado */
+    border-radius: 16px;
+    border: 4px solid var(--gold);
+    padding: 4px;
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(202,161,59,0.20);
+    object-fit: cover;
+}
+
+/* Celular: mantiene proporción pero más pequeño si deseas */
+@media (max-width: 768px) {
+    .portrait,
+    .about-card .portrait {
+        max-width: 180px !important;   /* tamaño móvil sugerido */
+        margin: 0 auto;
+    }
+}
