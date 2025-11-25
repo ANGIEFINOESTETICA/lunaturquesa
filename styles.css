@@ -713,3 +713,45 @@ ul li {
         line-height: 1.55 !important;
     }
 }
+/* ===================================== */
+/*   LETRA IGUAL A SERVICIOS FACIALES    */
+/*   PARA SERVICIOS CORPORALES           */
+/* ===================================== */
+
+#servicioscorporales .service-card h4,
+.servicios-corporales .service-card h4 {
+    color: var(--gold);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+#servicioscorporales .service-card p,
+#servicioscorporales .service-card li,
+.servicios-corporales .service-card p,
+.servicios-corporales .service-card li {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--text);
+    text-align: justify;
+    margin-bottom: 8px;
+}
+
+/* Estilo general de la tarjeta, igual al facial */
+#servicioscorporales .service-card,
+.servicios-corporales .service-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#servicioscorporales .service-card:hover,
+.servicios-corporales .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 50px rgba(3,57,54,0.09);
+    border-color: var(--gold);
+}
