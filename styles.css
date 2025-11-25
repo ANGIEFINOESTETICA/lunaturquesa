@@ -254,3 +254,25 @@ body{
 @media (max-width:768px){
   .service-card img{height:180px}
 }
+
+/* === LOGO CENTRAL TOTALMENTE AJUSTADO === */
+.logo-center-box {
+  width: 170px;              /* tamaño del recuadro */
+  height: 170px;
+  border: 4px solid var(--gold);
+  border-radius: 24px;       /* más redondo */
+  overflow: hidden;          /* la imagen no se sale */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;   /* SIN fondo blanco */
+  margin: 0 auto 22px;
+}
+
+.logo-center-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* ← llena TODO el cuadro */
+  border-radius: 20px;       /* sigue el borde */
+}
+
