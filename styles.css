@@ -680,3 +680,36 @@ ul li {
         margin: 0 auto;
     }
 }
+/* ===================================== */
+/*   TEXTOS ABOUT – ESTILO TIPO CARD     */
+/* ===================================== */
+
+.about-text,
+.about-card p {
+    font-size: 0.92rem !important;      /* igual que las otras cards */
+    line-height: 1.60 !important;       /* lectura limpia */
+    color: #444 !important;             /* igual tono de texto */
+    text-align: justify !important;     /* mismo formato */
+    margin-top: 10px;
+    margin-bottom: 16px;
+    padding: 0 4px;
+}
+
+/* Títulos internos tipo card */
+.about-card h2,
+.about-card h3,
+.about-card h4 {
+    color: var(--gold) !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+    text-align: center !important;
+}
+
+/* Móvil: un poquito más pequeño */
+@media (max-width: 768px) {
+    .about-text,
+    .about-card p {
+        font-size: 0.90rem !important;
+        line-height: 1.55 !important;
+    }
+}
