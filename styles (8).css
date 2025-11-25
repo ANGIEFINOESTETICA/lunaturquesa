@@ -1,0 +1,624 @@
+:root{
+  --aguamarina:#a7e7e0;
+  --white:#ffffff;
+  --gold:#caa13b;
+  --gold-bright:#ffd766;
+  --text:#052b2a;
+  --veil: rgba(167,231,224,0.16);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,var(--aguamarina) 0%, var(--white) 60%);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ===================================================== */
+/* ===================== HEADER ========================= */
+/* ===================================================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;   /* ← más corto para que NO coma espacio */
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* LOGO HEADER */
+.logo-header{
+  width: 90px !important;        /* ← tamaño correcto que tú tenías */
+  height: auto !important;
+  object-fit: contain !important;
+  display:block;
+  margin:0;
+  border:4px solid var(--gold);
+  border-radius:14px;
+  padding:4px;
+  background:#fff;
+  box-shadow:0 0 10px rgba(202,161,59,0.25);
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.socials a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;height:38px;
+  border-radius:8px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+}
+
+.lang-btn{
+  background:linear-gradient(90deg,var(--gold),var(--gold-bright));
+  border:none;
+  color:#111;
+  padding:8px 10px;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* Hamburguesa */
+.hamburger{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:36px;height:32px;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  z-index:1400;
+}
+.bar{
+  width:26px;height:3px;
+  background:var(--gold);
+  margin:3px 0;
+  border-radius:3px;
+  transition:all .35s;
+}
+
+/* ===================================================== */
+/* ===================== SIDE MENU ===================== */
+/* ===================================================== */
+
+.side-menu{
+  position:fixed;
+  right:-360px;top:0;
+  height:100vh;width:320px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.88),rgba(255,255,255,0.82));
+  backdrop-filter:blur(8px);
+  box-shadow:-20px 30px 60px rgba(3,57,54,0.06);
+  padding:36px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  transition:right .45s cubic-bezier(.2,.9,.2,1);
+  z-index:1500;
+  border-left:3px solid rgba(202,161,59,0.06);
+}
+.side-menu.active{right:0}
+.menu-item{
+  display:block;
+  padding:12px 14px;
+  border-radius:8px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+  transition:all .28s;
+  opacity:0;
+  transform:translateX(12px);
+}
+.side-menu.active .menu-item{
+  opacity:1;
+  transform:translateX(0);
+}
+.menu-item:hover{
+  color:var(--gold);
+  text-shadow:0 0 10px rgba(202,161,59,0.12);
+}
+
+/* VELO */
+.menu-veil{
+  position:fixed;
+  inset:0;
+  background:var(--veil);
+  backdrop-filter:blur(4px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .4s;
+  z-index:1400;
+}
+.menu-veil.active{
+  opacity:1;
+  visibility:visible;
+}
+
+/* ===================================================== */
+/* ===================== HERO ========================== */
+/* ===================================================== */
+
+.hero{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:32px 10px;
+}
+
+.logo-hero{
+  width:130px !important;
+  height:130px !important;
+  object-fit:contain !important;
+  border:4px solid var(--gold) !important;
+  border-radius:14px !important;
+  padding:4px;
+  background:#fff;
+  box-shadow:0 0 10px rgba(202,161,59,0.25);
+  display:block;
+  margin:20px auto;
+}
+
+/* ===================================================== */
+/* ===================== ABOUT ========================= */
+/* ===================================================== */
+
+.about-grid{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.portrait{
+  width:320px;
+  border-radius:10px;
+  object-fit:cover;
+  box-shadow:0 12px 30px rgba(3,57,54,0.06);
+}
+
+/* ===================================================== */
+/* ===================== SERVICES ====================== */
+/* ===================================================== */
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+
+.service-card{
+  background:var(--white);
+  padding:14px;
+  border-radius:12px;
+  box-shadow:0 12px 30px rgba(3,57,54,0.06);
+  transition:transform .32s,box-shadow .32s;
+  overflow:hidden;
+}
+
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(3,57,54,0.08);
+  border:2px solid var(--gold);
+}
+
+/* Imágenes dentro de los servicios – CONTROL DE TAMAÑO */
+.service-card img{
+  width:100%;
+  height:200px;         /* ← YA NO SE PONEN GIGANTES */
+  object-fit:cover;
+  border-radius:8px;
+}
+
+/* ===================================================== */
+/* ===================== GALLERY ======================= */
+/* ===================================================== */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:10px;
+}
+
+.gallery img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:10px;
+  transition:transform .3s;
+}
+.gallery img:hover{
+  transform:scale(1.04);
+}
+
+/* ===================================================== */
+/* ===================== MOBILE ======================== */
+/* ===================================================== */
+
+@media (max-width:768px){
+  .service-card img{height:180px}
+}
+
+/* === LOGO CENTRAL TOTALMENTE AJUSTADO === */
+.logo-center-box {
+  width: 170px;              /* tamaño del recuadro */
+  height: 170px;
+  border: 4px solid var(--gold);
+  border-radius: 24px;       /* más redondo */
+  overflow: hidden;          /* la imagen no se sale */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;   /* SIN fondo blanco */
+  margin: 0 auto 22px;
+}
+
+.logo-center-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* ← llena TODO el cuadro */
+  border-radius: 20px;       /* sigue el borde */
+}
+
+/* === ESTILO UNIFICADO PARA LA SECCIÓN ABOUT === */
+#about {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 18px;
+  text-align: center;
+}
+
+#about p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+#about h2.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+#about h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#about img {
+  max-width: 100%;
+  border-radius: 12px;
+  border: 3px solid var(--gold);
+  margin-top: 14px;
+}
+
+
+/* === ESTILO 3 – MINIMAL DORADO FINO PARA TODAS LAS IMÁGENES === */
+
+/* Imágenes de tarjetas / servicios */
+.service-card img,
+.service-img,
+.gallery img,
+.about img,
+.portrait {
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 4px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(202,161,59,0.20);
+  transition: transform .3s ease, box-shadow .3s ease;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Movimiento elegante */
+.service-card img:hover,
+.gallery img:hover,
+.portrait:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(202,161,59,0.30);
+}
+
+/* Control de tamaño universal (evita imágenes gigantes) */
+.service-card img { height: 200px; }
+.portrait { height: auto; max-width: 260px; }
+.gallery img { height: 140px; }
+
+/* Ajuste responsive */
+@media (max-width: 768px) {
+  .service-card img { height: 180px; }
+  .portrait { max-width: 220px; }
+}
+
+/* ==============================
+   AJUSTE GENERAL DE SERVICIOS
+   ============================== */
+
+/* IMAGENES PEQUEÑAS, IGUALES, CON BORDE DORADO */
+.service-card img {
+  width: 100%;
+  height: 180px;            /* ← tamaño uniforme */
+  object-fit: cover;        /* ← recorte bonito sin deformar */
+  border-radius: 12px;      /* ← redondeado */
+  border: 4px solid var(--gold);  /* ← borde dorado */
+  transition: transform .3s;
+}
+
+/* EFECTO DE MOVIMIENTO */
+.service-card img:hover {
+  transform: scale(1.04);
+}
+
+/* TARJETA */
+.service-card {
+  background: var(--white);
+  padding: 14px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(3,57,54,0.06);
+  transition: transform .32s, box-shadow .32s;
+  border: 2px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(3,57,54,0.09);
+  border-color: var(--gold);
+}
+
+/* TÍTULOS DORADOS */
+.service-card h4 {
+  color: var(--gold);
+  font-weight: 700;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+/* TEXTO */
+.service-card p,
+.service-card li {
+  color: var(--text);
+  font-size: 15px;
+}
+
+/* ==== IMÁGENES DE SERVICIOS — PEQUEÑAS + BORDE DORADO + REDONDAS ===== */
+.service-img {
+  width: 100%;
+  max-width: 260px;      /* tamaño pequeño y elegante */
+  border-radius: 16px;   /* esquinas redondeadas */
+  border: 4px solid var(--gold);   /* borde dorado igual al favicon */
+  display: block;
+  margin: 0 auto 15px auto;  /* centrado */
+  object-fit: cover;     /* evita que se deformen */
+  transition: transform 0.3s ease;
+}
+
+.service-img:hover {
+  transform: scale(1.03);   /* efecto suave */
+}
+
+/* ==== TITULOS PEQUEÑOS Y ELEGANTES ===== */
+.service-card h4,
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+/* ==== TARJETAS (CARDS) BONITAS ===== */
+.service-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ===================================================== */
+/* ========== TITULOS DORADOS + ANIMACIÓN HOVER ========= */
+/* ===================================================== */
+
+/* Títulos principales */
+h1, h2, h3 {
+  color: var(--gold);
+  font-weight: 700;
+  transition: transform .25s ease, text-shadow .25s ease;
+}
+
+/* Movimiento + brillo al pasar el mouse */
+h1:hover,
+h2:hover,
+h3:hover {
+  transform: translateY(-3px);
+  text-shadow: 0 0 8px rgba(202,161,59,0.45);
+}
+
+/* Títulos de tarjetas (h4) */
+.service-card h4 {
+  color: var(--gold);
+  font-weight: 700;
+  transition: transform .25s ease, text-shadow .25s ease;
+}
+
+.service-card h4:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 6px rgba(202,161,59,0.35);
+}
+
+/* ===================================================== */
+/* ========== TEXTO MÁS PEQUEÑO Y ORGANIZADO =========== */
+/* ===================================================== */
+
+/* Párrafos generales */
+p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* Listas */
+ul li {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+/* About section más ordenado */
+.about-text {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 0.97rem;
+  line-height: 1.65;
+  text-align: justify;
+}
+
+/* Beneficios dentro de tarjetas más pequeños */
+.service-card p,
+.service-card li {
+  font-size: 0.92rem;
+}
+
+
+
+.section-title,
+.service-card p,
+.service-card li {
+  color: var(--gold);
+}
+/* ===================================== */
+/*   SECCIÓN ABOUT ANGIE - CARD COMPLETA */
+/* ===================================== */
+
+#about {
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px 70px;
+}
+
+/* Card contenedora (foto + texto) */
+.about-card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(202,161,59,0.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 22px 20px 26px;
+  max-width: 820px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Título dentro de la card */
+.about-card .section-title {
+  margin-bottom: 18px;
+}
+
+/* Foto centrada tipo card */
+.portrait-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.about-card .portrait {
+  width: 100%;
+  max-width: 240px;   /* tamaño tipo card */
+  border-radius: 16px;
+  border: 4px solid var(--gold);
+  padding: 4px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(202,161,59,0.20);
+  object-fit: cover;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.about-card .portrait:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(202,161,59,0.30);
+}
+
+/* Texto tipo card */
+.about-text {
+  margin-top: 6px;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  text-align: justify;
+  color: #444444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #about {
+    padding: 28px 10px 50px;
+  }
+
+  .about-card {
+    padding: 18px 14px 22px;
+  }
+
+  .about-card .portrait {
+    max-width: 210px;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* ===================================== */
+/*  AJUSTE IMAGEN SECCIÓN PESTAÑAS      */
+/* ===================================== */
+
+#serviciospestañas .service-image-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 20px;
+}
+
+/* Imagen de pestañas tipo card, no gigante */
+#serviciospestañas .service-image {
+  width: 100%;
+  max-width: 260px;          /* 👈 tamaño tipo card */
+  border-radius: 16px;
+  border: 4px solid var(--gold);
+  padding: 4px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  object-fit: cover;
+  display: block;
+}
+
+/* Opcional: pequeño efecto hover */
+#serviciospestañas .service-image:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.16);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
