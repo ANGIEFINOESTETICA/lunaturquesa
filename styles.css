@@ -311,3 +311,42 @@ body{
   border: 3px solid var(--gold);
   margin-top: 14px;
 }
+
+
+/* === ESTILO 3 – MINIMAL DORADO FINO PARA TODAS LAS IMÁGENES === */
+
+/* Imágenes de tarjetas / servicios */
+.service-card img,
+.service-img,
+.gallery img,
+.about img,
+.portrait {
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 4px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(202,161,59,0.20);
+  transition: transform .3s ease, box-shadow .3s ease;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Movimiento elegante */
+.service-card img:hover,
+.gallery img:hover,
+.portrait:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(202,161,59,0.30);
+}
+
+/* Control de tamaño universal (evita imágenes gigantes) */
+.service-card img { height: 200px; }
+.portrait { height: auto; max-width: 260px; }
+.gallery img { height: 140px; }
+
+/* Ajuste responsive */
+@media (max-width: 768px) {
+  .service-card img { height: 180px; }
+  .portrait { max-width: 220px; }
+}
+
