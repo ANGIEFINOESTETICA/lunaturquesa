@@ -945,3 +945,38 @@ h1, .titulo-principal {
 #whatsapp-float .wh-text {
     display: none !important;
 }
+/* BOTÓN FLOTANTE WHATSAPP (solo este, no afecta otros íconos) */
+#whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 70px;
+    height: 70px;
+    background-color: transparent; /* sin fondo, solo la imagen */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+/* Hover */
+#whatsapp-float:hover {
+    transform: scale(1.12);
+}
+
+/* Imagen del botón flotante — SOLO aplica aquí */
+#whatsapp-float .wh-float-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Ocultamos el texto y SVG antiguos por si quedaron */
+#whatsapp-float .wh-text,
+#whatsapp-float svg {
+    display: none !important;
+}
