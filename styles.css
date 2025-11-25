@@ -592,4 +592,33 @@ ul li {
   }
 }
 
+/* ===================================== */
+/*  AJUSTE IMAGEN SECCIÓN PESTAÑAS      */
+/* ===================================== */
+
+#serviciospestañas .service-image-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 20px;
+}
+
+/* Imagen de pestañas tipo card, no gigante */
+#serviciospestañas .service-image {
+  width: 100%;
+  max-width: 260px;          /* 👈 tamaño tipo card */
+  border-radius: 16px;
+  border: 4px solid var(--gold);
+  padding: 4px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  object-fit: cover;
+  display: block;
+}
+
+/* Opcional: pequeño efecto hover */
+#serviciospestañas .service-image:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.16);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
