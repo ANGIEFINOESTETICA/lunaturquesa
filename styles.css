@@ -980,3 +980,38 @@ h1, .titulo-principal {
 #whatsapp-float svg {
     display: none !important;
 }
+/* BOTÓN WHATSAPP FLOTANTE CON IMAGEN */
+#whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover */
+#whatsapp-float:hover {
+    transform: scale(1.12);
+}
+
+/* Imagen del botón */
+.wh-float-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Ocultar restos del botón viejo */
+#whatsapp-float .wh-text,
+#whatsapp-float svg {
+    display: none !important;
+}
+
+.whatsapp-float { background: none !important; }
