@@ -1119,3 +1119,11 @@ body {
     display: block;
     margin: 0 auto;
 }
+/* LOGO MUY PEQUEÑO SOLO EN EL MENÚ HAMBURGUESA */
+.logo-hamburguesa img {
+    width: 55px !important;
+    height: auto !important;
+    border-radius: 50% !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
