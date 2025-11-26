@@ -1084,4 +1084,19 @@ h1:hover, h2:hover, h3:hover, h4:hover {
     cursor: default;
 }
 
+/* ================================
+   FONDO MARMOLIZADO PREMIUM
+   Blanco + Dorado + Aguamarina
+   ================================ */
+body {
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0) 60%),
+        radial-gradient(circle at 80% 20%, rgba(167,231,224,0.35), rgba(255,255,255,0) 70%),
+        radial-gradient(circle at 40% 80%, rgba(202,161,59,0.28), rgba(255,255,255,0) 60%),
+        radial-gradient(circle at 70% 70%, rgba(167,231,224,0.22), rgba(255,255,255,0) 60%),
+        linear-gradient(135deg, #ffffff 0%, #fdfdfd 35%, #fafafa 70%, #ffffff 100%);
+    
+    background-size: cover;
+    background-attachment: fixed; /* efecto elegante */
+}
 
