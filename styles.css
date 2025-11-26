@@ -1060,5 +1060,28 @@ h1, .titulo-principal {
 }
 
 
+/* ================================
+   REGLAS FINALES DE TIPOGRAFÍA
+   TÍTULOS DORADOS + TEXTO NEGRO
+   ================================ */
+
+/* Todo el texto normal en negro */
+p, li, ul, ol, span, blockquote {
+    color: #222 !important;
+}
+
+/* Solo títulos en dorado */
+h1, h2, h3, h4 {
+    color: var(--gold) !important;
+    font-weight: 700 !important;
+    transition: color .3s ease, text-shadow .3s ease;
+}
+
+/* Hover dorado brillante en títulos */
+h1:hover, h2:hover, h3:hover, h4:hover {
+    color: var(--gold-bright) !important;
+    text-shadow: 0 0 8px rgba(255, 215, 102, 0.6);
+    cursor: default;
+}
 
 
