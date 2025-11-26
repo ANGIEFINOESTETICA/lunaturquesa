@@ -1099,4 +1099,10 @@ body {
     background-size: cover;
     background-attachment: fixed; /* efecto elegante */
 }
+.header-logo,
+.header-logo img,
+.logo-hero,
+.logo-hero img {
+    display: none !important;
+}
 
