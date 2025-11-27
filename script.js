@@ -103,3 +103,21 @@ if (menuLinks.length && sections.length) {
     });
   });
 }
+
+// ===============================
+// MOSTRAR/OCULTAR SECCIÓN INICIO
+// ===============================
+function actualizarInicio() {
+  const inicio = document.querySelector('#inicio-top');
+  const hash = window.location.hash;
+
+  if (hash === '#inicio-top' || hash === '' || hash === '#top') {
+    inicio?.classList.remove('oculto');  // mostrar inicio
+  } else {
+    inicio?.classList.add('oculto');     // ocultar inicio
+  }
+}
+
+window.addEventListener('hashchange', actualizarInicio);
+window.addEventListener('load', actualizarInicio);
+
