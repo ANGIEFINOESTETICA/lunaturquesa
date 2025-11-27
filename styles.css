@@ -1127,3 +1127,55 @@ body {
     margin: 0 auto !important;
     display: block !important;
 }
+/* ================================
+   SECCIÓN INICIO (ROMPE REGLAS)
+=================================*/
+.inicio-section {
+  width: 100%;
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* LOGO CENTRADO Y PEQUEÑITO */
+.inicio-logo img {
+  width: 140px !important;
+  height: auto;
+  display: block;
+  margin: 0 auto 30px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* GALERÍA FLEX */
+.inicio-galeria {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.inicio-galeria img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  flex-shrink: 0;
+  animation: slide 12s linear infinite;
+}
+
+/* ANIMACIÓN SUAVE */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-60%); }
+}
+
+/* EFECTO APARICIÓN */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
