@@ -152,3 +152,31 @@ document.querySelectorAll('.menu-item').forEach(item => {
   });
 });
 
+// ELEMENTOS
+const hamburger = document.getElementById('hamburger');
+const sideMenu = document.getElementById('side-menu');
+const veil = document.getElementById('menu-veil');
+
+// ABRIR / CERRAR MENÚ
+hamburger.addEventListener('click', () => {
+  const abierto = sideMenu.classList.toggle('show');
+  veil.classList.toggle('show', abierto);
+
+  hamburger.setAttribute('aria-expanded', abierto);
+});
+
+// CERRAR MENÚ AL HACER CLIC EN EL VELO
+veil.addEventListener('click', () => {
+  sideMenu.classList.remove('show');
+  veil.classList.remove('show');
+  hamburger.setAttribute('aria-expanded', 'false');
+});
+
+// CERRAR MENÚ AL HACER CLIC EN UN ITEM
+document.querySelectorAll('.menu-item').forEach(item => {
+  item.addEventListener('click', () => {
+    sideMenu.classList.remove('show');
+    veil.classList.remove('show');
+    hamburger.setAttribute('aria-expanded', 'false');
+  });
+});
