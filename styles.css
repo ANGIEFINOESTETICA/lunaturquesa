@@ -1698,3 +1698,35 @@ section[id],
 .side-menu * {
   color: #333 !important; /* fuerza color visible */
 }
+/* =============================
+   FIX TITULOS PRINCIPALES
+   ============================= */
+
+.section-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 38px !important;
+  font-weight: 700 !important;
+  color: var(--gold) !important;
+  text-align: center !important;
+  margin: 0 auto 25px auto !important;
+  width: 100% !important;
+  display: block !important;
+  letter-spacing: -1px !important;
+  transition: 0.3s ease !important;
+}
+
+/* EFECTO DORADO AL PASAR EL MOUSE */
+.section-title:hover {
+  color: var(--gold-bright) !important;
+  text-shadow: 0 0 10px rgba(255, 215, 118, 0.7) !important;
+  transform: scale(1.05) !important;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 30px !important;
+    margin-bottom: 18px !important;
+    text-align: center !important;
+  }
+}
