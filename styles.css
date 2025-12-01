@@ -1730,3 +1730,75 @@ section[id],
     text-align: center !important;
   }
 }
+/* ============================================
+   🔥 FIX FINAL — MENÚ HAMBURGUESA + TEXTO VISIBLE
+   ============================================ */
+
+.side-menu {
+    background: #ffffff !important;
+    padding-top: 20px !important;
+}
+
+.side-menu .menu-item {
+    color: #333 !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding: 10px 0 !important;
+    text-align: left !important;
+    text-indent: 0 !important;
+}
+
+/* HOVER DORADO */
+.side-menu .menu-item:hover {
+    color: var(--gold) !important;
+    text-shadow: 0 0 10px rgba(202,161,59,0.45) !important;
+}
+
+/* ============================================
+   🔥 FIX TITULO “Sobre mí” — CENTRADO + DORADO
+   ============================================ */
+
+#about .section-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: var(--gold) !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto 25px auto !important;
+    display: block !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.5px !important;
+    transition: 0.3s ease !important;
+}
+
+/* Hover dorado brillante */
+#about .section-title:hover {
+    color: var(--gold-bright) !important;
+    text-shadow: 0 0 12px rgba(255, 215, 102, 0.7) !important;
+    transform: scale(1.04) !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #about .section-title {
+        font-size: 26px !important;
+    }
+}
+
+/* ============================================
+   🔥 FIX BARRAS DORADAS DEL MENÚ HAMBURGUESA
+   ============================================ */
+
+.hamburger .bar {
+    background: var(--gold) !important;
+    transition: 0.3s ease !important;
+}
+
+.hamburger:hover .bar {
+    background: var(--gold-bright) !important;
+    box-shadow: 0 0 10px rgba(255,215,118,0.7) !important;
+}
