@@ -1802,3 +1802,33 @@ section[id],
     background: var(--gold-bright) !important;
     box-shadow: 0 0 10px rgba(255,215,118,0.7) !important;
 }
+/* ===== FIX DEFINITIVO SECCIÓN ABOUT ===== */
+
+/* Centrar completamente el contenido */
+#about .about-card {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    gap: 40px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* La tarjeta blanca */
+#about .about-card > div {
+    margin: 0 !important;
+}
+
+/* Centrar contenedor completo para que coincida con el título */
+#about {
+    text-align: center !important;
+}
+
+/* Mobile: contenido uno debajo del otro */
+@media (max-width: 768px) {
+    #about .about-card {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+}
