@@ -1183,3 +1183,141 @@ body {
 .inicio-section.oculto {
   display: none !important;
 }
+/* ===============================
+   FIX COMPLETO DEL MENÚ MOBILE
+   =============================== */
+
+/* HEADER BASE */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 14px;
+  background: #ffffff;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Ajuste logo izquierda */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-header {
+  max-width: 55px;
+  height: auto;
+}
+
+/* Íconos de redes */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Botón de idioma */
+.lang-btn {
+  font-size: 12px;
+  padding: 4px 6px;
+}
+
+/* HAMBURGUESA */
+.hamburger {
+  width: 36px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 4px;
+  background: #333;
+  border-radius: 4px;
+}
+
+/* ==== MENÚ LATERAL ==== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 72%;
+  max-width: 320px;
+  height: 100vh;
+  background: #ffffff;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: 0.35s ease;
+  z-index: 9998;
+}
+
+.side-menu.show {
+  right: 0;
+}
+
+.menu-item {
+  font-size: 18px;
+  padding: 6px 0;
+}
+
+/* Velo */
+.menu-veil {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 9990;
+}
+
+.menu-veil.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ========== MOBILE FIX ========== */
+@media (max-width: 768px) {
+
+  .header-left {
+    gap: 4px;
+  }
+
+  .logo-header {
+    max-width: 48px;
+  }
+
+  .brand-text {
+    display: none; /* QUITA TEXTO PARA QUE NO DAÑE EL ESPACIO */
+  }
+
+  .socials img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .lang-btn {
+    font-size: 11px;
+    padding: 3px 5px;
+  }
+
+  .hamburger {
+    width: 32px;
+    height: 28px;
+  }
+}
+
