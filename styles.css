@@ -1562,3 +1562,116 @@ section[id],
 .side-menu.show {
   right: 0;
 }
+/* ===========================================
+   🔥 RESET TOTAL Y FIX DEFINITIVO DEL MENÚ
+   ROMPE TODAS LAS REGLAS ANTERIORES
+   =========================================== */
+
+/* Fuerza header correcto */
+.header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  padding: 8px 14px !important;
+  background: #ffffff !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+}
+
+/* Izquierda */
+.header-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.logo-header {
+  max-width: 55px !important;
+  height: auto !important;
+}
+
+/* Derecha */
+.header-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* Hamburguesa */
+.hamburger {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  width: 34px !important;
+  height: 28px !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  z-index: 100000 !important;
+}
+
+.hamburger .bar {
+  width: 100% !important;
+  height: 4px !important;
+  background: #333 !important;
+  border-radius: 4px !important;
+}
+
+/* ===================== MENÚ LATERAL ===================== */
+.side-menu {
+  position: fixed !important;
+  top: 0 !important;
+  right: -100% !important;
+  width: 72% !important;
+  max-width: 320px !important;
+  height: 100vh !important;
+  background: #ffffff !important;
+  padding: 30px 25px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 18px !important;
+  transition: right 0.35s ease !important;
+  z-index: 99990 !important;
+}
+
+.side-menu.show {
+  right: 0 !important;
+}
+
+.menu-item {
+  font-size: 18px !important;
+  color: #333 !important;
+  text-decoration: none !important;
+  padding: 8px 0 !important;
+}
+
+/* ====================== VELO ====================== */
+.menu-veil {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0,0,0,0.45) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: 0.3s ease !important;
+  z-index: 99980 !important;
+}
+
+.menu-veil.show {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* =================== MOBILE =================== */
+@media (max-width: 768px) {
+  .logo-header { max-width: 48px !important; }
+  .socials img { width: 22px !important; height: 22px !important; }
+  .hamburger { width: 30px !important; height: 26px !important; }
+}
