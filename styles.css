@@ -1675,3 +1675,26 @@ section[id],
   .socials img { width: 22px !important; height: 22px !important; }
   .hamburger { width: 30px !important; height: 26px !important; }
 }
+/* ====== FIX DEFINITIVO DEL TEXTO DEL MENÚ HAMBURGUESA ====== */
+
+.side-menu .menu-item {
+  color: #333 !important;     /* color visible */
+  font-size: 20px !important; /* tamaño grande */
+  font-weight: 600 !important; /* más grueso */
+  opacity: 1 !important;       /* siempre visible */
+  visibility: visible !important;
+  text-indent: 0 !important;
+  pointer-events: auto !important;
+  padding: 10px 0 !important;
+}
+
+/* Asegura que el contenedor no esconda nada */
+.side-menu {
+  background: #ffffff !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.side-menu * {
+  color: #333 !important; /* fuerza color visible */
+}
