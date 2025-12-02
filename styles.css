@@ -2007,3 +2007,18 @@ header .header-left #logo-link img.logo-header {
     background: transparent !important;
     box-shadow: none !important;
 }
+/* ===== MEJORA ELEGANTE DEL MENÚ HAMBURGUESA ===== */
+#side-menu .menu-item {
+    font-size: 15px !important;        /* Tamaño más pequeño */
+    font-weight: 400 !important;       /* Letra más delgada */
+    letter-spacing: 0.8px !important;  /* Espacio entre letras */
+    color: var(--gold) !important;     /* Dorado elegante */
+    padding: 10px 0 !important;
+    transition: 0.3s ease;
+}
+
+/* Efecto dorado brillante al pasar el mouse */
+#side-menu .menu-item:hover {
+    color: var(--gold-bright) !important;
+    transform: translateX(5px);
+}
