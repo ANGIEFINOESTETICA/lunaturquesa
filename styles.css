@@ -1896,3 +1896,79 @@ section[id],
     box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
     padding: 40px 30px !important;
 }
+/* ============================
+   🔥 FIX REAL DE SECCIÓN ABOUT
+   ============================ */
+
+/* Sección About centrada */
+#about {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 40px 20px !important;
+}
+
+/* Título centrado y dorado */
+#about .section-title {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: var(--gold) !important;
+    margin-bottom: 25px !important;
+    text-align: center !important;
+    width: 100% !important;
+    line-height: 1.2 !important;
+}
+
+/* Contenedor en forma de tarjeta */
+#about .about-card {
+    max-width: 900px !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(202,161,59,0.25) !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+    padding: 30px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 18px !important;
+}
+
+/* Foto centrada */
+#about .portrait {
+    width: 100% !important;
+    max-width: 230px !important;
+    border-radius: 16px !important;
+    border: 4px solid var(--gold) !important;
+    padding: 4px !important;
+    background: #fff !important;
+    object-fit: cover !important;
+    margin: 0 auto !important;
+}
+
+/* Texto ordenado, pequeño y justificado */
+#about .about-text,
+#about p {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    color: #333 !important;
+    text-align: justify !important;
+    max-width: 800px !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    #about .section-title {
+        font-size: 26px !important;
+    }
+
+    #about .about-card {
+        padding: 20px 15px !important;
+    }
+
+    #about .portrait {
+        max-width: 180px !important;
+    }
+}
