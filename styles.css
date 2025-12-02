@@ -1832,3 +1832,50 @@ section[id],
         gap: 20px !important;
     }
 }
+/* ===== FIX DEFINITIVO SECCIÓN ABOUT ===== */
+
+/* Centrar completamente el contenido */
+#about .about-card {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    gap: 40px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* La tarjeta blanca */
+#about .about-card > div {
+    margin: 0 !important;
+}
+
+/* Centrar contenedor completo para que coincida con el título */
+#about {
+    text-align: center !important;
+}
+
+/* TITULO SOBRE MI CENTRADO + DORADO */
+#about .section-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: var(--gold) !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto 25px auto !important;
+    display: block !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #about .about-card {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    #about .section-title {
+        font-size: 26px !important;
+    }
+}
+
