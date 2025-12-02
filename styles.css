@@ -1972,3 +1972,14 @@ section[id],
         max-width: 180px !important;
     }
 }
+/* LOGO DEL HEADER IGUAL AL LOGO DEL INICIO */
+.logo-header {
+    width: 85px !important;
+    height: 85px !important;
+    object-fit: contain !important;
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    padding: 6px !important;
+    border: 3px solid var(--gold) !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12) !important;
+}
