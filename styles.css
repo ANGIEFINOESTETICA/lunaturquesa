@@ -1983,3 +1983,15 @@ section[id],
     border: 3px solid var(--gold) !important;
     box-shadow: 0 4px 18px rgba(0,0,0,0.12) !important;
 }
+/* LOGO HEADER — FIX DEFINITIVO */
+header .header-left #logo-link img.logo-header {
+    width: 32px !important;
+    height: 32px !important;
+    max-width: 32px !important;
+    object-fit: contain !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
