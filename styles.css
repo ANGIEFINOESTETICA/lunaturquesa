@@ -1879,3 +1879,20 @@ section[id],
     }
 }
 
+/* ==== FIX FINAL para centrar toda la tarjeta ABOUT ==== */
+#about .about-card {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+}
+
+/* Si quieres que la tarjeta tenga fondo blanco bonito */
+#about .about-card {
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(202,161,59,0.35) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+    padding: 40px 30px !important;
+}
