@@ -1997,9 +1997,9 @@ header .header-left #logo-link img.logo-header {
 }
 /* LOGO HEADER TAMAÑO IDEAL (45px) */
 header .header-left #logo-link img.logo-header {
-    width: 45px !important;
-    height: 45px !important;
-    max-width: 45px !important;
+    width: 60px !important;
+    height: 60px !important;
+    max-width: 60px !important;
     object-fit: contain !important;
     padding: 0 !important;
     margin: 0 !important;
