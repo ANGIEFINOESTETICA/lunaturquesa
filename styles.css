@@ -2022,3 +2022,8 @@ header .header-left #logo-link img.logo-header {
     color: var(--gold-bright) !important;
     transform: translateX(5px);
 }
+/* === FIX GLOBAL PARA QUE NO CORTEN LAS IMÁGENES EN CARD === */
+.service-card img {
+    height: auto !important;
+    object-fit: contain !important;
+}
