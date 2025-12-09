@@ -2027,3 +2027,8 @@ header .header-left #logo-link img.logo-header {
     height: auto !important;
     object-fit: contain !important;
 }
+.googlemap{
+  width:100% !important;
+  height:360px !important;
+  object-fit:unset !important;
+}
