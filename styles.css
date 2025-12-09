@@ -2032,3 +2032,40 @@ header .header-left #logo-link img.logo-header {
   height:360px !important;
   object-fit:unset !important;
 }
+/* ====== FIX RESPONSIVE SECCIÓN PESTAÑAS ====== */
+
+#serviciospestañas .service-image-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:15px;
+  width:100%;
+  margin:20px auto;
+}
+
+#serviciospestañas .service-image-container img{
+  width:100%;
+  max-width:280px; /* tamaño ideal */
+  height:auto !important;
+  object-fit:contain !important;
+  border-radius:14px;
+  border:3px solid var(--gold);
+  padding:6px;
+  background:#fff;
+  display:block;
+}
+
+/* ----- Responsive movil ----- */
+@media(max-width:768px){
+  #serviciospestañas .service-image-container img{
+     max-width:240px;
+  }
+}
+
+/* ----- Responsive pantallas pequeñas ----- */
+@media(max-width:480px){
+  #serviciospestañas .service-image-container img{
+     max-width:200px;
+  }
+}
